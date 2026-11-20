@@ -1,0 +1,98 @@
+kind: contract
+category: CONTRACT
+language: en
+numbered: true
+titles:
+  - Supply and Services Agreement
+  - Agreement for the Supply of Goods and Related Services
+  - Equipment Supply and Maintenance Agreement
+header: |-
+  THIS AGREEMENT is dated {date} and made between {org_legal}, whose registered office is at {org_address} (the "Supplier"), and {client:legal}, whose registered office is at {client_address} (the "Customer"). The Supplier and the Customer are together the "Parties".
+sections:
+  - id: definitions
+    heading: Definitions and interpretation
+    text: >-
+      In this Agreement, "Goods" means the products listed in Schedule 1, "Services" means the
+      installation and maintenance services described in Schedule 2, and "Business Day" means a
+      day other than a Saturday, Sunday or public holiday. Headings are for convenience only and
+      do not affect interpretation. A reference to writing includes email.
+  - id: supply
+    heading: Supply of goods and services
+    text: >-
+      The Supplier shall sell and the Customer shall buy the Goods ordered under purchase orders
+      accepted by the Supplier. The Supplier shall perform the Services with reasonable skill
+      and care, using suitably qualified personnel. Each purchase order forms a separate
+      contract on the terms of this Agreement, which prevail over any terms printed on the
+      Customer's order.
+  - id: price
+    heading: Price and payment
+    text: >-
+      The price of the Goods and the charges for the Services are set out in Schedule 3 and are
+      exclusive of value added tax. The Supplier may invoice on delivery. The Customer shall pay
+      each invoice in full, without set-off or deduction, within {days} days of its date.
+      Interest accrues daily on overdue sums at {percent}% per annum until payment.
+  - id: delivery
+    heading: Delivery, risk and title
+    text: >-
+      The Supplier shall deliver the Goods to the address stated in the purchase order. Delivery
+      dates are estimates and time is not of the essence. Risk in the Goods passes to the
+      Customer on delivery. Title passes only when the Supplier has received payment in full for
+      the Goods and for any other sums then due from the Customer.
+  - id: warranties
+    heading: Warranties
+    text: >-
+      The Supplier warrants that for {months} months from delivery the Goods will conform to
+      their specification and be free from material defects in design, material and
+      workmanship. If the Goods do not conform, the Supplier shall, at its option, repair or
+      replace them or refund their price. All other warranties and conditions are excluded to
+      the fullest extent permitted by law.
+  - id: confidentiality
+    heading: Confidentiality
+    text: >-
+      Each Party undertakes that it shall not at any time disclose to any person any
+      confidential information concerning the business, affairs, customers or suppliers of the
+      other Party, except to its employees, officers and advisers who need to know it, or as
+      required by law or a competent regulator. This clause survives termination for {years}
+      years.
+  - id: liability
+    heading: Limitation of liability
+    text: >-
+      Nothing in this Agreement limits liability for death or personal injury caused by
+      negligence, or for fraud. Subject to that, neither Party shall be liable for loss of
+      profit, loss of data or any indirect or consequential loss, and the Supplier's total
+      liability in each contract year shall not exceed {cap} or the sums paid in that year,
+      whichever is the greater.
+  - id: termination
+    heading: Term and termination
+    text: >-
+      This Agreement commences on {start_date} and continues for an initial term of {months}
+      months, and thereafter until terminated by either Party on not less than {days} days'
+      written notice. Either Party may terminate with immediate effect if the other commits a
+      material breach which it fails to remedy within thirty days, or enters into insolvency
+      proceedings.
+  - id: force_majeure
+    heading: Force majeure
+    text: >-
+      Neither Party shall be in breach of this Agreement, nor liable for delay in performing or
+      failure to perform any of its obligations, if the delay or failure results from events
+      beyond its reasonable control. If the period of delay continues for three months, the
+      Party not affected may terminate this Agreement by giving fourteen days' written notice.
+  - id: general
+    heading: General
+    text: >-
+      Neither Party may assign or subcontract its rights or obligations without the prior
+      written consent of the other. A notice must be in writing and delivered by hand, by
+      recorded post or by email to the address notified for that purpose. This Agreement is the
+      entire agreement between the Parties and no variation is effective unless in writing and
+      signed by both.
+  - id: law
+    heading: Governing law and jurisdiction
+    text: >-
+      This Agreement and any dispute or claim arising out of or in connection with it are
+      governed by the law of the Supplier's country of incorporation. The Parties irrevocably
+      agree that the courts of that country have exclusive jurisdiction, after an attempt to
+      resolve the dispute by negotiation between senior representatives lasting at least
+      twenty Business Days.
+footer: |-
+  Signed by {lead} for and on behalf of the Supplier.
+  Signed by {contact} for and on behalf of the Customer.

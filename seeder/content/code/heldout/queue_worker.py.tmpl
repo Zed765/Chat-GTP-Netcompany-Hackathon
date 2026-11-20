@@ -1,0 +1,140 @@
+"""A background job queue with retries, backed by SQLite."""
+
+import json
+import logging
+import sqlite3
+import time
+import traceback
+from contextlib import closing
+from datetime import datetime, timedelta, timezone
+
+log = logging.getLogger("jobs")
+
+SCHEMA = """
+CREATE TABLE IF NOT EXISTS job (
+    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    kind        TEXT NOT NULL,
+    payload     TEXT NOT NULL,
+    status      TEXT NOT NULL DEFAULT 'queued',
+    attempts    INTEGER NOT NULL DEFAULT 0,
+    run_after   TEXT NOT NULL,
+    last_error  TEXT
+);
+CREATE INDEX IF NOT EXISTS job_ready ON job (status, run_after);
+"""
+
+MAX_ATTEMPTS = 5
+HANDLERS = {}
+
+
+def handler(kind):
+    """Register a function as the handler for one kind of job."""
+
+    def register(function):
+        HANDLERS[kind] = function
+        return function
+
+    return register
+
+
+def now():
+    return datetime.now(timezone.utc)
+
+
+class JobQueue:
+    def __init__(self, path):
+        self._connection = sqlite3.connect(path, isolation_level=None)
+        self._connection.row_factory = sqlite3.Row
+        self._connection.executescript(SCHEMA)
+
+    def enqueue(self, kind, payload, delay_seconds=0):
+        if kind not in HANDLERS:
+            raise KeyError(f"no handler registered for {kind!r}")
+        run_after = now() + timedelta(seconds=delay_seconds)
+        cursor = self._connection.execute(
+            "INSERT INTO job (kind, payload, run_after) VALUES (?, ?, ?)",
+            (kind, json.dumps(payload), run_after.isoformat()),
+        )
+        return cursor.lastrowid
+
+    def claim(self):
+        """Take the oldest job that is ready, marking it as running in one statement."""
+        with closing(self._connection.cursor()) as cursor:
+            cursor.execute("BEGIN IMMEDIATE")
+            row = cursor.execute(
+                "SELECT * FROM job WHERE status = 'queued' AND run_after <= ? "
+                "ORDER BY run_after LIMIT 1",
+                (now().isoformat(),),
+            ).fetchone()
+            if row is not None:
+                cursor.execute(
+                    "UPDATE job SET status = 'running', attempts = attempts + 1 WHERE id = ?",
+                    (row["id"],),
+                )
+            cursor.execute("COMMIT")
+        return row
+
+    def finish(self, job_id):
+        self._connection.execute("UPDATE job SET status = 'done' WHERE id = ?", (job_id,))
+
+    def fail(self, job_id, attempts, error):
+        """Retry with exponential backoff, or give up after the last attempt."""
+        if attempts >= MAX_ATTEMPTS:
+            self._connection.execute(
+                "UPDATE job SET status = 'failed', last_error = ? WHERE id = ?", (error, job_id)
+            )
+            return
+        retry_at = now() + timedelta(seconds=30 * 2**attempts)
+        self._connection.execute(
+            "UPDATE job SET status = 'queued', run_after = ?, last_error = ? WHERE id = ?",
+            (retry_at.isoformat(), error, job_id),
+        )
+
+    def counts(self):
+        rows = self._connection.execute("SELECT status, count(*) AS n FROM job GROUP BY status")
+        return {row["status"]: row["n"] for row in rows}
+
+    def purge_done(self, older_than_days=7):
+        limit = (now() - timedelta(days=older_than_days)).isoformat()
+        cursor = self._connection.execute(
+            "DELETE FROM job WHERE status = 'done' AND run_after < ?", (limit,)
+        )
+        return cursor.rowcount
+
+
+def work(queue, poll_seconds=2.0, stop=lambda: False):
+    """Run jobs until `stop` returns true. One failing job never stops the worker."""
+    while not stop():
+        job = queue.claim()
+        if job is None:
+            time.sleep(poll_seconds)
+            continue
+        try:
+            HANDLERS[job["kind"]](**json.loads(job["payload"]))
+        except Exception:
+            log.exception("job %s failed on attempt %s", job["id"], job["attempts"] + 1)
+            queue.fail(job["id"], job["attempts"] + 1, traceback.format_exc(limit=3))
+        else:
+            queue.finish(job["id"])
+
+
+@handler("send_reminder")
+def send_reminder(recipient, subject):
+    log.info("reminder to %s: %s", recipient, subject)
+
+
+@handler("resize_image")
+def resize_image(path, width):
+    if width <= 0:
+        raise ValueError("width must be positive")
+    log.info("resizing %s to %d pixels wide", path, width)
+
+
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
+    jobs = JobQueue(":memory:")
+    jobs.enqueue("send_reminder", {"recipient": "team", "subject": "stand-up at ten"})
+    jobs.enqueue("resize_image", {"path": "cover.png", "width": 0})
+    deadline = time.monotonic() + 1
+    work(jobs, poll_seconds=0.1, stop=lambda: time.monotonic() > deadline)
+    print(jobs.counts())

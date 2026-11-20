@@ -1,0 +1,260 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  font-size: 100%;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* The page scrolls with the wheel, the keys or a finger; its bar is not drawn. */
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--page);
+  color: var(--text);
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+dl,
+dd,
+figure,
+pre {
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: 1.0625rem;
+  line-height: 1.35;
+  font-weight: 650;
+}
+
+h3 {
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  font-weight: 650;
+}
+
+ul,
+ol {
+  padding-left: 1.25rem;
+}
+
+a {
+  color: var(--link);
+  text-underline-offset: 0.15em;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+code,
+kbd,
+pre,
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+svg {
+  flex: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 30%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Utilities */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap, 1rem);
+  min-width: 0;
+}
+
+.stack-sm {
+  --gap: 0.5rem;
+}
+
+.stack-lg {
+  --gap: 1.5rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--gap, 0.5rem);
+  min-width: 0;
+}
+
+.row-between {
+  justify-content: space-between;
+}
+
+.row-top {
+  align-items: flex-start;
+}
+
+.grow {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min, 18rem)), 1fr));
+  min-width: 0;
+}
+
+.grid > * {
+  min-width: 0;
+}
+
+.muted {
+  color: var(--text-3);
+}
+
+.secondary {
+  color: var(--text-2);
+}
+
+.small {
+  font-size: 0.875rem;
+}
+
+.tiny {
+  font-size: 0.8125rem;
+}
+
+.strong {
+  font-weight: 650;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+/* Long identifiers, Greek words and placeholders must wrap instead of overflowing. */
+.wrap-anywhere {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.prewrap {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* Identity hues: set `data-hue` and style with var(--hue). */
+[data-hue="blue"] {
+  --hue: var(--hue-blue);
+}
+[data-hue="orange"] {
+  --hue: var(--hue-orange);
+}
+[data-hue="aqua"] {
+  --hue: var(--hue-aqua);
+}
+[data-hue="yellow"] {
+  --hue: var(--hue-yellow);
+}
+[data-hue="magenta"] {
+  --hue: var(--hue-magenta);
+}
+[data-hue="green"] {
+  --hue: var(--hue-green);
+}
+[data-hue="violet"] {
+  --hue: var(--hue-violet);
+}
+[data-hue="red"] {
+  --hue: var(--hue-red);
+}
+[data-hue="neutral"] {
+  --hue: var(--hue-neutral);
+}
+
+/* A wash of the hue over the surface, strong enough to tell hues apart and light enough
+   for body text to keep its contrast. */
+.tinted {
+  background: light-dark(
+    color-mix(in oklab, var(--hue) 18%, var(--surface)),
+    color-mix(in oklab, var(--hue) 26%, var(--surface))
+  );
+  border: 1px solid color-mix(in oklab, var(--hue) 70%, var(--surface));
+  color: var(--text);
+}

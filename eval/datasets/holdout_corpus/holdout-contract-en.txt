@@ -1,0 +1,33 @@
+Mutual Non-Disclosure Agreement
+
+This Mutual Non-Disclosure Agreement is entered into on 17 June 2026 by Pinecroft Capital Inc., of 128 Agias Paraskevis Street, 152 34 Chalandri, and Saltwick Pharma Inc., of Agiou Nikolaou Street 3, 117 45 Athens, Greece. Each of them is a "Discloser" when it shares information and a "Recipient" when it receives it.
+
+1. Purpose
+The parties intend to discuss a possible commercial partnership for the joint development and distribution of a software product (the "Purpose"). In the course of those discussions each may show the other information that is not public. This Agreement sets out how that information is to be protected, whether or not the partnership goes ahead.
+
+2. What counts as confidential
+"Confidential Information" means anything a Discloser reveals in connection with the Purpose, in writing, orally or by demonstration, that is identified as confidential or would be regarded as such by a prudent business person. It includes product roadmaps, pricing models, customer data, security designs and the existence and content of the discussions themselves.
+
+3. Duties of the Recipient
+The Recipient must protect Confidential Information with the same degree of care it applies to its own secrets, and never less than reasonable care. It must use the information solely for the Purpose and restrict it to those directors, employees and professional advisers who have to see it and who are themselves bound to secrecy.
+
+4. Exceptions
+The duties above do not apply to information that the Recipient can show was already in its lawful possession, was independently developed without reference to the Discloser's material, has entered the public domain through no fault of the Recipient, or was received from a third party entitled to disclose it without restriction.
+
+5. Disclosure required by law
+If a court, regulator or other authority orders the Recipient to disclose Confidential Information, the Recipient may comply, provided it first tells the Discloser, where the law allows, so that the Discloser can seek a protective order. The Recipient shall disclose only the portion that is legally required and shall ask for it to be treated in confidence.
+
+6. Return and destruction
+Within fourteen days of a written request, or of the end of the discussions, the Recipient shall return or securely destroy all documents and copies containing Confidential Information and confirm in writing that it has done so. Copies held in routine electronic backups may be kept until they are overwritten, and remain subject to this Agreement in the meantime.
+
+7. Duration
+This Agreement governs information exchanged during the 24 months following its date. The duties of the Recipient continue for 3 years from each disclosure, and indefinitely for anything that qualifies as a trade secret. Either party may end the exchange of information at any time by notice, without affecting duties already incurred.
+
+8. No licence and remedies
+Nothing in this Agreement transfers ownership of, or grants any licence under, a patent, copyright or other right. Neither party is obliged to enter into any further agreement. The parties accept that damages may not be an adequate remedy for a breach, and that the Discloser may apply for an injunction in addition to any other relief.
+
+9. Law and forum
+The law of Greece applies to this Agreement. The parties submit to the non-exclusive jurisdiction of the courts of Thessaloniki. This Agreement may be signed in counterparts and by electronic signature. It records the full understanding of the parties about the protection of Confidential Information and replaces any earlier understanding on that subject.
+
+For Pinecroft Capital: Hannah Marlowe
+For Saltwick Pharma: Julia Fairbanks

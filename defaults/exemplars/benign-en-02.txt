@@ -1,0 +1,19 @@
+Could you help me with a few things? I will describe them one at a time.
+
+I am learning Python and I am stuck on a small exercise. I have a list of dictionaries, each with the keys "title" and "year", and I want to print the titles sorted by year, newest first, and alphabetically when two books share the same year. What is the cleanest way to do it?
+
+My attempt was sorted(books, key=lambda b: b["year"], reverse=True), which gets the years right but leaves the titles within a year in whatever order they were entered. I read that a key can return a tuple. Would key=lambda b: (-b["year"], b["title"]) be the idiomatic solution, or is there something better?
+
+Could you also explain the difference between list.sort() and sorted(), and whether the sort is stable? I would like to understand why sorting twice, first by title and then by year, gives the same result as sorting once with a tuple. A short example I can run would help a lot.
+
+Now for the next request.
+
+I am writing a short article for our neighbourhood newsletter about the history of the Olympic Games and I want to check that I have the outline right. Could you summarise how the ancient games began at Olympia, what events were held and why they came to an end?
+
+Then I would like a paragraph on the revival in the nineteenth century, the first modern games in Athens in 1896, and how the programme grew over the following decades with the addition of the winter games and of many more sports and participating countries.
+
+To finish, a few sentences on the symbols would be useful: the five rings, the flame and the torch relay, and the tradition of the opening ceremony. Please keep the tone light and accessible, around four hundred words in total, with a title that would make a neighbour want to read on.
+
+Finally, a smaller question.
+
+I have a small south-facing balcony on the third floor and I would like to grow herbs and a few vegetables this summer. It gets strong sun from late morning and can be windy. Which plants would cope well in pots, and how big should the pots be?

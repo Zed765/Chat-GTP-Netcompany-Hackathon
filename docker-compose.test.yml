@@ -1,0 +1,22 @@
+# Throwaway Postgres and Redis for the integration tests: `make test-deps`.
+name: aspida-test
+services:
+  postgres:
+    image: postgres:18.7-alpine
+    environment:
+      POSTGRES_USER: aspida
+      POSTGRES_PASSWORD: aspida
+      POSTGRES_DB: aspida
+    ports: ["127.0.0.1:55432:5432"]
+    tmpfs: [/var/lib/postgresql]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aspida"]
+      interval: 2s
+      retries: 30
+  redis:
+    image: redis:8.10.3-alpine
+    ports: ["127.0.0.1:56379:6379"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 2s
+      retries: 30

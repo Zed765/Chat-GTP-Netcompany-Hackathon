@@ -1,0 +1,157 @@
+kind: contract
+category: CONTRACT
+language: en
+numbered: true
+titles:
+  - "Master Services Agreement with {client}"
+  - "Consulting Services Agreement with {client}"
+  - "Framework Agreement for Advisory Services with {client}"
+header: |-
+  Agreement reference: {reference}
+
+  This Agreement is made on {date} between {org_legal}, with registered office at {org_address} and tax number {org_afm} (the "Consultant"), and {client:legal}, with registered office at {client_address} and tax number {client_afm} (the "Client"), represented for the purposes of this Agreement by {contact}.
+
+  The Client wishes to obtain advisory and implementation services, and the Consultant has the skills and staff to provide them. The parties therefore agree as follows.
+sections:
+  - id: scope
+    heading: Scope of services
+    text: >-
+      The Consultant shall provide the services described in each statement of work signed under
+      this Agreement, beginning with the work known internally as project {project}
+      ({project_code}). A statement of work sets out the deliverables, the timetable and the team.
+      Work that is not described in a signed statement of work is outside the scope of this
+      Agreement and will not be started without the Client's written request.
+    translation: >-
+      Ο Σύμβουλος παρέχει τις υπηρεσίες που περιγράφονται σε κάθε δήλωση εργασιών που υπογράφεται
+      στο πλαίσιο της παρούσας Σύμβασης, αρχίζοντας από το έργο με την εσωτερική ονομασία
+      {project} ({project_code}). Η δήλωση εργασιών ορίζει τα παραδοτέα, το χρονοδιάγραμμα και την
+      ομάδα. Εργασίες που δεν περιγράφονται σε υπογεγραμμένη δήλωση εργασιών βρίσκονται εκτός του
+      αντικειμένου της Σύμβασης και δεν ξεκινούν χωρίς έγγραφο αίτημα του Πελάτη.
+  - id: term
+    heading: Term
+    text: >-
+      This Agreement starts on {start_date} and continues for {months} months. It then renews
+      for successive periods of twelve months unless either party gives written notice of
+      non-renewal at least {days} days before the end of the current period. Statements of work
+      that are still open when the Agreement ends continue under its terms until they are
+      completed or terminated.
+  - id: fees
+    heading: Fees and payment
+    text: >-
+      The Client shall pay the Consultant a daily rate of {rate} for each consultant day worked,
+      up to a ceiling of {amount} for the first statement of work. The Consultant invoices at the
+      end of each month and the Client pays within {days} days of the invoice date, by transfer
+      from the account {client_iban}. Amounts unpaid after the due date bear interest at
+      {percent}% a year.
+    paraphrase: >-
+      For every day a consultant works, the Client owes the Consultant {rate}; the first
+      statement of work cannot cost more than {amount} in total. Invoices go out once a month, at
+      month end, and must be settled no later than {days} days after their date, through a bank
+      transfer out of account {client_iban}. Late amounts attract yearly interest of {percent}%.
+  - id: expenses
+    heading: Expenses
+    text: >-
+      Travel, accommodation and other out-of-pocket expenses are charged at cost, without
+      mark-up, and only when the Client has approved them in advance in writing. The Consultant
+      keeps receipts for every expense and attaches copies to the invoice. Travel time within
+      Attica is not charged; travel time outside Attica is charged at half the daily rate.
+  - id: personnel
+    heading: Personnel and governance
+    text: >-
+      {lead} leads the engagement for the Consultant and {lead2} is the day-to-day contact. The
+      Client's representative is {contact}, who may approve deliverables and changes on the
+      Client's behalf. The Consultant will not replace a named team member without telling the
+      Client first, and will make sure that any replacement has equivalent experience. The
+      parties meet every month to review progress.
+  - id: confidentiality
+    heading: Confidentiality
+    text: >-
+      Each party shall keep confidential all information received from the other that is marked
+      confidential or that a reasonable person would understand to be confidential, including
+      prices, client lists, source code and business plans. The receiving party may use such
+      information only to perform this Agreement and may disclose it only to staff and advisers
+      who need it and are bound by equivalent duties. These duties last for {years} years after
+      the Agreement ends.
+    paraphrase: >-
+      Anything one side learns from the other that is labelled confidential, or is plainly
+      private by nature (pricing, lists of clients, source code, business plans), must stay
+      secret. It can be used for nothing except carrying out the Agreement, and shown to nobody
+      except employees and advisers who need to see it and have accepted the same obligation. The
+      obligation continues until {years} years have passed from the end of the Agreement.
+  - id: data_protection
+    heading: Data protection
+    text: >-
+      Where the Consultant processes personal data on the Client's behalf, it acts as processor
+      and follows the Client's documented instructions. The Consultant applies appropriate
+      technical and organisational measures, keeps the data within the European Economic Area,
+      and notifies the Client without undue delay, and in any case within 48 hours, after
+      becoming aware of a personal data breach. Sub-processors need the Client's prior approval.
+    translation: >-
+      Όταν ο Σύμβουλος επεξεργάζεται δεδομένα προσωπικού χαρακτήρα για λογαριασμό του Πελάτη,
+      ενεργεί ως εκτελών την επεξεργασία και ακολουθεί τις τεκμηριωμένες εντολές του Πελάτη. Ο
+      Σύμβουλος εφαρμόζει κατάλληλα τεχνικά και οργανωτικά μέτρα, διατηρεί τα δεδομένα εντός του
+      Ευρωπαϊκού Οικονομικού Χώρου και ενημερώνει τον Πελάτη χωρίς αδικαιολόγητη καθυστέρηση, και
+      πάντως εντός 48 ωρών, αφότου λάβει γνώση παραβίασης δεδομένων. Για τους υπεργολάβους
+      επεξεργασίας απαιτείται προηγούμενη έγκριση του Πελάτη.
+  - id: intellectual_property
+    heading: Intellectual property
+    text: >-
+      On full payment, the Client owns the deliverables created specifically for it under a
+      statement of work. The Consultant keeps ownership of its methods, tools, templates and
+      know-how, including anything developed before this Agreement, and grants the Client a
+      perpetual, non-exclusive licence to use them as part of the deliverables. Neither party
+      may use the other's name or logo without written consent.
+    translation: >-
+      Με την πλήρη εξόφληση, ο Πελάτης αποκτά την κυριότητα των παραδοτέων που δημιουργήθηκαν
+      ειδικά για αυτόν βάσει δήλωσης εργασιών. Ο Σύμβουλος διατηρεί την κυριότητα των μεθόδων,
+      των εργαλείων, των προτύπων και της τεχνογνωσίας του, μαζί με όσα αναπτύχθηκαν πριν από την
+      παρούσα Σύμβαση, και παραχωρεί στον Πελάτη διαρκή, μη αποκλειστική άδεια χρήσης τους ως
+      μέρος των παραδοτέων. Κανένα μέρος δεν χρησιμοποιεί την επωνυμία ή το λογότυπο του άλλου
+      χωρίς έγγραφη συναίνεση.
+  - id: liability
+    heading: Limitation of liability
+    text: >-
+      Neither party is liable for loss of profit, loss of business or indirect loss. The total
+      liability of the Consultant under this Agreement in any twelve-month period is limited to
+      the fees paid by the Client in that period, and in no case exceeds {cap}. Nothing in this
+      clause limits liability for fraud, for wilful misconduct or for breach of the
+      confidentiality and data protection clauses.
+    paraphrase: >-
+      Lost profits, lost business and indirect losses cannot be claimed by either side. Over any
+      period of twelve months the Consultant cannot owe more, in total, than the Client paid it
+      in fees during those months, with an absolute maximum of {cap}. Fraud, deliberate
+      misconduct and breaches of the confidentiality or data protection clauses fall outside
+      this limit.
+  - id: termination
+    heading: Termination
+    text: >-
+      Either party may terminate this Agreement or a statement of work by giving {days} days'
+      written notice. Either party may terminate immediately if the other commits a material
+      breach and does not remedy it within fifteen days of a written request, or becomes
+      insolvent. On termination the Client pays for the work done up to the termination date and
+      each party returns or destroys the other's confidential information.
+    paraphrase: >-
+      The Agreement, or any single statement of work, can be ended by either side with {days}
+      days of notice in writing. No notice period applies where the other side is insolvent, or
+      has seriously breached the Agreement and failed to fix the breach within fifteen days of
+      being asked in writing. When the Agreement ends, work performed up to that date is paid
+      for and confidential material is handed back or destroyed.
+  - id: change_control
+    heading: Change control
+    text: >-
+      Either party may ask for a change to a statement of work. The Consultant replies within
+      five working days with the effect of the change on fees, timetable and team. A change
+      takes effect only when both representatives have signed a change note, and until then the
+      Consultant continues to work to the statement of work as it stands.
+  - id: governing_law
+    heading: Governing law and disputes
+    text: >-
+      This Agreement is governed by Greek law. The parties will first try to settle any dispute
+      through a meeting of senior managers held within twenty days of a written request. If that
+      fails, the courts of Athens have exclusive jurisdiction. This Agreement, with its
+      statements of work, is the whole agreement between the parties on its subject and may be
+      amended only in writing.
+footer: |-
+  Signed for the Consultant: {lead}
+  Signed for the Client: {contact}
+  Contact for notices: {client_email}

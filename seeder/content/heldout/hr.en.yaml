@@ -1,0 +1,74 @@
+kind: hr
+category: HR
+language: en
+numbered: false
+titles:
+  - Outcome of disciplinary hearing
+  - "Disciplinary procedure: written decision"
+header: |-
+  Private and confidential. To be opened by the addressee only.
+  To: {person}
+  From: {person2}, Human Resources
+  Date: {date}
+  Reference: {reference}
+sections:
+  - id: purpose
+    heading: Purpose of this letter
+    text: >-
+      I am writing to confirm the outcome of the disciplinary hearing held last week, which you
+      attended with a colleague of your choice as companion. The hearing considered the
+      allegation that, on three occasions in one month, you approved your own expense claims
+      in breach of the expenses policy.
+  - id: evidence
+    heading: Evidence considered
+    text: >-
+      The panel reviewed the investigation report, the three claims and their approval logs,
+      the policy as published on the intranet, and your written statement. It also heard from
+      the finance officer who first noticed the approvals and from your line manager, who
+      confirmed that no delegation of approval had been given.
+  - id: response
+    heading: Your response
+    text: >-
+      You accepted that you had approved the claims and explained that your manager was on
+      leave, that the amounts were small and genuine, and that you believed the system would
+      not have allowed the approval had it been forbidden. You expressed regret and said that
+      you had not gained anything to which you were not entitled.
+  - id: findings
+    heading: Findings
+    text: >-
+      The panel found the allegation proven. It accepted that the expenses were genuine, that
+      there was no dishonest intent and that the system should have prevented self-approval.
+      However, the policy is clear, you completed the finance training last year, and an
+      alternative approver was available during your manager's absence.
+  - id: sanction
+    heading: Decision
+    text: >-
+      The panel has decided to issue a first written warning for misconduct. The warning will
+      remain on your personnel file for {months} months, after which it will be disregarded
+      for disciplinary purposes. Any further misconduct during that period may lead to a final
+      written warning. No deduction from pay is made.
+  - id: expectations
+    heading: What is expected of you
+    text: >-
+      You are required to submit all future claims to your line manager or the nominated
+      deputy, and to repeat the expenses module of the finance training within {days} days.
+      The finance team has been asked to change the system so that self-approval is no longer
+      possible, which the panel regards as a shortcoming on the company's side.
+  - id: appeal
+    heading: Right of appeal
+    text: >-
+      You may appeal against this decision by writing to the Director of Human Resources
+      within ten working days of receiving this letter, stating your grounds. An appeal will be
+      heard by a manager who has had no part in the case. The warning remains in force while an
+      appeal is pending.
+  - id: support
+    heading: Support
+    text: >-
+      I recognise that this process has been stressful. The employee assistance programme
+      offers confidential counselling free of charge, and your manager has been asked to treat
+      the matter as closed in day-to-day work. This letter and the hearing record are held in
+      your personnel file and are not shared with colleagues.
+footer: |-
+  {person2}
+  Human Resources
+  Acknowledged by the employee: {person}

@@ -1,0 +1,343 @@
+# Default pack: the regex-only T0 recognisers.
+#
+# Each pattern is compiled with RE2 (no look-around, no back-references), so matching
+# time stays linear in the text. Recognisers that need a checksum live in code
+# (gateway/app/detect/identifiers.py). Sources for each format are in SOURCES.md.
+#
+# Fields:
+#   name            unique, shown in explanations as `pattern:<name>`
+#   regex           RE2 syntax. A group named `value` marks the part to mask; without
+#                   one the whole match is masked
+#   data_type       optional, defaults to the group's `data_type`
+#   must_match      a made-up string the pattern must find (checked by the unit tests)
+#   must_not_match  a made-up near miss the pattern must leave alone
+#
+# Every example below is invented. None is, or ever was, a working credential.
+pack_version: "2026.11.5"
+groups:
+  - name: cloud
+    data_type: SECRET
+    patterns:
+      - name: aws-access-key-id
+        regex: '\b(?:AKIA|ASIA|ABIA|ACCA)[A-Z2-7]{16}\b'
+        must_match: "AKIAQ7EXAMPLEKEY2345"
+        must_not_match: "AKIAQ7EXAMPLEKEY"
+      - name: aws-secret-access-key
+        regex: '(?i)aws[\w.\-]{0,20}secret[\w.\-]{0,20}["'']?\s{0,3}[:=]\s{0,3}["'']?(?P<value>[A-Za-z0-9/+]{40})(?:[^A-Za-z0-9/+=]|$)'
+        must_match: 'aws_secret_access_key = "mAdEuP0exampleKEY/notReal+2026aspidaTEST"'
+        must_not_match: "aws_secret_access_key = <set in the environment>"
+      - name: google-api-key
+        regex: '\bAIza[0-9A-Za-z_\-]{35}\b'
+        must_match: "AIzaSyMadeUpExampleKey0123456789abcdefg"
+        must_not_match: "AIzaSyTooShort0123"
+      - name: google-oauth-client-secret
+        regex: '\bGOCSPX-[0-9A-Za-z_\-]{28}\b'
+        must_match: "GOCSPX-MadeUpExample0123456789abcde"
+        must_not_match: "GOCSPX-short"
+      - name: google-oauth-access-token
+        regex: '\bya29\.[0-9A-Za-z_\-]{30,}'
+        must_match: "ya29.MadeUpExampleAccessToken0123456789abcdef"
+        must_not_match: "ya29.short"
+      - name: google-service-account-key
+        regex: '"private_key_id"\s*:\s*"(?P<value>[0-9a-f]{40})"'
+        must_match: '"private_key_id": "0123456789abcdef0123456789abcdef01234567"'
+        must_not_match: '"private_key_id": "see the vault"'
+      - name: azure-storage-account-key
+        regex: '(?i)AccountKey=(?P<value>[A-Za-z0-9+/]{86}==)'
+        must_match: "DefaultEndpointsProtocol=https;AccountName=madeup;AccountKey=MadeUpExampleStorageKey0123456789MadeUpExampleStorageKey0123456789MadeUpExampleStorage==;EndpointSuffix=core.windows.net"
+        must_not_match: "DefaultEndpointsProtocol=https;AccountName=madeup;AccountKey=<key>"
+      - name: azure-client-secret
+        regex: '(?:^|[^0-9A-Za-z_~.\-])(?P<value>[0-9A-Za-z_~.\-]{3}[78]Q~[0-9A-Za-z_~.\-]{31,34})(?:[^0-9A-Za-z_~.\-]|$)'
+        must_match: "client_secret: abc8Q~MadeUpExampleSecret0123456789abcd"
+        must_not_match: "client_secret: abc8Q~short"
+      - name: azure-sas-signature
+        regex: '(?i)[?&]sig=(?P<value>[A-Za-z0-9%+/]{43,}(?:%3D|=)?)'
+        must_match: "https://madeup.blob.core.windows.net/c/f.txt?sv=2022-11-02&sig=MadeUpExampleSignature0123456789abcdefghijkl%3D"
+        must_not_match: "https://madeup.blob.core.windows.net/c/f.txt?sv=2022-11-02&sig=short"
+      - name: digitalocean-token
+        regex: '\bdo[opr]_v1_[a-f0-9]{64}\b'
+        must_match: "dop_v1_0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+        must_not_match: "dop_v1_0123456789abcdef"
+      - name: alibaba-access-key-id
+        regex: '\bLTAI[0-9A-Za-z]{12,20}\b'
+        must_match: "LTAIMadeUpExample0123"
+        must_not_match: "LTAIshort"
+      - name: heroku-api-key
+        regex: '\bHRKU-[0-9A-Za-z_\-]{58,62}\b'
+        must_match: "HRKU-MadeUpExampleHerokuKey0123456789abcdefghijklmnopqrstuvwxyzAB"
+        must_not_match: "HRKU-short"
+
+  - name: code-hosting
+    data_type: SECRET
+    patterns:
+      - name: github-token
+        regex: '\bgh[pousr]_[0-9A-Za-z]{36,255}\b'
+        must_match: "ghp_MadeUpExampleToken0123456789abcdefghij"
+        must_not_match: "ghp_short"
+      - name: github-fine-grained-token
+        regex: '\bgithub_pat_[0-9A-Za-z]{22}_[0-9A-Za-z]{59}\b'
+        must_match: "github_pat_MadeUpExample012345678_MadeUpExampleToken0123456789abcdefghijklmnopqrstuvwxyzABCDE"
+        must_not_match: "github_pat_short"
+      - name: gitlab-token
+        regex: '\bgl(?:pat|dt|rt|ptt|cbt|soat|ft|imt|agent)-[0-9A-Za-z_\-]{20,}'
+        must_match: "glpat-MadeUpExample0123456"
+        must_not_match: "glpat-short"
+      - name: bitbucket-app-password
+        regex: '\bATBB[0-9A-Za-z]{32}\b'
+        must_match: "ATBBMadeUpExampleAppPassword01234567"
+        must_not_match: "ATBBshort"
+      - name: atlassian-api-token
+        regex: '\bATATT3[0-9A-Za-z_\-=]{180,200}'
+        must_match: "ATATT3MadeUpExampleAtlassianToken0123456789MadeUpExampleAtlassianToken0123456789MadeUpExampleAtlassianToken0123456789MadeUpExampleAtlassianToken0123456789MadeUpExampleAtlassianToken0123456789abcdef"
+        must_not_match: "ATATT3short"
+      - name: npm-token
+        regex: '\bnpm_[0-9A-Za-z]{36}\b'
+        must_match: "npm_MadeUpExampleToken0123456789abcdefgh"
+        must_not_match: "npm_install"
+      - name: pypi-token
+        regex: '\bpypi-AgEIcHlwaS5vcmc[0-9A-Za-z_\-]{50,}'
+        must_match: "pypi-AgEIcHlwaS5vcmcMadeUpExampleToken0123456789abcdefghijklmnopqrstuvwxyz"
+        must_not_match: "pypi-AgEIcHlwaS5vcmc"
+      - name: docker-hub-token
+        regex: '\bdckr_pat_[0-9A-Za-z_\-]{27}\b'
+        must_match: "dckr_pat_MadeUpExampleToken012345678"
+        must_not_match: "dckr_pat_short"
+
+  - name: payment
+    data_type: SECRET
+    patterns:
+      - name: stripe-secret-key
+        regex: '\b(?:sk|rk)_(?:live|test)_[0-9A-Za-z]{24,99}\b'
+        must_match: "sk_live_MadeUpExampleKey0123456789"
+        must_not_match: "pk_live_MadeUpExampleKey0123456789"
+      - name: stripe-webhook-secret
+        regex: '\bwhsec_[0-9A-Za-z]{32,}\b'
+        must_match: "whsec_MadeUpExampleSecret0123456789abcd"
+        must_not_match: "whsec_short"
+      - name: paypal-braintree-token
+        regex: 'access_token\$production\$[0-9a-z]{16}\$[0-9a-f]{32}'
+        must_match: "access_token$production$0123456789abcdef$0123456789abcdef0123456789abcdef"
+        must_not_match: "access_token$sandbox$short"
+      - name: square-access-token
+        regex: '\b(?:sq0atp-[0-9A-Za-z_\-]{22}|sq0csp-[0-9A-Za-z_\-]{43}|EAAA[0-9A-Za-z_\-]{60})\b'
+        must_match: "sq0atp-MadeUpExample012345678"
+        must_not_match: "sq0atp-short"
+      - name: shopify-token
+        regex: '\bshp(?:at|ss|ca|pa)_[0-9a-fA-F]{32}\b'
+        must_match: "shpat_0123456789abcdef0123456789abcdef"
+        must_not_match: "shpat_0123456789"
+
+  - name: ai-providers
+    data_type: SECRET
+    patterns:
+      - name: openai-api-key
+        regex: '\bsk-(?:(?:proj|svcacct|admin)-[0-9A-Za-z_\-]{20,}|[0-9A-Za-z]{20}T3BlbkFJ[0-9A-Za-z]{20}|[0-9A-Za-z]{48})(?:[^0-9A-Za-z_\-]|$)'
+        must_match: "sk-proj-MadeUpExampleKey0123456789abcdefghijklmnop"
+        must_not_match: "sk-proj-short"
+      - name: anthropic-api-key
+        regex: '\bsk-ant-(?:api|admin)\d{2}-[0-9A-Za-z_\-]{80,}'
+        must_match: "sk-ant-api03-MadeUpExampleKey0123456789MadeUpExampleKey0123456789MadeUpExampleKey0123456789abcdefghijkl"
+        must_not_match: "sk-ant-api03-short"
+      - name: hugging-face-token
+        regex: '\bhf_[0-9A-Za-z]{34,}\b'
+        must_match: "hf_MadeUpExampleToken0123456789abcdefgh"
+        must_not_match: "hf_hub_download"
+      - name: groq-api-key
+        regex: '\bgsk_[0-9A-Za-z]{52}\b'
+        must_match: "gsk_MadeUpExampleKey0123456789MadeUpExampleKey0123456789"
+        must_not_match: "gsk_short"
+      - name: replicate-token
+        regex: '\br8_[0-9A-Za-z]{37}\b'
+        must_match: "r8_MadeUpExampleToken0123456789abcdefghi"
+        must_not_match: "r8_short"
+      - name: perplexity-api-key
+        regex: '\bpplx-[0-9A-Za-z]{48}\b'
+        must_match: "pplx-MadeUpExampleKey0123456789MadeUpExampleKey012345"
+        must_not_match: "pplx-short"
+      - name: xai-api-key
+        regex: '\bxai-[0-9A-Za-z]{80}\b'
+        must_match: "xai-MadeUpExampleKey0123456789MadeUpExampleKey0123456789MadeUpExampleKey0123456789Ma"
+        must_not_match: "xai-short"
+
+  - name: messaging
+    data_type: SECRET
+    patterns:
+      - name: slack-token
+        regex: '\bxox[abeoprs]-[0-9A-Za-z\-]{10,}'
+        must_match: "xoxb-0123456789-0123456789-MadeUpExampleToken"
+        must_not_match: "xoxb-short"
+      - name: slack-app-token
+        regex: '\bxapp-\d-[A-Z0-9]+-\d+-[0-9a-f]{20,}'
+        must_match: "xapp-1-A0MADEUP012-0123456789-0123456789abcdef0123456789abcdef"
+        must_not_match: "xapp-1-short"
+      - name: slack-webhook
+        regex: 'https://hooks\.slack\.com/services/T[0-9A-Z]+/B[0-9A-Z]+/[0-9A-Za-z]{20,}'
+        must_match: "https://hooks.slack.com/services/T0MADEUP0/B0MADEUP0/MadeUpExample0123456789ab"
+        must_not_match: "https://hooks.slack.com/services/"
+      - name: discord-webhook
+        regex: 'https://(?:ptb\.|canary\.)?discord(?:app)?\.com/api/webhooks/\d+/[0-9A-Za-z_\-]{20,}'
+        must_match: "https://discord.com/api/webhooks/012345678901234567/MadeUpExampleWebhookToken0123456789"
+        must_not_match: "https://discord.com/api/webhooks/"
+      - name: telegram-bot-token
+        regex: '\b\d{8,10}:AA[0-9A-Za-z_\-]{33}\b'
+        must_match: "0123456789:AAMadeUpExampleToken0123456789abcde"
+        must_not_match: "0123456789:AAshort"
+      - name: twilio-api-key
+        regex: '\bSK[0-9a-f]{32}\b'
+        must_match: "SK0123456789abcdef0123456789abcdef"
+        must_not_match: "SK0123456789"
+      - name: sendgrid-api-key
+        regex: '\bSG\.[0-9A-Za-z_\-]{22}\.[0-9A-Za-z_\-]{43}\b'
+        must_match: "SG.MadeUpExample012345678.MadeUpExampleKey0123456789abcdefghijklmnopq"
+        must_not_match: "SG.short.short"
+      - name: mailgun-api-key
+        regex: '\bkey-[0-9a-f]{32}\b'
+        must_match: "key-0123456789abcdef0123456789abcdef"
+        must_not_match: "key-value"
+      - name: mailchimp-api-key
+        regex: '\b[0-9a-f]{32}-us\d{1,2}\b'
+        must_match: "0123456789abcdef0123456789abcdef-us14"
+        must_not_match: "0123456789abcdef0123456789abcdef"
+
+  - name: tokens
+    data_type: SECRET
+    patterns:
+      - name: json-web-token
+        regex: '\beyJ[0-9A-Za-z_\-]{10,}\.eyJ[0-9A-Za-z_\-]{10,}\.[0-9A-Za-z_\-]{10,}'
+        must_match: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRlLXVwIn0.MadeUpExampleSignature0123456789"
+        must_not_match: "eyJhbGciOiJIUzI1NiJ9"
+      - name: bearer-token
+        regex: '(?i)\bbearer\s+(?P<value>[0-9A-Za-z_\-.=+/]{20,})'
+        must_match: "Authorization: Bearer MadeUpExampleToken0123456789"
+        must_not_match: "the bearer of this letter"
+      - name: basic-auth-header
+        regex: '(?i)\bauthorization\s*:\s*basic\s+(?P<value>[0-9A-Za-z+/]{16,}={0,2})'
+        must_match: "Authorization: Basic bWFkZS11cDpub3QtcmVhbC1wYXNz"
+        must_not_match: "Authorization: Basic"
+
+  - name: private-keys
+    data_type: SECRET
+    patterns:
+      - name: private-key-block
+        regex: '-----BEGIN (?:[A-Z0-9]+ )*PRIVATE KEY(?: BLOCK)?-----[\s\S]*?(?:-----END (?:[A-Z0-9]+ )*PRIVATE KEY(?: BLOCK)?-----|\z)'
+        must_match: "-----BEGIN RSA PRIVATE KEY-----\nTUFERS1VUC1FWEFNUExFLU5PVC1BLVJFQUwtS0VZ\n-----END RSA PRIVATE KEY-----"
+        must_not_match: "-----BEGIN PUBLIC KEY-----\nTUFERS1VUC1FWEFNUExF\n-----END PUBLIC KEY-----"
+      - name: putty-private-key
+        regex: 'PuTTY-User-Key-File-\d: [\s\S]*?(?:Private-MAC: [0-9a-f]+|\z)'
+        must_match: "PuTTY-User-Key-File-3: ssh-ed25519\nEncryption: none\nPrivate-Lines: 1\nTUFERS1VUC1FWEFNUExF\nPrivate-MAC: 0123456789abcdef"
+        must_not_match: "PuTTY is a terminal emulator"
+
+  - name: connection-strings
+    data_type: SECRET
+    patterns:
+      - name: database-url
+        regex: '(?i)\b(?:postgres(?:ql)?|mysql|mariadb|mongodb(?:\+srv)?|rediss?|amqps?|mssql|sqlserver|oracle|clickhouse|cockroachdb)(?:\+[a-z0-9]+)?://[^\s:@/]*:[^\s@/]+@[^\s/''"<>]+[^\s''"<>]*'
+        must_match: "postgresql://app_user:MadeUp-Pass-2026@db.internal.example:5432/orders"
+        must_not_match: "postgresql://db.internal.example:5432/orders"
+      - name: url-with-credentials
+        regex: '(?i)\b(?:https?|s?ftp|smtps?|imaps?|ldaps?)://[^\s:@/]+:(?P<value>[^\s@/]{3,})@[^\s/''"<>]+'
+        must_match: "https://deploy:MadeUp-Pass-2026@git.internal.example/repo.git"
+        must_not_match: "https://git.internal.example/repo.git"
+      - name: jdbc-url-with-password
+        regex: '(?i)\bjdbc:[a-z0-9]+:[^\s''"]*[?;&]password=(?P<value>[^\s&;''"]+)'
+        must_match: "jdbc:mysql://db.internal.example:3306/orders?user=app&password=MadeUp-Pass-2026"
+        must_not_match: "jdbc:mysql://db.internal.example:3306/orders?user=app"
+      - name: ado-connection-string
+        regex: '(?i)\b(?:server|data source)=[^;\n]+;[^\n]*?\b(?:password|pwd)=(?P<value>[^;\s''"]+)'
+        must_match: "Server=db.internal.example;Database=orders;User Id=app;Password=MadeUp-Pass-2026;"
+        must_not_match: "Server=db.internal.example;Database=orders;Integrated Security=true;"
+  - name: education
+    data_type: STUDENT_ID
+    patterns:
+      - name: student-number
+        regex: '(?i)(?:αριθμ(?:[όο]ς?|ο[ύυ])\s+μητρ[ώω]ου|(?:^|[^\pL])α\.?\s?μ\.?|student\s+(?:number|id|no\.?)|registration\s+number|matriculation\s+number)\s{0,3}[:#=]?\s{0,3}(?P<value>[0-9]{5,10})(?:[^0-9]|$)'
+        must_match: "αριθμό μητρώου 03125093"
+        must_not_match: "αριθμό μητρώου: εκκρεμεί"
+      - name: grade
+        data_type: GRADE
+        regex: '(?i)(?:^|[^\pL])(?:μ[έε]σο(?:ς|υ|ν)?\s+[όο]ρο(?:ς|υ|ν)?|μ\.\s?ο\.|βαθμ(?:[όο](?:ς|ν)?|ο[ύυ]ς?|ο[ίι]|ολογ[ίι](?:α|ας|ες))|c?gpa|grade\s+point\s+average|grades?)(?:\s+[^\s0-9.;!?]{1,15}){0,3}\s{0,3}[:=]?\s{0,3}(?P<value>(?:100|[0-9]{1,2})(?:[.,][0-9]{1,2})?(?:\s?/\s?(?:10|20|100)|\s?%)?)(?:[^0-9]|$)'
+        must_match: "ο μέσος όρος μου είναι 9,92"
+        must_not_match: "μέσο όρο της τάξης"
+      - name: score-out-of
+        data_type: GRADE
+        regex: '(?i)(?:^|[^\pL])(?:marks?|scored?|scores|π[ήη]ρα|[έε]γραψα|[έε]βγαλα)(?:\s+[^\s0-9.;!?]{1,15}){0,3}\s{0,3}[:=]?\s{0,3}(?P<value>(?:100|[0-9]{1,2})(?:[.,][0-9]{1,2})?(?:\s?/\s?(?:10|20|100)|\s?%))(?:[^0-9]|$)'
+        must_match: "πήρα 7/10 στα μαθηματικά"
+        must_not_match: "πήρα 7 βιβλία"
+      - name: letter-grade
+        data_type: GRADE
+        regex: '(?i)(?:^|[^\pL])grades?(?:\s+(?:of|is|was|an?)){0,2}\s{0,3}[:=]?\s{0,3}(?P<value>(?-i:[A-F][+\-]?))(?:[^A-Za-z0-9+\-]|$)'
+        must_match: "my final grade is B+"
+        must_not_match: "we grade a lot of papers"
+  - name: personal
+    data_type: PASSWORD
+    patterns:
+      - name: password
+        data_type: PASSWORD
+        regex: '(?i)(?:^|[^\pL])(?:κωδικ[όο](?:ς|ν)?|κωδικο[ύυ]|συνθηματικ[όο]|password|passwd|passcode|pass|pwd|pin)(?:\s+[^\s:=]{1,20}){0,3}?\s{0,3}(?:είναι|ειναι|ήταν|ηταν|is|was|[:=])\s{0,3}(?P<value>[^\s,;]{3,64})'
+        must_match: "Ο κωδικός μου είναι Maria1990!"
+        must_not_match: "άλλαξα τον κωδικό χθες"
+      - name: password-direct
+        data_type: PASSWORD
+        regex: '(?i)(?:^|[^\pL])(?:κωδικ[όο](?:ς|ν)?|κωδικο[ύυ]|συνθηματικ[όο]|password|passwd|passcode|pass|pwd|pin)\s{1,3}(?P<value>[^\s,;:=]*[0-9!@#$%^&*][^\s,;]*)'
+        must_match: "όνομα χρήστη mariap και κωδικός 12345678"
+        must_not_match: "κωδικός πρόσβασης ξεχασμένος"
+      - name: self-introduction
+        data_type: PERSON
+        regex: '(?i)(?:^|[^\pL])(?:my\s+(?:full\s+)?name\s+is|i\s+am\s+called|με\s+λ[έε]νε|ονομ[άα]ζομαι|λ[έε]γομαι|το\s+[όο]νομ[άα]\s+μου\s+ε[ίι]ναι)\s{1,3}(?P<value>(?-i:[A-ZΑ-ΩΆΈΉΊΌΎΏ][A-Za-zα-ωάέήίόύώϊϋΐΰς\-]{1,30}(?:\s[A-ZΑ-ΩΆΈΉΊΌΎΏ][A-Za-zα-ωάέήίόύώϊϋΐΰς\-]{1,30}){0,2}))'
+        must_match: "My name is Alexandros Venizelidios"
+        must_not_match: "my name is not important"
+      - name: username
+        data_type: USERNAME
+        regex: '(?i)(?:^|[^\pL])(?:(?:username|user\s?name|user\s?id|login)\s{0,3}[:=]|(?:όνομα|ονομα)\s+(?:χρήστη|χρηστη)\s{0,3}[:=]?)\s{0,3}(?P<value>[A-Za-z0-9][A-Za-z0-9._\-@]{2,39})'
+        must_match: "username: gpapadopoulos"
+        must_not_match: "the username is required"
+      - name: date-of-birth
+        data_type: DATE_OF_BIRTH
+        regex: '(?i)(?:^|[^\pL])(?:γενν[ήη]θηκα(?:\s+(?:στις|την|το))?|ημερομην[ίι]α\s+γ[έε]ννησης|ημ\.?\s?γ[έε]ννησης|date\s+of\s+birth|dob|born(?:\s+on)?|birth\s?date|birthday)\s{0,3}[:=]?\s{0,3}(?P<value>[0-9]{1,4}[./\-][0-9]{1,2}[./\-][0-9]{2,4}|[0-9]{1,2}\s+[^\s0-9]{3,12}\s+[0-9]{4})'
+        must_match: "γεννήθηκα στις 12/03/1990"
+        must_not_match: "γεννήθηκα στην Αθήνα"
+      - name: passport-number
+        data_type: PASSPORT
+        regex: '(?i)(?:^|[^\pL])(?:διαβατ[ήη]ρ[ίι](?:ου|ο|α)?|passport)(?:\s+(?:number|no\.?|αριθμ(?:[όο]ς?|ο[ύυ])))?\s{0,3}[:#=]?\s{0,3}(?P<value>[A-ZΑ-Ω]{1,2}\s?[0-9]{6,8})(?:[^0-9]|$)'
+        must_match: "αριθμός διαβατηρίου ΑΕ1234567"
+        must_not_match: "το διαβατήριο λήγει σύντομα"
+      - name: licence-plate
+        data_type: LICENSE_PLATE
+        regex: '(?i)(?:^|[^\pL])(?:πινακ[ίι]δ(?:ας|α|ες)|plate|αριθμ(?:[όο]ς?|ο[ύυ])\s+κυκλοφορ[ίι]ας)(?:\s+[^\s0-9]{1,15}){0,4}?\s{0,3}[:=]?\s{0,3}(?P<value>[A-ZΑ-Ω]{3}[\s\-]?[0-9]{4})(?:[^0-9]|$)'
+        must_match: "η πινακίδα του αυτοκινήτου είναι ΙΒΧ-1234"
+        must_not_match: "η πινακίδα είναι βρώμικη"
+      - name: salary
+        data_type: SALARY
+        regex: '(?i)(?:^|[^\pL])(?:μισθ(?:[όο][ςν]?|ο[ύυ])|αποδοχ[έε]ς|εισ[όο]δημα|salary|wage)(?:\s+[^\s0-9€$£]{1,15}){0,4}?\s{0,3}[:=]?\s{0,3}(?P<value>[€$£]?\s?(?:[0-9]{1,3}(?:[.,][0-9]{3})+|[0-9]{3,7})(?:[.,][0-9]{1,2})?\s?(?:€|\$|£|ευρ[ώω]|euros?|eur|usd)?)'
+        must_match: "ο μισθός μου είναι 1.450€ το μήνα"
+        must_not_match: "ο μισθός μου είναι χαμηλός"
+      - name: bank-account
+        data_type: BANK_ACCOUNT
+        regex: '(?i)(?:^|[^\pL])(?:λογαριασμ(?:[όο]ς?|ο[ύυ])|account(?:\s+(?:number|no\.?))?)(?:\s+[^\s0-9]{1,15}){0,5}?\s{0,3}[:#=]?\s{0,3}(?P<value>[0-9]{2,6}(?:[.\-\s][0-9]{2,12}){1,5}|[0-9]{10,20})(?:[^0-9]|$)'
+        must_match: "ο λογαριασμός μου στην τράπεζα είναι 0026.0123.45.0123456789"
+        must_not_match: "ο λογαριασμός μου έκλεισε"
+      - name: ip-address
+        data_type: IP_ADDRESS
+        regex: '(?:^|[^0-9.A-Za-z])(?P<value>(?:(?:25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9]))(?:[^0-9.]|\.(?:[^0-9]|$)|$)'
+        must_match: "η IP του server είναι 192.168.10.45"
+        must_not_match: "build 1.2.3.4.5"
+      - name: card-security-code
+        data_type: CARD_SECURITY
+        regex: '(?i)(?:^|[^\pL])(?:cvv2?|cvc2?|κωδικ[όο]ς\s+ασφαλε[ίι]ας)\s{0,3}[:=]?\s{0,3}(?P<value>[0-9]{3,4})(?:[^0-9]|$)'
+        must_match: "CVV 123"
+        must_not_match: "CVV is on the back"
+      - name: card-expiry
+        data_type: CARD_SECURITY
+        regex: '(?i)(?:^|[^\pL])(?:λ[ήη]ξης?|exp(?:iry|ires|iration)?(?:\s+date)?|valid\s+thru)\s{0,3}[:=]?\s{0,3}(?P<value>(?:0[1-9]|1[0-2])\s?[/\-]\s?(?:20)?[0-9]{2})(?:[^0-9]|$)'
+        must_match: "λήξη 09/27"
+        must_not_match: "λήξη της σύμβασης"
+      - name: insurance-register-number
+        data_type: INSURANCE_NUMBER
+        regex: '(?i)(?:^|[^\pL])(?:α\.?μ\.?α\.?|α\.?μ\.?\s?ι\.?κ\.?α\.?|αριθμ(?:[όο]ς?|ο[ύυ])\s+μητρ[ώω]ου\s+(?:ικα|εφκα|ασφαλισμ[έε]νου))(?:\s+(?:μου|του|της|είναι|ειναι)){0,2}\s{0,3}[:#=]?\s{0,3}(?P<value>[0-9]{6,10})(?:[^0-9]|$)'
+        must_match: "το ΑΜΑ μου είναι 1234567"
+        must_not_match: "το ΑΜΑ μου δεν το θυμάμαι"
+      - name: driving-licence-number
+        data_type: DRIVING_LICENCE
+        regex: '(?i)(?:^|[^\pL])(?:[άα]δει(?:ας|α|ες)\s+οδ[ήη]γησης|δ[ίι]πλωμα(?:τος)?\s+οδ[ήη]γησης|drivers?\s+licen[cs]e|driving\s+licen[cs]e)(?:\s+(?:number|no\.?|αριθμ(?:[όο]ς?|ο[ύυ])|μου|είναι|ειναι|is)){0,3}\s{0,3}[:#=]?\s{0,3}(?P<value>[A-Za-z]{0,3}[0-9]{5,10})(?:[^0-9]|$)'
+        must_match: "ο αριθμός άδειας οδήγησης είναι 123456789"
+        must_not_match: "η άδεια οδήγησης έληξε"

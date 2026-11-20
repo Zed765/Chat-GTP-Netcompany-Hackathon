@@ -1,0 +1,58 @@
+/* Design tokens. Each colour is declared once as light-dark(light, dark); the theme toggle
+   only has to pin `color-scheme`. */
+
+:root {
+  color-scheme: light dark;
+
+  --page: light-dark(#f6f6f3, #0f0f0e);
+  --surface: light-dark(#fdfdfc, #1a1a19);
+  --surface-2: light-dark(#f0f0ec, #242422);
+  --surface-3: light-dark(#e7e6e1, #30302d);
+  --border: light-dark(#dcdbd4, #363632);
+  --border-strong: light-dark(#8f8d86, #7d7b74);
+
+  --text: light-dark(#141413, #f0efec);
+  --text-2: light-dark(#4d4c49, #c3c2b7);
+  --text-3: light-dark(#63625d, #a3a199);
+
+  --accent: light-dark(#1c5cab, #256abf);
+  --accent-hover: light-dark(#164a8c, #1c5cab);
+  --accent-ink: #ffffff;
+  --accent-soft: light-dark(#e4eefb, #15273f);
+  --link: light-dark(#1c5cab, #86b6ef);
+  --focus: light-dark(#1c5cab, #86b6ef);
+
+  --danger: light-dark(#b42a2a, #c23a3a);
+  --danger-hover: light-dark(#942020, #a52e2e);
+
+  /* Identity hues, shared by data-type chips, status badges and chart series. */
+  --hue-blue: light-dark(#2a78d6, #3987e5);
+  --hue-orange: light-dark(#eb6834, #d95926);
+  --hue-aqua: light-dark(#1baf7a, #199e70);
+  --hue-yellow: light-dark(#eda100, #c98500);
+  --hue-magenta: light-dark(#e87ba4, #d55181);
+  --hue-green: light-dark(#008300, #0ca30c);
+  --hue-violet: light-dark(#6250d6, #9085e9);
+  --hue-red: #d03b3b;
+  --hue-neutral: light-dark(#8f8d86, #7d7b74);
+
+  --shadow: 0 1px 2px light-dark(rgb(20 20 19 / 8%), rgb(0 0 0 / 45%)),
+    0 6px 20px light-dark(rgb(20 20 19 / 8%), rgb(0 0 0 / 40%));
+
+  --radius: 8px;
+  --radius-sm: 6px;
+
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", "Segoe UI Mono", Menlo, Consolas, "DejaVu Sans Mono",
+    "Noto Sans Mono", monospace;
+
+  --sidebar: 15rem;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}

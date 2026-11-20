@@ -1,0 +1,24 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc", "jsx-a11y", "import", "vitest"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error"
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/exhaustive-deps": "error",
+    "react/only-export-components": ["error", { "allowConstantExport": true }],
+    "react/react-in-jsx-scope": "off",
+    "react/no-unstable-nested-components": ["error", { "allowAsProps": true }],
+    "typescript/no-explicit-any": "error",
+    "typescript/consistent-type-imports": "error",
+    "import/no-cycle": "error",
+    "import/no-unassigned-import": ["error", { "allow": ["**/*.css"] }],
+    "jsx-a11y/prefer-tag-over-role": "off",
+    "no-underscore-dangle": ["error", { "allow": ["__MOCK_API__"] }],
+    "no-console": ["error", { "allow": ["warn", "error"] }]
+  },
+  "overrides": [{ "files": ["scripts/**"], "rules": { "no-console": "off" } }],
+  "ignorePatterns": ["dist", "dist-mock", "src/api/*.d.ts", "playwright-report", "test-results", "test-results-real"]
+}

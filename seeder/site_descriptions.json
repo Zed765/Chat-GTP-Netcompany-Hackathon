@@ -1,0 +1,78 @@
+{
+  "quillmind.example": {
+    "title": "QuillMind - AI writing assistant",
+    "description": "QuillMind is a generative AI writing assistant. Paste a draft or describe what you need and its large language model rewrites, shortens or translates the text. Free accounts keep conversations to improve the model."
+  },
+  "lexsage.example": {
+    "title": "LexSage - AI legal research chatbot",
+    "description": "Ask legal questions in plain language and upload contracts for an AI summary. LexSage is a chatbot built on a large language model trained on case law; uploaded documents are stored for ninety days."
+  },
+  "promptforge.example": {
+    "title": "PromptForge API - hosted language models",
+    "description": "PromptForge is an AI platform that offers an API for text generation and embeddings. Developers send prompts to hosted large language models and pay per token. Requests may be logged for abuse monitoring."
+  },
+  "voxscribe.example": {
+    "title": "VoxScribe - AI meeting notes",
+    "description": "VoxScribe joins your video calls, transcribes them with speech recognition and uses generative AI to write the minutes and action items. Recordings are kept in the cloud."
+  },
+  "pixelmuse.example": {
+    "title": "PixelMuse - AI image generator",
+    "description": "Create images from a text prompt with PixelMuse, an AI image generation service. Describe a scene and a diffusion model draws it in seconds. Prompts and images are public by default on the free plan."
+  },
+  "sumly.example": {
+    "title": "Sumly - summarise anything with AI",
+    "description": "Sumly is a browser extension and web app that summarises web pages, PDFs and emails with an AI model. Paste any document to get the key points. No enterprise terms are offered."
+  },
+  "codewhisk.example": {
+    "title": "CodeWhisk - AI code completion",
+    "description": "CodeWhisk is an AI coding assistant that completes code in your editor and answers programming questions in a chat panel. Code snippets are sent to its language model for inference."
+  },
+  "aspida-demo.example": {
+    "title": "Aspida Demo Consulting intranet and webmail",
+    "description": "The company's own sites: the intranet with news, the staff directory and policies, and the webmail with calendar and room booking. Available to employees on the office network."
+  },
+  "teamwiki.example": {
+    "title": "TeamWiki - shared documentation",
+    "description": "A hosted wiki where teams write and organise project documentation, meeting notes and how-to guides."
+  },
+  "ferrytickets.example": {
+    "title": "FerryTickets - book ferries to the islands",
+    "description": "Compare timetables and prices and book ferry tickets between the mainland ports and the islands."
+  },
+  "imerisia-press.example": {
+    "title": "Imerisia Press - news and analysis",
+    "description": "A daily news site covering politics, the economy, sport and culture, with a live blog and opinion columns."
+  },
+  "kairos-now.example": {
+    "title": "Kairos Now - weather forecast",
+    "description": "Hourly and ten-day weather forecasts, rain radar and weather warnings for towns and islands."
+  },
+  "cityroutes.example": {
+    "title": "CityRoutes - maps and public transport",
+    "description": "Maps, driving directions and public transport routes with live departure times for buses and the metro."
+  },
+  "ebanking-portal.example": {
+    "title": "e-Banking portal",
+    "description": "Online banking for businesses: account balances, payments, payroll files and card management."
+  },
+  "agora-market.example": {
+    "title": "Agora Market - office supplies",
+    "description": "An online shop for office supplies, printer consumables and furniture, with next-day delivery for business customers."
+  },
+  "streamcast.example": {
+    "title": "StreamCast - video streaming",
+    "description": "Watch films, series and live sport on demand. Monthly subscription with a free trial."
+  },
+  "fastassets.example": {
+    "title": "FastAssets content delivery network",
+    "description": "A content delivery network that serves images, scripts and fonts for websites from servers close to the visitor."
+  },
+  "softvendor.example": {
+    "title": "Software update service",
+    "description": "Download servers for operating system and application updates and security patches."
+  },
+  "translatix.example": {
+    "title": "Translatix - AI document translation",
+    "description": "Upload contracts, reports and emails and get them translated by a large language model in seconds. Documents are kept for 90 days and may be used to improve our AI translation models. Free plan, no single sign-on."
+  }
+}

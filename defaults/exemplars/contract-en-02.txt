@@ -1,0 +1,30 @@
+Agreement for the Supply of Goods and Related Services
+
+THIS AGREEMENT is dated 10 September 2026 and made between Wintermoor Pharma LLC, whose registered office is at 12 Agias Paraskevis Street, 152 38 Chalandri (the "Supplier"), and Stonelea Biotech S.A., whose registered office is at Agiou Nikolaou Street 145, 117 40 Athens, Greece (the "Customer"). The Supplier and the Customer are together the "Parties".
+
+1. Definitions and interpretation
+In this Agreement, "Goods" means the products listed in Schedule 1, "Services" means the installation and maintenance services described in Schedule 2, and "Business Day" means a day other than a Saturday, Sunday or public holiday. Headings are for convenience only and do not affect interpretation. A reference to writing includes email.
+
+2. Supply of goods and services
+The Supplier shall sell and the Customer shall buy the Goods ordered under purchase orders accepted by the Supplier. The Supplier shall perform the Services with reasonable skill and care, using suitably qualified personnel. Each purchase order forms a separate contract on the terms of this Agreement, which prevail over any terms printed on the Customer's order.
+
+3. Delivery, risk and title
+The Supplier shall deliver the Goods to the address stated in the purchase order. Delivery dates are estimates and time is not of the essence. Risk in the Goods passes to the Customer on delivery. Title passes only when the Supplier has received payment in full for the Goods and for any other sums then due from the Customer.
+
+4. Warranties
+The Supplier warrants that for 36 months from delivery the Goods will conform to their specification and be free from material defects in design, material and workmanship. If the Goods do not conform, the Supplier shall, at its option, repair or replace them or refund their price. All other warranties and conditions are excluded to the fullest extent permitted by law.
+
+5. Limitation of liability
+Nothing in this Agreement limits liability for death or personal injury caused by negligence, or for fraud. Subject to that, neither Party shall be liable for loss of profit, loss of data or any indirect or consequential loss, and the Supplier's total liability in each contract year shall not exceed €27,000 or the sums paid in that year, whichever is the greater.
+
+6. Term and termination
+This Agreement commences on 27 September 2026 and continues for an initial term of 36 months, and thereafter until terminated by either Party on not less than 30 days' written notice. Either Party may terminate with immediate effect if the other commits a material breach which it fails to remedy within thirty days, or enters into insolvency proceedings.
+
+7. Force majeure
+Neither Party shall be in breach of this Agreement, nor liable for delay in performing or failure to perform any of its obligations, if the delay or failure results from events beyond its reasonable control. If the period of delay continues for three months, the Party not affected may terminate this Agreement by giving fourteen days' written notice.
+
+8. Governing law and jurisdiction
+This Agreement and any dispute or claim arising out of or in connection with it are governed by the law of the Supplier's country of incorporation. The Parties irrevocably agree that the courts of that country have exclusive jurisdiction, after an attempt to resolve the dispute by negotiation between senior representatives lasting at least twenty Business Days.
+
+Signed by Emma Ashdown for and on behalf of the Supplier.
+Signed by James Pemberton for and on behalf of the Customer.

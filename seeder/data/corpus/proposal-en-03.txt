@@ -1,0 +1,41 @@
+Proposal: finance process review for Oakhollow Media
+
+Prepared for: Claire Aldridge, Oakhollow Media Inc.
+Prepared by: Manolis Katsaros, Aspida Demo Consulting
+Date: 19 July 2026
+Reference: AD-2026-199 (project Argo, PRJ-ARG-5675)
+
+Commercial in confidence. This document is addressed to Oakhollow Media only and must not be passed to third parties.
+
+1. Our understanding of your needs
+In our meetings with Claire Aldridge and the finance team we heard three problems. Month-end closing takes eleven working days because figures are re-keyed by hand. Sales and finance report different revenue numbers for the same month. And nobody can say which version of a spreadsheet is the current one. The project is designed around these three problems and nothing else.
+
+2. Approach
+We work in three phases. In discovery we map the existing reports and agree one definition for each figure. In build we load the ledger, billing and order data into a single model and rebuild the twelve reports that matter most. In handover we train the finance team, run one month-end in parallel with the old process and correct any differences we find.
+
+3. Deliverables
+You will receive a documented data model, twelve production reports with drill-down to invoice level, a reconciliation between the new reports and the audited figures for the last two quarters, an operations guide written for your own staff, and two half-day training sessions. Source code and configuration are delivered to your repository at the end of each phase.
+
+4. Team
+Manolis Katsaros is the engagement lead and your single point of contact. Konstantina Dimopoulou designs the data model and leads the build. A third consultant joins for the build and handover phases. We ask Oakhollow Media to name a product owner with authority to decide definitions, and to give us about four hours a week of a finance analyst's time.
+
+5. Timeline
+Work would start on 5 August 2026. Discovery takes two weeks, build takes most of the remaining time and handover the last two weeks, so the project ends around 25 November 2026. The timetable assumes that read access to the ledger and billing systems is in place on day one; every week of delay in access moves the end date by a week.
+
+6. Commercials
+The fee for the scope described here is €51,000, excluding VAT, invoiced as 8% on signature and the balance in equal parts at the end of each phase. Payment terms are 30 days. Expenses are not expected; any that arise are charged at cost with your prior approval. Additional reports beyond the twelve are priced at €850 each.
+
+7. Assumptions
+The price assumes one ledger, one billing system and no more than five years of history. It assumes that data quality problems found in discovery are corrected by your team in the source systems, not worked around in the reports. It also assumes that the platform runs in your existing cloud subscription, which you pay for directly.
+
+8. Risks and how we manage them
+The main risk is disagreement on definitions, which is why they are settled in discovery and signed off by your product owner before any report is built. The second is data quality; we report every issue weekly with its owner and due date. The third is key-person dependency on your side, which we reduce by documenting every decision as it is made.
+
+9. Handling of your data
+During the project we will see invoices, customer names and payment records. All work is done inside your environment; nothing is copied to our laptops or to third-party tools. Access is limited to the three named consultants and is removed on the last day of the project. Test data is masked before it is used in any demonstration.
+
+10. Next steps
+If this proposal meets your needs, please confirm by email to m.katsaros@aspida-demo.example. We will then send the statement of work for signature under the existing agreement and book the discovery workshops. This proposal is valid for 30 days from its date. We would be glad to walk your management team through it at any time.
+
+Manolis Katsaros
+Aspida Demo Consulting

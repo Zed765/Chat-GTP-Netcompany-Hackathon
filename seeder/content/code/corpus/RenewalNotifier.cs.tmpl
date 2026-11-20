@@ -1,0 +1,121 @@
+// Contract renewal reminders for project @@PROJECT@@ (@@CODE@@).
+//
+// Proprietary and confidential. Property of Aspida Demo Consulting. Do not distribute.
+// Finds client contracts that are close to their end date and tells the account owner in
+// time to prepare a renewal offer before the notice period starts.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace AspidaDemo.@@PROJECT@@.Renewals
+{
+    public enum RenewalStage { NotDue, Prepare, OfferDue, NoticeWindow, Lapsed }
+
+    public sealed record Contract(
+        string Reference,
+        string ClientId,
+        string AccountOwner,
+        DateOnly EndsOn,
+        int NoticeDays,
+        bool AutoRenews,
+        decimal AnnualValue);
+
+    public sealed record Reminder(string Reference, string AccountOwner, RenewalStage Stage, string Message);
+
+    public sealed class RenewalNotifier
+    {
+        private const int PrepareDaysBeforeNotice = 60;
+        private const int OfferDaysBeforeNotice = 21;
+
+        private readonly Func<DateOnly> _today;
+
+        public RenewalNotifier(Func<DateOnly> today)
+        {
+            _today = today;
+        }
+
+        /// <summary>The last day on which either party can still give notice.</summary>
+        public static DateOnly NoticeDeadline(Contract contract) =>
+            contract.EndsOn.AddDays(-contract.NoticeDays);
+
+        public RenewalStage StageOf(Contract contract)
+        {
+            var today = _today();
+            if (today > contract.EndsOn)
+            {
+                return contract.AutoRenews ? RenewalStage.NotDue : RenewalStage.Lapsed;
+            }
+
+            var daysToNotice = NoticeDeadline(contract).DayNumber - today.DayNumber;
+            if (daysToNotice < 0)
+            {
+                return RenewalStage.NoticeWindow;
+            }
+
+            if (daysToNotice <= OfferDaysBeforeNotice)
+            {
+                return RenewalStage.OfferDue;
+            }
+
+            return daysToNotice <= PrepareDaysBeforeNotice ? RenewalStage.Prepare : RenewalStage.NotDue;
+        }
+
+        public IReadOnlyList<Reminder> RemindersFor(IEnumerable<Contract> contracts)
+        {
+            return contracts
+                .Select(contract => (contract, stage: StageOf(contract)))
+                .Where(item => item.stage != RenewalStage.NotDue)
+                .OrderBy(item => item.contract.EndsOn)
+                .Select(item => new Reminder(
+                    item.contract.Reference,
+                    item.contract.AccountOwner,
+                    item.stage,
+                    Describe(item.contract, item.stage)))
+                .ToList();
+        }
+
+        private static string Describe(Contract contract, RenewalStage stage) => stage switch
+        {
+            RenewalStage.Prepare =>
+                $"Contract {contract.Reference} ends on {contract.EndsOn:d}. Start preparing the renewal offer.",
+            RenewalStage.OfferDue =>
+                $"Send the renewal offer for {contract.Reference} before {NoticeDeadline(contract):d}.",
+            RenewalStage.NoticeWindow =>
+                $"The notice period of {contract.Reference} has started. Confirm the client's intention.",
+            RenewalStage.Lapsed =>
+                $"Contract {contract.Reference} has ended without renewal. Stop work or agree an extension.",
+            _ => string.Empty,
+        };
+
+        /// <summary>Annual value at risk per account owner, for the @@PROJECT@@ weekly digest.</summary>
+        public IReadOnlyDictionary<string, decimal> ValueAtRisk(IEnumerable<Contract> contracts)
+        {
+            return contracts
+                .Where(contract => StageOf(contract) is RenewalStage.OfferDue or RenewalStage.NoticeWindow)
+                .GroupBy(contract => contract.AccountOwner)
+                .ToDictionary(group => group.Key, group => group.Sum(contract => contract.AnnualValue));
+        }
+
+        /// <summary>Contracts that end within the next ninety days, soonest first.</summary>
+        public IReadOnlyList<Contract> EndingSoon(IEnumerable<Contract> contracts)
+        {
+            var limit = _today().AddDays(90);
+            return contracts
+                .Where(contract => contract.EndsOn >= _today() && contract.EndsOn <= limit)
+                .OrderBy(contract => contract.EndsOn)
+                .ToList();
+        }
+
+        /// <summary>A price increase is proposed when the rate has been frozen for two years.</summary>
+        public static decimal ProposedValue(Contract contract, int yearsSinceLastIncrease, decimal indexPercent)
+        {
+            if (yearsSinceLastIncrease < 2)
+            {
+                return contract.AnnualValue;
+            }
+
+            return Math.Round(contract.AnnualValue * (1 + indexPercent / 100m), 2);
+        }
+    }
+}

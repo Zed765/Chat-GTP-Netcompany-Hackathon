@@ -1,0 +1,115 @@
+"""Invoice and payment matching for project @@PROJECT@@ (@@CODE@@).
+
+Proprietary and confidential. Property of Aspida Demo Consulting. Do not distribute.
+Matches incoming bank payments to open invoices, so that the receivables report of
+@@PROJECT@@ shows what each client still owes.
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+from datetime import date, timedelta
+from decimal import Decimal
+
+TOLERANCE = Decimal("0.05")
+GRACE_DAYS = 3
+
+
+@dataclass(frozen=True)
+class Invoice:
+    number: str
+    client_id: str
+    issued_on: date
+    due_on: date
+    total: Decimal
+
+
+@dataclass(frozen=True)
+class Payment:
+    reference: str
+    client_id: str
+    received_on: date
+    amount: Decimal
+    remittance_text: str
+
+
+@dataclass
+class MatchResult:
+    matched: list[tuple[Invoice, Payment]] = field(default_factory=list)
+    unmatched_invoices: list[Invoice] = field(default_factory=list)
+    unmatched_payments: list[Payment] = field(default_factory=list)
+
+
+def mentions_invoice(payment: Payment, invoice: Invoice) -> bool:
+    """Clients usually quote the invoice number in the remittance text, often with spaces."""
+    compact = payment.remittance_text.replace(" ", "").replace("-", "").upper()
+    return invoice.number.replace("-", "").upper() in compact
+
+
+def amounts_agree(payment: Payment, invoice: Invoice) -> bool:
+    return abs(payment.amount - invoice.total) <= TOLERANCE
+
+
+def match(invoices: list[Invoice], payments: list[Payment]) -> MatchResult:
+    """Match by invoice number first, then by client and amount, oldest invoice first."""
+    result = MatchResult()
+    open_invoices = sorted(invoices, key=lambda invoice: invoice.due_on)
+    remaining = list(payments)
+    for invoice in list(open_invoices):
+        payment = next((p for p in remaining if mentions_invoice(p, invoice)), None)
+        if payment is None:
+            payment = next(
+                (
+                    p
+                    for p in remaining
+                    if p.client_id == invoice.client_id and amounts_agree(p, invoice)
+                ),
+                None,
+            )
+        if payment is not None:
+            result.matched.append((invoice, payment))
+            remaining.remove(payment)
+            open_invoices.remove(invoice)
+    result.unmatched_invoices = open_invoices
+    result.unmatched_payments = remaining
+    return result
+
+
+def days_overdue(invoice: Invoice, today: date) -> int:
+    late = (today - invoice.due_on - timedelta(days=GRACE_DAYS)).days
+    return max(late, 0)
+
+
+def ageing_buckets(invoices: list[Invoice], today: date) -> dict[str, Decimal]:
+    """Open amounts by age, in the buckets the finance team reviews every week."""
+    buckets = {"current": Decimal(0), "1-30": Decimal(0), "31-60": Decimal(0), "60+": Decimal(0)}
+    for invoice in invoices:
+        late = days_overdue(invoice, today)
+        if late == 0:
+            buckets["current"] += invoice.total
+        elif late <= 30:
+            buckets["1-30"] += invoice.total
+        elif late <= 60:
+            buckets["31-60"] += invoice.total
+        else:
+            buckets["60+"] += invoice.total
+    return buckets
+
+
+def days_sales_outstanding(matched: list[tuple[Invoice, Payment]]) -> float:
+    """Average number of days between issuing an invoice and receiving its payment."""
+    if not matched:
+        return 0.0
+    waits = [(payment.received_on - invoice.issued_on).days for invoice, payment in matched]
+    return sum(waits) / len(waits)
+
+
+def reminder_due(invoice: Invoice, today: date, already_sent: int) -> bool:
+    """One reminder a fortnight, and never more than three for the same invoice."""
+    late = days_overdue(invoice, today)
+    return late > 0 and already_sent < 3 and late // 14 >= already_sent
+
+
+def open_balance(invoices: list[Invoice], client_id: str) -> Decimal:
+    """What one client still owes across all of its open invoices."""
+    return sum((i.total for i in invoices if i.client_id == client_id), Decimal(0))

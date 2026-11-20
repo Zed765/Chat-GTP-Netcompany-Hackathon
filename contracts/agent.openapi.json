@@ -1,0 +1,765 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "A.S.P.I.D.A. demo agent",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/sessions": {
+      "post": {
+        "summary": "Create Session",
+        "operationId": "create_session_sessions_post",
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentSession"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/sessions/{session_id}": {
+      "get": {
+        "summary": "Get Session",
+        "operationId": "get_session_sessions__session_id__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentSession"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "End Session",
+        "description": "Forget the conversation here and its vault entries, taint and canary in the gateway.",
+        "operationId": "end_session_sessions__session_id__delete",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sessions/{session_id}/messages": {
+      "post": {
+        "summary": "Send Message",
+        "operationId": "send_message_sessions__session_id__messages_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MessageIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Server-sent events. Each `data:` line is one `AgentEvent` as JSON.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/TextDelta"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ToolCallEvent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ToolResultEvent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DoneEvent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorEvent"
+                    }
+                  ],
+                  "discriminator": {
+                    "propertyName": "type",
+                    "mapping": {
+                      "text": "#/components/schemas/TextDelta",
+                      "tool_call": "#/components/schemas/ToolCallEvent",
+                      "tool_result": "#/components/schemas/ToolResultEvent",
+                      "done": "#/components/schemas/DoneEvent",
+                      "error": "#/components/schemas/ErrorEvent"
+                    }
+                  },
+                  "title": "Response 200 Send Message Sessions  Session Id  Messages Post"
+                }
+              },
+              "text/event-stream": {}
+            }
+          },
+          "409": {
+            "description": "The assistant is still working on this session's previous turn."
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sessions/{session_id}/confirmations/{call_id}": {
+      "post": {
+        "summary": "Confirm Call",
+        "description": "Approve or reject a side-effect call that the policy held for confirmation.",
+        "operationId": "confirm_call_sessions__session_id__confirmations__call_id__post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          },
+          {
+            "name": "call_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Call Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Server-sent events. Each `data:` line is one `AgentEvent` as JSON.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/TextDelta"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ToolCallEvent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ToolResultEvent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DoneEvent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorEvent"
+                    }
+                  ],
+                  "discriminator": {
+                    "propertyName": "type",
+                    "mapping": {
+                      "text": "#/components/schemas/TextDelta",
+                      "tool_call": "#/components/schemas/ToolCallEvent",
+                      "tool_result": "#/components/schemas/ToolResultEvent",
+                      "done": "#/components/schemas/DoneEvent",
+                      "error": "#/components/schemas/ErrorEvent"
+                    }
+                  },
+                  "title": "Response 200 Confirm Call Sessions  Session Id  Confirmations  Call Id  Post"
+                }
+              },
+              "text/event-stream": {}
+            }
+          },
+          "409": {
+            "description": "The assistant is still working on this session's previous turn."
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Action": {
+        "type": "string",
+        "enum": [
+          "allow",
+          "redact",
+          "warn",
+          "block"
+        ],
+        "title": "Action"
+      },
+      "AgentMessage": {
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": [
+              "user",
+              "assistant"
+            ],
+            "title": "Role"
+          },
+          "content": {
+            "type": "string",
+            "title": "Content"
+          }
+        },
+        "type": "object",
+        "required": [
+          "role",
+          "content"
+        ],
+        "title": "AgentMessage"
+      },
+      "AgentSession": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "title": "Session Id"
+          },
+          "protection": {
+            "$ref": "#/components/schemas/InjectionProtection"
+          },
+          "tainted": {
+            "type": "boolean",
+            "title": "Tainted"
+          },
+          "taint_source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Taint Source"
+          },
+          "messages": {
+            "items": {
+              "$ref": "#/components/schemas/AgentMessage"
+            },
+            "type": "array",
+            "title": "Messages"
+          },
+          "trace": {
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/ToolCallEvent"
+                },
+                {
+                  "$ref": "#/components/schemas/ToolResultEvent"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "type",
+                "mapping": {
+                  "tool_call": "#/components/schemas/ToolCallEvent",
+                  "tool_result": "#/components/schemas/ToolResultEvent"
+                }
+              }
+            },
+            "type": "array",
+            "title": "Trace"
+          },
+          "request_of_call": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Request Of Call",
+            "description": "For each call in the trace, the request it followed: its place, from 0, among the user's messages"
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id",
+          "protection",
+          "tainted",
+          "taint_source",
+          "messages",
+          "trace",
+          "request_of_call"
+        ],
+        "title": "AgentSession"
+      },
+      "ConfirmIn": {
+        "properties": {
+          "approve": {
+            "type": "boolean",
+            "title": "Approve"
+          }
+        },
+        "type": "object",
+        "required": [
+          "approve"
+        ],
+        "title": "ConfirmIn"
+      },
+      "DoneEvent": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "done",
+            "title": "Type",
+            "default": "done"
+          },
+          "tainted": {
+            "type": "boolean",
+            "title": "Tainted"
+          },
+          "taint_source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Taint Source"
+          }
+        },
+        "type": "object",
+        "required": [
+          "tainted",
+          "taint_source"
+        ],
+        "title": "DoneEvent"
+      },
+      "ErrorEvent": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "error",
+            "title": "Type",
+            "default": "error"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          }
+        },
+        "type": "object",
+        "required": [
+          "message"
+        ],
+        "title": "ErrorEvent"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "InjectionProtection": {
+        "type": "string",
+        "enum": [
+          "off",
+          "standard",
+          "detailed"
+        ],
+        "title": "InjectionProtection"
+      },
+      "InjectionVerdict": {
+        "properties": {
+          "flagged": {
+            "type": "boolean",
+            "title": "Flagged"
+          },
+          "confidence": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Confidence"
+          },
+          "technique": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Technique"
+          },
+          "evidence": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Evidence",
+            "description": "Flagged span; never persisted"
+          },
+          "layers_run": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Layers Run",
+            "default": []
+          }
+        },
+        "type": "object",
+        "required": [
+          "flagged",
+          "confidence"
+        ],
+        "title": "InjectionVerdict"
+      },
+      "MessageIn": {
+        "properties": {
+          "content": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Content"
+          }
+        },
+        "type": "object",
+        "required": [
+          "content"
+        ],
+        "title": "MessageIn"
+      },
+      "TextDelta": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "text",
+            "title": "Type",
+            "default": "text"
+          },
+          "delta": {
+            "type": "string",
+            "title": "Delta"
+          }
+        },
+        "type": "object",
+        "required": [
+          "delta"
+        ],
+        "title": "TextDelta"
+      },
+      "ToolCallEvent": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "tool_call",
+            "title": "Type",
+            "default": "tool_call"
+          },
+          "call_id": {
+            "type": "string",
+            "title": "Call Id"
+          },
+          "tool": {
+            "type": "string",
+            "title": "Tool",
+            "description": "`<server>.<tool>`, for example `mail.send_email`"
+          },
+          "arguments": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Arguments",
+            "description": "As the model wrote them, placeholders included"
+          },
+          "decision": {
+            "$ref": "#/components/schemas/ToolDecision"
+          },
+          "layers_run": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Layers Run"
+          }
+        },
+        "type": "object",
+        "required": [
+          "call_id",
+          "tool",
+          "arguments",
+          "decision"
+        ],
+        "title": "ToolCallEvent",
+        "description": "A call with a `call_id` seen before replaces the earlier one: it is the same call,\ndecided again after the user confirmed or declined it."
+      },
+      "ToolDecision": {
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/Action"
+          },
+          "rule": {
+            "type": "string",
+            "title": "Rule"
+          },
+          "reason": {
+            "type": "string",
+            "title": "Reason"
+          },
+          "resolved": {
+            "type": "boolean",
+            "title": "Resolved",
+            "description": "True if the tool received real values, not placeholders"
+          },
+          "needs_confirmation": {
+            "type": "boolean",
+            "title": "Needs Confirmation",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "action",
+          "rule",
+          "reason",
+          "resolved"
+        ],
+        "title": "ToolDecision",
+        "description": "What the gateway decided about one outgoing tool call."
+      },
+      "ToolResultEvent": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "tool_result",
+            "title": "Type",
+            "default": "tool_result"
+          },
+          "call_id": {
+            "type": "string",
+            "title": "Call Id"
+          },
+          "tool": {
+            "type": "string",
+            "title": "Tool"
+          },
+          "source": {
+            "$ref": "#/components/schemas/Trust"
+          },
+          "preview": {
+            "type": "string",
+            "title": "Preview",
+            "description": "The masked result as the model saw it, shortened"
+          },
+          "masked_values": {
+            "type": "integer",
+            "title": "Masked Values"
+          },
+          "injection": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/InjectionVerdict"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "layers_run": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Layers Run"
+          },
+          "tainted": {
+            "type": "boolean",
+            "title": "Tainted"
+          }
+        },
+        "type": "object",
+        "required": [
+          "call_id",
+          "tool",
+          "source",
+          "preview",
+          "masked_values",
+          "injection",
+          "tainted"
+        ],
+        "title": "ToolResultEvent"
+      },
+      "Trust": {
+        "type": "string",
+        "enum": [
+          "trusted",
+          "untrusted"
+        ],
+        "title": "Trust"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    },
+    "securitySchemes": {
+      "HTTPBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

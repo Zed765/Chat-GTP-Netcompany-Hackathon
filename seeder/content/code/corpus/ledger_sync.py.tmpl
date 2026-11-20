@@ -1,0 +1,115 @@
+"""Ledger synchronisation for project @@PROJECT@@ (@@CODE@@).
+
+Proprietary and confidential. Property of Aspida Demo Consulting. Do not distribute.
+Pulls posted ledger entries from the client's accounting system and loads them into the
+@@PROJECT@@ reporting model, one accounting period at a time.
+"""
+
+from __future__ import annotations
+
+import logging
+from collections.abc import Iterable, Iterator
+from dataclasses import dataclass
+from datetime import date
+from decimal import Decimal
+
+log = logging.getLogger("@@SLUG@@.ledger_sync")
+
+BATCH_SIZE = 500
+SUPPORTED_CURRENCIES = frozenset({"EUR", "USD", "GBP"})
+
+
+@dataclass(frozen=True)
+class LedgerEntry:
+    entry_id: str
+    period: str
+    account: str
+    cost_centre: str
+    amount: Decimal
+    currency: str
+    posted_on: date
+
+
+class LedgerSyncError(RuntimeError):
+    """Raised when a period cannot be loaded consistently."""
+
+
+def period_key(day: date) -> str:
+    """Accounting periods are calendar months, written as 2026-03."""
+    return f"{day.year:04d}-{day.month:02d}"
+
+
+def validate(entry: LedgerEntry) -> None:
+    if entry.currency not in SUPPORTED_CURRENCIES:
+        raise LedgerSyncError(f"entry {entry.entry_id}: unsupported currency {entry.currency}")
+    if entry.period != period_key(entry.posted_on):
+        raise LedgerSyncError(f"entry {entry.entry_id}: posted outside its period")
+    if not entry.account.isdigit() or len(entry.account) != 6:
+        raise LedgerSyncError(f"entry {entry.entry_id}: malformed account {entry.account}")
+
+
+def batched(entries: Iterable[LedgerEntry], size: int = BATCH_SIZE) -> Iterator[list[LedgerEntry]]:
+    batch: list[LedgerEntry] = []
+    for entry in entries:
+        batch.append(entry)
+        if len(batch) == size:
+            yield batch
+            batch = []
+    if batch:
+        yield batch
+
+
+def trial_balance(entries: Iterable[LedgerEntry]) -> dict[str, Decimal]:
+    """Sum per account. A period is balanced when the sums add up to zero."""
+    totals: dict[str, Decimal] = {}
+    for entry in entries:
+        totals[entry.account] = totals.get(entry.account, Decimal(0)) + entry.amount
+    return totals
+
+
+def is_balanced(entries: Iterable[LedgerEntry]) -> bool:
+    return sum(trial_balance(entries).values(), Decimal(0)) == 0
+
+
+class LedgerSync:
+    """Loads one period atomically: either every entry is stored or none is."""
+
+    def __init__(self, source, warehouse) -> None:
+        self._source = source
+        self._warehouse = warehouse
+
+    def sync_period(self, period: str) -> int:
+        entries = list(self._source.fetch_posted(period))
+        for entry in entries:
+            validate(entry)
+        if not is_balanced(entries):
+            raise LedgerSyncError(f"period {period} does not balance; nothing was loaded")
+        loaded = 0
+        with self._warehouse.transaction() as transaction:
+            transaction.delete_period(period)
+            for batch in batched(entries):
+                transaction.insert_entries(batch)
+                loaded += len(batch)
+        log.info("period %s: loaded %d entries", period, loaded)
+        return loaded
+
+    def sync_open_periods(self, today: date) -> dict[str, int]:
+        """The current period and the previous one stay open for late postings."""
+        previous = date(today.year - (today.month == 1), (today.month - 2) % 12 + 1, 1)
+        return {
+            period: self.sync_period(period)
+            for period in (period_key(previous), period_key(today))
+        }
+
+
+def cost_centre_report(entries: Iterable[LedgerEntry]) -> list[tuple[str, Decimal]]:
+    """Net amount per cost centre, largest first, as the @@PROJECT@@ dashboard shows it."""
+    totals: dict[str, Decimal] = {}
+    for entry in entries:
+        totals[entry.cost_centre] = totals.get(entry.cost_centre, Decimal(0)) + entry.amount
+    return sorted(totals.items(), key=lambda item: abs(item[1]), reverse=True)
+
+
+def late_postings(entries: Iterable[LedgerEntry], closed_on: date) -> list[LedgerEntry]:
+    """Entries posted after the period was closed; the controller reviews each one."""
+    return [entry for entry in entries if entry.posted_on > closed_on]

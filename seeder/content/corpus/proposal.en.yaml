@@ -1,0 +1,127 @@
+kind: proposal
+category: CLIENT_CONFIDENTIAL
+language: en
+numbered: true
+titles:
+  - "Proposal: reporting platform for {client}"
+  - "Statement of Work: data migration for {client}"
+  - "Proposal: finance process review for {client}"
+header: |-
+  Prepared for: {contact}, {client:legal}
+  Prepared by: {lead}, {org}
+  Date: {date}
+  Reference: {reference} (project {project}, {project_code})
+
+  Commercial in confidence. This document is addressed to {client} only and must not be passed to third parties.
+sections:
+  - id: summary
+    heading: Summary
+    text: >-
+      {client} has asked {org} to replace the spreadsheets it uses for monthly reporting with a
+      single platform that finance and operations can both trust. We propose a fixed-scope
+      project of {weeks} weeks, delivered by a team of three, for a total fee of {amount}. The
+      first usable reports would be available at the end of week four.
+    paraphrase: >-
+      The monthly reporting at {client} runs on spreadsheets today. {org} was asked to put one
+      platform in their place, one whose numbers both finance and operations accept. Our offer
+      is a project with a fixed scope: three people, {weeks} weeks, {amount} in fees overall,
+      and a first set of working reports once four weeks have passed.
+  - id: needs
+    heading: Our understanding of your needs
+    text: >-
+      In our meetings with {contact} and the finance team we heard three problems. Month-end
+      closing takes eleven working days because figures are re-keyed by hand. Sales and finance
+      report different revenue numbers for the same month. And nobody can say which version of a
+      spreadsheet is the current one. The project is designed around these three problems and
+      nothing else.
+  - id: approach
+    heading: Approach
+    text: >-
+      We work in three phases. In discovery we map the existing reports and agree one definition
+      for each figure. In build we load the ledger, billing and order data into a single model
+      and rebuild the twelve reports that matter most. In handover we train the finance team,
+      run one month-end in parallel with the old process and correct any differences we find.
+    translation: >-
+      Εργαζόμαστε σε τρεις φάσεις. Στη φάση της αποτύπωσης καταγράφουμε τις υπάρχουσες αναφορές
+      και συμφωνούμε έναν ορισμό για κάθε μέγεθος. Στη φάση της υλοποίησης φορτώνουμε τα δεδομένα
+      της λογιστικής, της τιμολόγησης και των παραγγελιών σε ένα ενιαίο μοντέλο και ξαναχτίζουμε
+      τις δώδεκα σημαντικότερες αναφορές. Στη φάση της παράδοσης εκπαιδεύουμε την ομάδα
+      οικονομικών, εκτελούμε ένα κλείσιμο μήνα παράλληλα με την παλιά διαδικασία και διορθώνουμε
+      όσες διαφορές εντοπίσουμε.
+  - id: deliverables
+    heading: Deliverables
+    text: >-
+      You will receive a documented data model, twelve production reports with drill-down to
+      invoice level, a reconciliation between the new reports and the audited figures for the
+      last two quarters, an operations guide written for your own staff, and two half-day
+      training sessions. Source code and configuration are delivered to your repository at the
+      end of each phase.
+  - id: team
+    heading: Team
+    text: >-
+      {lead} is the engagement lead and your single point of contact. {lead2} designs the data
+      model and leads the build. A third consultant joins for the build and handover phases. We
+      ask {client} to name a product owner with authority to decide definitions, and to give us
+      about four hours a week of a finance analyst's time.
+  - id: timeline
+    heading: Timeline
+    text: >-
+      Work would start on {start_date}. Discovery takes two weeks, build takes most of the
+      remaining time and handover the last two weeks, so the project ends around {end_date}. The
+      timetable assumes that read access to the ledger and billing systems is in place on day
+      one; every week of delay in access moves the end date by a week.
+  - id: commercials
+    heading: Commercials
+    text: >-
+      The fee for the scope described here is {amount}, excluding VAT, invoiced as {percent}% on
+      signature and the balance in equal parts at the end of each phase. Payment terms are
+      {days} days. Expenses are not expected; any that arise are charged at cost with your prior
+      approval. Additional reports beyond the twelve are priced at {rate} each.
+    paraphrase: >-
+      We would charge {amount} before VAT for this scope. {percent}% is invoiced when the
+      proposal is signed and the rest is split evenly across the ends of the phases, each
+      invoice payable in {days} days. We do not foresee expenses, and would bill any at cost
+      and only after you agree. Every report after the twelfth costs {rate}.
+  - id: assumptions
+    heading: Assumptions
+    text: >-
+      The price assumes one ledger, one billing system and no more than five years of history.
+      It assumes that data quality problems found in discovery are corrected by your team in the
+      source systems, not worked around in the reports. It also assumes that the platform runs
+      in your existing cloud subscription, which you pay for directly.
+  - id: risks
+    heading: Risks and how we manage them
+    text: >-
+      The main risk is disagreement on definitions, which is why they are settled in discovery
+      and signed off by your product owner before any report is built. The second is data
+      quality; we report every issue weekly with its owner and due date. The third is key-person
+      dependency on your side, which we reduce by documenting every decision as it is made.
+    translation: >-
+      Ο κυριότερος κίνδυνος είναι η διαφωνία για τους ορισμούς· γι' αυτό οριστικοποιούνται στη
+      φάση της αποτύπωσης και εγκρίνονται από τον υπεύθυνο προϊόντος σας πριν χτιστεί
+      οποιαδήποτε αναφορά. Ο δεύτερος είναι η ποιότητα των δεδομένων: αναφέρουμε κάθε πρόβλημα
+      εβδομαδιαία, με υπεύθυνο και προθεσμία. Ο τρίτος είναι η εξάρτηση από λίγα πρόσωπα στη
+      δική σας πλευρά, την οποία περιορίζουμε καταγράφοντας κάθε απόφαση τη στιγμή που
+      λαμβάνεται.
+  - id: data
+    heading: Handling of your data
+    text: >-
+      During the project we will see invoices, customer names and payment records. All work is
+      done inside your environment; nothing is copied to our laptops or to third-party tools.
+      Access is limited to the three named consultants and is removed on the last day of the
+      project. Test data is masked before it is used in any demonstration.
+    paraphrase: >-
+      Invoices, payment records and the names of your customers will pass before our eyes while
+      we work. We keep everything in your own environment and copy nothing to our computers or
+      to outside tools. Only the three consultants named here get access, and they lose it on
+      the project's final day. Anything shown in a demonstration is masked first.
+  - id: next_steps
+    heading: Next steps
+    text: >-
+      If this proposal meets your needs, please confirm by email to {lead_email}. We will then
+      send the statement of work for signature under the existing agreement and book the
+      discovery workshops. This proposal is valid for {days} days from its date. We would be
+      glad to walk your management team through it at any time.
+footer: |-
+  {lead}
+  {org}

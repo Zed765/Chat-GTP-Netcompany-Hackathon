@@ -1,0 +1,92 @@
+language: en
+intros:
+  - "Hello! A few different questions for you today."
+  - "I would appreciate your help with some everyday things."
+  - "Good morning. Here are some things I have been meaning to ask about."
+bridges:
+  - "Next, something unrelated."
+  - "Moving on to a different topic."
+  - "Here is another one."
+closers:
+  - "And a quick last question."
+  - "One more, briefly."
+  - "Lastly."
+topics:
+  - id: party
+    paragraphs:
+      - >-
+        My son turns seven next month and we are inviting twelve children to the house for
+        the afternoon. I need a plan for two and a half hours that keeps them busy without
+        hiring an entertainer. The garden is small, and it may rain, so indoor alternatives
+        matter.
+      - >-
+        Could you suggest five games suitable for that age, with the materials each one needs,
+        and an order that alternates lively games with quiet ones? A treasure hunt would be
+        popular; please write six rhyming clues that lead from room to room and end at the
+        cake.
+      - >-
+        I would also like ideas for simple food that most children eat, a party bag that costs
+        very little, and wording for the invitation, including a line asking parents to tell
+        me about allergies. A checklist for the week before would stop me forgetting the
+        candles again.
+  - id: vaccines
+    paragraphs:
+      - >-
+        I am preparing a short talk for a community group about how vaccines work and I would
+        like to explain it accurately but without jargon. Can you describe what happens in the
+        body after a vaccination, and why a second dose or a booster is sometimes needed?
+      - >-
+        An analogy would help the audience. I have heard the immune system compared to a
+        security team that studies a photograph of an intruder before the intruder arrives.
+        Is that a fair comparison, and where does it break down? Please mention the difference
+        between antibodies and memory cells.
+      - >-
+        People will probably ask about herd immunity and about why mild side effects such as a
+        sore arm are common. A few clear sentences on each would be useful, along with advice
+        on where to find reliable public information, such as national health authorities.
+  - id: regex
+    paragraphs:
+      - >-
+        I am writing a small form in JavaScript and I want to check that a username is between
+        three and sixteen characters long and contains only letters, digits and underscores,
+        starting with a letter. I tried a regular expression but it also accepts names that
+        are far too long.
+      - >-
+        My pattern was /[a-zA-Z][a-zA-Z0-9_]{2,15}/ and I call test() on the input. I think
+        the problem is that I forgot the anchors, so it matches a part of a longer string.
+        Would adding ^ at the start and $ at the end be enough, or is there a neater way?
+      - >-
+        Could you also show how to give the user a helpful message that says which rule was
+        broken, instead of a single generic error? I would be glad to see a few test cases too,
+        including names with accented letters, so I can decide whether to allow them.
+  - id: planets
+    paragraphs:
+      - >-
+        Our local library is holding a quiz night and I have been asked to write the round on
+        the solar system. I need ten questions of mixed difficulty with answers, suitable for
+        teams of adults and teenagers. Please avoid anything that depends on very recent
+        discoveries.
+      - >-
+        I would like the round to cover the order of the planets, which one has the longest
+        day, why Pluto was reclassified, the largest moon and what the asteroid belt is. One
+        question could ask how long sunlight takes to reach the Earth, which always surprises
+        people.
+      - >-
+        Please add a tie-breaker where the nearest answer wins, such as the diameter of
+        Jupiter in kilometres, and a short introduction I can read out before the round
+        begins. A fun fact to announce after each answer would keep the evening lively.
+  - id: bicycle
+    paragraphs:
+      - >-
+        I have started cycling to work, about eight kilometres each way, and I would like to
+        look after the bicycle myself. What should I check every week, every month and once a
+        year? I have a basic set of tools, a pump with a gauge and a bottle of chain oil.
+      - >-
+        Please explain how to tell when the chain needs cleaning or replacing, what tyre
+        pressure suits a commuter on city roads, and how to adjust brakes that have started to
+        squeal. Step-by-step instructions for repairing a puncture at the roadside would be
+        especially welcome.
+      - >-
+        Finally, what should I carry with me every day, and what clothing and lights do you
+        recommend for dark winter mornings? A short list of the signs that mean a visit to a
+        professional mechanic would help me know my limits.

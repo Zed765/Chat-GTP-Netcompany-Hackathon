@@ -1,0 +1,137 @@
+# "Try an example" prompts for the Chat page. Each shows one action of the default policy.
+# `{excerpt}` is two clauses taken from a contract in the corpus; the other slots are filled
+# with the scene 1 client, so the client is the one in the CRM and in the evaluation sets.
+
+- id: client-email-unapproved
+  tool: chatterbox-ai
+  expected: redact
+  en:
+    title: Client email to an unapproved tool
+    note: The tool receives placeholders for the name, the AFM, the IBAN and the email address, and the answer comes back with the real values restored.
+    prompt: |-
+      Draft a polite reply to this email from our client.
+
+      From: {contact} <{contact_email}>
+      Subject: Refund for invoice 2026-0412
+
+      Dear Eleni,
+      {client:legal} (AFM {client_afm}) has not yet received the refund we agreed last week. Please send it to our account, IBAN {client_iban:spaced}, by Friday.
+
+      Kind regards,
+      {contact}
+  el:
+    title: Email πελάτη σε μη εγκεκριμένο εργαλείο
+    note: The tool receives placeholders for the name, the AFM, the IBAN and the email address, and the answer comes back with the real values restored.
+    prompt: |-
+      Γράψε μια ευγενική απάντηση στο παρακάτω email πελάτη μας.
+
+      Από: {contact} <{contact_email}>
+      Θέμα: Επιστροφή χρημάτων για το τιμολόγιο 2026-0412
+
+      Καλημέρα Ελένη,
+      η {client:legal} (ΑΦΜ {client_afm}) δεν έχει λάβει ακόμη την επιστροφή που συμφωνήσαμε την προηγούμενη εβδομάδα. Παρακαλώ να κατατεθεί στον λογαριασμό μας, IBAN {client_iban:spaced}, έως την Παρασκευή.
+
+      Με εκτίμηση,
+      {contact}
+
+- id: contract-unapproved
+  tool: chatterbox-ai
+  expected: block
+  en:
+    title: Contract clauses to an unapproved tool
+    note: The text matches a contract in the protected documents, so it is not forwarded; the message names an approved tool to use instead.
+    prompt: |-
+      Summarise in plain English the key obligations in these clauses of a client contract.
+
+      {excerpt}
+  el:
+    title: Όροι σύμβασης σε μη εγκεκριμένο εργαλείο
+    note: The text matches a contract in the protected documents, so it is not forwarded; the message names an approved tool to use instead.
+    prompt: |-
+      Συνόψισε σε απλά ελληνικά τις βασικές υποχρεώσεις που προκύπτουν από τους παρακάτω όρους σύμβασης με πελάτη μας.
+
+      {excerpt}
+
+- id: marked-confidential-tolerated
+  tool: draftpilot
+  expected: warn
+  en:
+    title: Text marked confidential to a tolerated tool
+    note: A confidentiality marker and no personal data. The user sees a warning and chooses whether to send.
+    prompt: |-
+      CONFIDENTIAL - internal use only.
+
+      Tighten the wording of this note for the board: third-quarter revenue came in 8% under plan, we expect to miss the full-year target, and a hiring freeze starts in January. The plan has not been announced to staff.
+  el:
+    title: Κείμενο με σήμανση «Εμπιστευτικό» σε ανεκτό εργαλείο
+    note: A confidentiality marker and no personal data. The user sees a warning and chooses whether to send.
+    prompt: |-
+      ΕΜΠΙΣΤΕΥΤΙΚΟ - για εσωτερική χρήση μόνο.
+
+      Βελτίωσε τη διατύπωση του σημειώματος προς το διοικητικό συμβούλιο: τα έσοδα του τρίτου τριμήνου ήταν 8% κάτω από τον στόχο, δεν αναμένεται να πιάσουμε τον ετήσιο στόχο και από τον Ιανουάριο παγώνουν οι προσλήψεις. Το σχέδιο δεν έχει ανακοινωθεί στο προσωπικό.
+
+- id: harmless-unapproved
+  tool: chatterbox-ai
+  expected: allow
+  en:
+    title: An everyday request
+    note: Nothing sensitive is found, so the prompt is forwarded unchanged even to an unapproved tool.
+    prompt: |-
+      Write a friendly out-of-office message for next week. I am back on Monday, and urgent questions can go to the team mailbox.
+  el:
+    title: Ένα καθημερινό αίτημα
+    note: Nothing sensitive is found, so the prompt is forwarded unchanged even to an unapproved tool.
+    prompt: |-
+      Γράψε ένα φιλικό μήνυμα αυτόματης απάντησης για την επόμενη εβδομάδα. Επιστρέφω τη Δευτέρα και τα επείγοντα μπορούν να σταλούν στο κοινό γραμματοκιβώτιο της ομάδας.
+
+- id: api-key-approved
+  tool: athena-assist
+  expected: block
+  en:
+    title: An API key, even to an approved tool
+    note: Secrets never leave. The made-up cloud credentials are blocked whatever the tool's status.
+    prompt: |-
+      Why does this deployment script fail with AccessDenied?
+
+      export AWS_ACCESS_KEY_ID={aws_key}
+      export AWS_SECRET_ACCESS_KEY={aws_secret}
+      aws s3 sync ./build s3://company-website --delete
+  el:
+    title: Κλειδί API, ακόμη και σε εγκεκριμένο εργαλείο
+    note: Secrets never leave. The made-up access token is blocked whatever the tool's status.
+    prompt: |-
+      Γιατί η παρακάτω εντολή επιστρέφει σφάλμα 401;
+
+      curl -H "Authorization: token {github_token}" https://api.github.com/user/repos
+
+- id: client-email-approved
+  tool: athena-assist
+  expected: allow
+  en:
+    title: The same client email to the approved tool
+    note: The approved tool may receive client data, so the prompt is forwarded as written.
+    prompt: |-
+      Draft a polite reply to this email from our client.
+
+      From: {contact} <{contact_email}>
+      Subject: Refund for invoice 2026-0412
+
+      Dear Eleni,
+      {client:legal} (AFM {client_afm}) has not yet received the refund we agreed last week. Please send it to our account, IBAN {client_iban:spaced}, by Friday.
+
+      Kind regards,
+      {contact}
+  el:
+    title: Το ίδιο email πελάτη στο εγκεκριμένο εργαλείο
+    note: The approved tool may receive client data, so the prompt is forwarded as written.
+    prompt: |-
+      Γράψε μια ευγενική απάντηση στο παρακάτω email πελάτη μας.
+
+      Από: {contact} <{contact_email}>
+      Θέμα: Επιστροφή χρημάτων για το τιμολόγιο 2026-0412
+
+      Καλημέρα Ελένη,
+      η {client:legal} (ΑΦΜ {client_afm}) δεν έχει λάβει ακόμη την επιστροφή που συμφωνήσαμε την προηγούμενη εβδομάδα. Παρακαλώ να κατατεθεί στον λογαριασμό μας, IBAN {client_iban:spaced}, έως την Παρασκευή.
+
+      Με εκτίμηση,
+      {contact}

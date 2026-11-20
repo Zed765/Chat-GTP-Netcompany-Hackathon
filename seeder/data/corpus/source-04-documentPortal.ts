@@ -1,0 +1,108 @@
+/**
+ * Client document portal for project Tessera (PRJ-TSR-9833).
+ *
+ * Proprietary and confidential. Property of Aspida Demo Consulting. Do not distribute.
+ * Clients sign in to download deliverables and upload source material. Every document
+ * belongs to one engagement, and access is checked on each request.
+ */
+
+export type Role = "client-reader" | "client-approver" | "consultant" | "partner";
+
+export interface PortalUser {
+  id: string;
+  email: string;
+  role: Role;
+  engagementIds: string[];
+}
+
+export interface PortalDocument {
+  id: string;
+  engagementId: string;
+  title: string;
+  version: number;
+  status: "draft" | "in-review" | "approved" | "withdrawn";
+  uploadedBy: string;
+  sizeBytes: number;
+}
+
+export class AccessDenied extends Error {
+  constructor(action: string, documentId: string) {
+    super(`Tessera portal: ${action} is not allowed on document ${documentId}`);
+  }
+}
+
+const MAX_UPLOAD_BYTES = 25 * 1024 * 1024;
+const INTERNAL_ROLES: Role[] = ["consultant", "partner"];
+
+export function canRead(user: PortalUser, document: PortalDocument): boolean {
+  if (!user.engagementIds.includes(document.engagementId)) return false;
+  if (INTERNAL_ROLES.includes(user.role)) return true;
+  return document.status === "approved" || document.status === "in-review";
+}
+
+export function canApprove(user: PortalUser, document: PortalDocument): boolean {
+  return (
+    user.role === "client-approver" &&
+    user.engagementIds.includes(document.engagementId) &&
+    document.status === "in-review"
+  );
+}
+
+export function approve(user: PortalUser, document: PortalDocument): PortalDocument {
+  if (!canApprove(user, document)) throw new AccessDenied("approve", document.id);
+  return { ...document, status: "approved" };
+}
+
+/** A new upload of an existing title becomes the next version and goes back to draft. */
+export function nextVersion(
+  existing: PortalDocument[],
+  upload: Omit<PortalDocument, "id" | "version" | "status">,
+): PortalDocument {
+  if (upload.sizeBytes > MAX_UPLOAD_BYTES) {
+    throw new RangeError(`upload exceeds ${MAX_UPLOAD_BYTES} bytes`);
+  }
+  const earlier = existing.filter(
+    (document) =>
+      document.engagementId === upload.engagementId && document.title === upload.title,
+  );
+  const version = Math.max(0, ...earlier.map((document) => document.version)) + 1;
+  return { ...upload, id: `${upload.engagementId}-${slug(upload.title)}-v${version}`, version, status: "draft" };
+}
+
+export function slug(title: string): string {
+  return title
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9α-ω]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+/** The latest readable version of each title, which is what the client's home page lists. */
+export function visibleDocuments(user: PortalUser, documents: PortalDocument[]): PortalDocument[] {
+  const latest = new Map<string, PortalDocument>();
+  for (const document of documents) {
+    if (!canRead(user, document)) continue;
+    const key = `${document.engagementId}/${document.title}`;
+    const current = latest.get(key);
+    if (!current || current.version < document.version) latest.set(key, document);
+  }
+  return [...latest.values()].sort((a, b) => a.title.localeCompare(b.title, "el"));
+}
+
+export interface AuditRecord {
+  at: string;
+  userId: string;
+  action: "download" | "upload" | "approve" | "withdraw";
+  documentId: string;
+}
+
+/** Downloads are recorded so the engagement lead can see who has opened a deliverable. */
+export function recordDownload(user: PortalUser, document: PortalDocument, now: Date): AuditRecord {
+  if (!canRead(user, document)) throw new AccessDenied("download", document.id);
+  return { at: now.toISOString(), userId: user.id, action: "download", documentId: document.id };
+}
+
+export function unreadApprovals(user: PortalUser, documents: PortalDocument[]): number {
+  return documents.filter((document) => canApprove(user, document)).length;
+}

@@ -1,0 +1,82 @@
+# frozen_string_literal: true
+
+require 'csv'
+require 'date'
+require 'set'
+
+# Exports membership records of a sports club to CSV, with filtering and a summary.
+class MembershipExport
+  HEADERS = %w[number name category joined_on fee_paid].freeze
+  CATEGORIES = %w[junior adult senior family].freeze
+
+  Member = Struct.new(:number, :name, :category, :joined_on, :fee_paid, keyword_init: true) do
+    def years_of_membership(today = Date.today)
+      ((today - joined_on) / 365.25).floor
+    end
+  end
+
+  class InvalidRecord < StandardError; end
+
+  def initialize(members)
+    @members = members
+    validate!
+  end
+
+  def validate!
+    seen = Set.new
+    @members.each do |member|
+      raise InvalidRecord, "duplicate number #{member.number}" unless seen.add?(member.number)
+      raise InvalidRecord, "unknown category #{member.category}" unless CATEGORIES.include?(member.category)
+      raise InvalidRecord, "member #{member.number} has no name" if member.name.to_s.strip.empty?
+    end
+  end
+
+  def unpaid
+    @members.reject(&:fee_paid)
+  end
+
+  def by_category
+    @members.group_by(&:category).transform_values(&:count)
+  end
+
+  def long_standing(years = 10, today = Date.today)
+    @members.select { |member| member.years_of_membership(today) >= years }
+            .sort_by(&:joined_on)
+  end
+
+  def to_csv(members = @members)
+    CSV.generate(headers: true) do |csv|
+      csv << HEADERS
+      members.sort_by(&:number).each do |member|
+        csv << [member.number, member.name, member.category, member.joined_on.iso8601,
+                member.fee_paid ? 'yes' : 'no']
+      end
+    end
+  end
+
+  def write(path, only_unpaid: false)
+    rows = only_unpaid ? unpaid : @members
+    File.write(path, to_csv(rows))
+    rows.size
+  end
+
+  def summary
+    total = @members.size
+    paid = total - unpaid.size
+    lines = ["#{total} members, #{paid} paid (#{total.zero? ? 0 : (100.0 * paid / total).round}%)"]
+    by_category.sort.each { |category, count| lines << format('  %-8s %3d', category, count) }
+    lines.join("\n")
+  end
+end
+
+if $PROGRAM_NAME == __FILE__
+  members = [
+    MembershipExport::Member.new(number: 101, name: 'First Member', category: 'adult',
+                                 joined_on: Date.new(2011, 3, 1), fee_paid: true),
+    MembershipExport::Member.new(number: 102, name: 'Second Member', category: 'junior',
+                                 joined_on: Date.new(2023, 9, 15), fee_paid: false)
+  ]
+  export = MembershipExport.new(members)
+  puts export.summary
+  puts export.to_csv(export.unpaid)
+end

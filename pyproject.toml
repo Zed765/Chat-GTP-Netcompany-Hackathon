@@ -1,0 +1,137 @@
+[project]
+name = "aspida"
+version = "0.1.0"
+description = "A.S.P.I.D.A. - AI Security Proxy for Injection Defense & Anonymization"
+requires-python = ">=3.12,<3.13"
+dependencies = []
+
+# One group per container image; `docker/python.Dockerfile` installs exactly one of them.
+[dependency-groups]
+gateway = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "pydantic>=2.9",
+    "pydantic-settings>=2.6",
+    "sqlalchemy[asyncio]>=2.0.36",
+    "asyncpg>=0.30",
+    "alembic>=1.14",
+    "redis>=5.2",
+    "cryptography>=43",
+    "httpx>=0.27",
+    "httpx2>=2.16",
+    "numpy>=2.1",
+    "pyyaml>=6.0.2",
+    "sqlglot>=25.30",
+    "openai>=1.55",
+    "pyjwt>=2.10",
+    "python-multipart>=0.0.17",
+    "presidio-analyzer>=2.2.355",
+    "spacy>=3.8,<3.9",
+    "en-core-web-sm",
+    "el-core-news-sm",
+    "google-re2>=1.1",
+    "phonenumbers>=8.13",
+    "mcp>=1.2",
+    "pypdf>=5.1",
+    "python-docx>=1.1",
+]
+agent = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "pydantic-settings>=2.6",
+    "httpx>=0.27",
+    "httpx2>=2.16",
+    "openai>=1.55",
+    "mcp>=1.2",
+]
+mcp = [
+    "mcp>=1.2",
+    "uvicorn[standard]>=0.32",
+    "pydantic-settings>=2.6",
+]
+mock-upstream = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "pydantic-settings>=2.6",
+    "openai>=1.55",
+]
+seeder = [
+    "httpx>=0.27",
+    "pydantic-settings>=2.6",
+    "openai>=1.55",
+    "pyyaml>=6.0.2",
+]
+dev = [
+    { include-group = "gateway" },
+    { include-group = "agent" },
+    { include-group = "mcp" },
+    { include-group = "mock-upstream" },
+    { include-group = "seeder" },
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+    "hypothesis>=6.119",
+    "fakeredis>=2.26",
+    "respx>=0.21",
+    "ruff>=0.8",
+    "mypy>=1.13",
+    "types-pyyaml",
+    "pre-commit>=4.0",
+]
+
+[tool.uv]
+package = false
+default-groups = ["dev"]
+
+[tool.uv.sources]
+en-core-web-sm = { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl" }
+el-core-news-sm = { url = "https://github.com/explosion/spacy-models/releases/download/el_core_news_sm-3.8.0/el_core_news_sm-3.8.0-py3-none-any.whl" }
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = [".claude", "web", "seeder/data", "eval/datasets", "eval/results", "defaults/exemplars"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "A", "C4", "SIM", "PTH", "RUF", "ASYNC", "S", "T20"]
+ignore = [
+    "RUF001", "RUF002", "RUF003",  # Greek text is intentional
+    "S101",  # asserts are fine in tests and for narrowing
+]
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/**" = ["S105", "S106", "S311"]
+"seeder/**" = ["S311"]
+"eval/**" = ["S311", "T20"]
+"gateway/migrations/**" = ["N999", "S608"]
+"scripts/**" = ["T20"]
+"**/tests/**/*.py" = ["S105", "S106", "S311"]
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["fastapi.Depends", "fastapi.Query", "fastapi.Header", "fastapi.File", "fastapi.Form"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+plugins = ["pydantic.mypy"]
+exclude = ["web/", "gateway/migrations/"]
+explicit_package_bases = true
+
+[[tool.mypy.overrides]]
+module = ["presidio_analyzer.*", "spacy.*", "re2.*", "docx.*", "fakeredis.*", "sqlglot.*"]
+ignore_missing_imports = true
+follow_untyped_imports = true
+
+[[tool.mypy.overrides]]
+module = ["mcp_servers.*"]
+disallow_untyped_decorators = false
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "session"
+asyncio_default_test_loop_scope = "session"
+testpaths = ["gateway/tests", "agent/tests", "mcp_servers/tests", "mock_upstream/tests", "seeder/tests", "eval/tests"]
+addopts = "-q --import-mode=importlib"
+pythonpath = ["."]
+markers = [
+    "integration: needs the Postgres and Redis test containers (make test-deps)",
+]

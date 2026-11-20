@@ -1,0 +1,142 @@
+language: en
+intros:
+  - "I have a few unrelated things I would like help with today. Here is the first."
+  - "Could you help me with a few things? I will describe them one at a time."
+  - "Several requests in one message, if that is all right. The first one follows."
+bridges:
+  - "The second thing is completely different."
+  - "Now for the next request."
+  - "And on another subject."
+closers:
+  - "One last thing, more briefly."
+  - "Finally, a smaller question."
+  - "And a last, shorter request."
+topics:
+  - id: trip
+    paragraphs:
+      - >-
+        We are planning a long weekend by the sea in early May, four adults travelling by car,
+        and I would like a relaxed itinerary for three days. We enjoy walking, old towns and
+        good food, and we would rather see a few places properly than rush through many. Please
+        suggest what to do each morning and afternoon.
+      - >-
+        For the first day I imagine arriving around noon, having lunch somewhere near the
+        harbour and then a gentle walk through the old quarter. Could you recommend the kind
+        of places worth looking for, such as a castle with a view, a small museum or a
+        waterfront promenade, and roughly how long each one takes?
+      - >-
+        Please also add a short packing list for changeable spring weather, a rough budget per
+        person for meals and entrance tickets, and one idea for a rainy afternoon. If it helps,
+        we prefer to start the day late, and nobody in the group wants to drive after dinner.
+  - id: water_cycle
+    paragraphs:
+      - >-
+        My daughter has to give a five-minute presentation at school about the water cycle and
+        has asked me for help. She is eleven. Could you explain evaporation, condensation,
+        precipitation and collection in simple words that she can say out loud without reading
+        from the page?
+      - >-
+        It would be lovely to have one everyday example for each stage, like a puddle drying
+        in the sun or a bathroom mirror steaming up after a shower. Please also suggest a
+        simple drawing she could make on a poster, with arrows showing where the water goes
+        next.
+      - >-
+        Finally, could you write three quiz questions that she can ask the class at the end,
+        with the answers, and one surprising fact to open with? Something about how the water
+        we drink today has been around since the time of the dinosaurs would make them listen.
+  - id: sorting
+    paragraphs:
+      - >-
+        I am learning Python and I am stuck on a small exercise. I have a list of dictionaries,
+        each with the keys "title" and "year", and I want to print the titles sorted by year,
+        newest first, and alphabetically when two books share the same year. What is the
+        cleanest way to do it?
+      - >-
+        My attempt was sorted(books, key=lambda b: b["year"], reverse=True), which gets the
+        years right but leaves the titles within a year in whatever order they were entered.
+        I read that a key can return a tuple. Would key=lambda b: (-b["year"], b["title"]) be
+        the idiomatic solution, or is there something better?
+      - >-
+        Could you also explain the difference between list.sort() and sorted(), and whether
+        the sort is stable? I would like to understand why sorting twice, first by title and
+        then by year, gives the same result as sorting once with a tuple. A short example I
+        can run would help a lot.
+  - id: dinner
+    paragraphs:
+      - >-
+        I am cooking for six friends on Saturday and would like a menu that I can mostly
+        prepare in advance. One guest is vegetarian and another does not eat nuts. I am
+        thinking of a cold starter, a main course from the oven and a dessert that sits in the
+        fridge until it is needed.
+      - >-
+        For the main course I like the idea of stuffed vegetables, tomatoes and peppers filled
+        with rice and herbs, which everyone can eat. Could you give me quantities for six, the
+        oven temperature and the timing, and tell me whether the dish is better served warm
+        or at room temperature?
+      - >-
+        Please suggest a starter and a dessert to go with it, a shopping list grouped by the
+        sections of a supermarket, and a timetable for the day so that I am not in the kitchen
+        when the guests arrive. A suggestion for a drink without alcohol would be welcome too.
+  - id: olympics
+    paragraphs:
+      - >-
+        I am writing a short article for our neighbourhood newsletter about the history of the
+        Olympic Games and I want to check that I have the outline right. Could you summarise
+        how the ancient games began at Olympia, what events were held and why they came to an
+        end?
+      - >-
+        Then I would like a paragraph on the revival in the nineteenth century, the first
+        modern games in Athens in 1896, and how the programme grew over the following decades
+        with the addition of the winter games and of many more sports and participating
+        countries.
+      - >-
+        To finish, a few sentences on the symbols would be useful: the five rings, the flame
+        and the torch relay, and the tradition of the opening ceremony. Please keep the tone
+        light and accessible, around four hundred words in total, with a title that would make
+        a neighbour want to read on.
+  - id: fitness
+    paragraphs:
+      - >-
+        I have not exercised regularly for years and I want to start again sensibly. I am in
+        my forties, I work at a desk and I can spare about half an hour three times a week.
+        Could you suggest a beginner plan for the first eight weeks that needs no equipment
+        and no gym?
+      - >-
+        I would like a mix of brisk walking, some simple strength exercises such as squats,
+        wall push-ups and planks, and a little stretching at the end. Please tell me how many
+        repetitions to begin with, how to make each exercise easier or harder, and how quickly
+        to progress.
+      - >-
+        It would also help to have advice on warming up, on what muscle soreness is normal and
+        what is a sign to stop, and on staying motivated when the weather is bad. A simple
+        table that I can print and tick off after each session would be perfect.
+  - id: balcony
+    paragraphs:
+      - >-
+        I have a small south-facing balcony on the third floor and I would like to grow herbs
+        and a few vegetables this summer. It gets strong sun from late morning and can be
+        windy. Which plants would cope well in pots, and how big should the pots be?
+      - >-
+        I was thinking of basil, mint, rosemary, cherry tomatoes and perhaps peppers. Could
+        you tell me which of them can share a container, how often each needs watering in hot
+        weather, and whether I should buy seedlings or start from seed at this time of year?
+      - >-
+        Please add a month-by-month list of jobs from April to September, some advice on
+        feeding and on dealing with aphids without chemicals, and an idea for shading the pots
+        during a heatwave. I am a complete beginner, so simple instructions are best.
+  - id: interest
+    paragraphs:
+      - >-
+        Could you explain compound interest to me as if I were a teenager? I understand that
+        interest is paid on money in a savings account, but I do not see why people say that
+        starting early matters so much. A worked example with round numbers would make it
+        clearer.
+      - >-
+        For instance, suppose someone saves one hundred euros a month for ten years at four
+        per cent a year, and someone else saves the same amount for twenty years. How much has
+        each paid in, and how much do they end up with? Please show the steps and not only the
+        final figures.
+      - >-
+        I have also heard of the rule of seventy-two for estimating how long money takes to
+        double. Is it accurate, and where does it come from? Finally, how does inflation change
+        the picture, and what is the difference between a nominal and a real rate of return?

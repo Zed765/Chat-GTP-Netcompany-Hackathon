@@ -1,0 +1,131 @@
+/* The default pack: its name opens the groups, and the switch beside it turns all of them on or off. */
+.pack-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pack-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.pack-toggle svg {
+  color: var(--text-3);
+  transition: rotate 120ms;
+}
+
+.pack-toggle[aria-expanded="true"] svg {
+  rotate: 90deg;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pack-toggle svg {
+    transition: none;
+  }
+}
+
+/* One line to describe what to add, and the button that hands it to the model. */
+.assist {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+@media (max-width: 40rem) {
+  .assist {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* What a field accepts, in brackets after its name. */
+.label-note {
+  font-weight: 400;
+  color: var(--text-2);
+}
+
+/* What to add and in what form, on one line. */
+.add-heading span {
+  margin-inline-start: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--text-2);
+}
+
+.groups {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+}
+
+.groups li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.groups strong {
+  text-transform: capitalize;
+}
+
+.test-text {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  line-height: 1.7;
+  min-height: 4rem;
+}
+
+/* A list whose columns stay where they are from page to page: each has a set width, and a value
+   too long for its column is cut with an ellipsis, with the whole of it in the tooltip. Phones
+   show one card per row instead, where everything wraps. */
+@media (min-width: 40.01rem) {
+  .table-fixed {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  /* One height for every row, whether it ends in a switch or in a button. */
+  .table-fixed tbody > tr > * {
+    height: 2.875rem;
+    padding-block: 0.375rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+
+  .table-fixed .col-name {
+    width: 26%;
+  }
+  .table-fixed .col-type {
+    width: 13rem;
+  }
+  .table-fixed .col-category {
+    width: 15rem;
+  }
+  .table-fixed .col-layer {
+    width: 10.5rem;
+  }
+  .table-fixed .col-date {
+    width: 8rem;
+  }
+  .table-fixed .col-use {
+    width: 8.5rem;
+  }
+}

@@ -1,0 +1,87 @@
+/* The version in the editor: its note can be long, so the menu is wider than a filter. */
+.policy-version {
+  max-width: min(100%, 26rem);
+}
+
+.policy-draft {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+@media (max-width: 40rem) {
+  .policy-draft {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.editor {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  height: 32rem;
+  max-height: 70dvh;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  overflow: hidden;
+}
+
+.editor:focus-within {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.editor-gutter {
+  display: flex;
+  flex-direction: column;
+  padding: 0.625rem 0;
+  background: var(--surface-2);
+  border-right: 1px solid var(--border);
+  color: var(--text-3);
+  text-align: right;
+  overflow: hidden;
+  user-select: none;
+}
+
+.editor-line {
+  padding: 0 0.5rem 0 0.625rem;
+}
+
+.editor-line-issue {
+  background: var(--danger);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.editor-text {
+  padding: 0.625rem 0.75rem;
+  border: 0;
+  outline: 0;
+  resize: none;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  line-height: inherit;
+  white-space: pre;
+  overflow: auto;
+  tab-size: 2;
+}
+
+.issues {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.issues li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.625rem;
+}

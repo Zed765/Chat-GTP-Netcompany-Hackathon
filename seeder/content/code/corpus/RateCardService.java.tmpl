@@ -1,0 +1,97 @@
+/*
+ * Rate cards for project @@PROJECT@@ (@@CODE@@).
+ *
+ * Proprietary and confidential. Property of Aspida Demo Consulting. Do not distribute.
+ * Works out what a consultant day costs a client, from the firm's rate card, the grade of
+ * the consultant and the discounts agreed in the client's contract.
+ */
+package example.aspidademo.@@SLUG@@.billing;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.time.LocalDate;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+public final class RateCardService {
+
+    public enum Grade { ANALYST, CONSULTANT, SENIOR, PRINCIPAL, PARTNER }
+
+    public record RateCard(LocalDate validFrom, Map<Grade, BigDecimal> dailyRates) {}
+
+    public record ClientTerms(String clientId, BigDecimal discountPercent, int volumeThresholdDays,
+                              BigDecimal volumeDiscountPercent, LocalDate rateFrozenUntil) {}
+
+    public record Charge(Grade grade, BigDecimal days, BigDecimal dailyRate, BigDecimal total) {}
+
+    private static final BigDecimal HUNDRED = BigDecimal.valueOf(100);
+    private static final BigDecimal HALF_DAY = new BigDecimal("0.5");
+
+    private final List<RateCard> rateCards;
+
+    public RateCardService(List<RateCard> rateCards) {
+        this.rateCards = rateCards.stream()
+                .sorted(Comparator.comparing(RateCard::validFrom).reversed())
+                .toList();
+    }
+
+    /** The rate card in force on a day: the latest one that started on or before it. */
+    public Optional<RateCard> cardFor(LocalDate day) {
+        return rateCards.stream().filter(card -> !card.validFrom().isAfter(day)).findFirst();
+    }
+
+    /** A client whose rate is frozen keeps the card that was in force when the freeze began. */
+    public BigDecimal listRate(Grade grade, LocalDate day, ClientTerms terms) {
+        LocalDate effective = terms.rateFrozenUntil() != null && !day.isAfter(terms.rateFrozenUntil())
+                ? terms.rateFrozenUntil().minusYears(1)
+                : day;
+        RateCard card = cardFor(effective)
+                .orElseThrow(() -> new IllegalStateException("no rate card for " + effective));
+        return card.dailyRates().get(grade);
+    }
+
+    public BigDecimal discountedRate(BigDecimal listRate, ClientTerms terms, int daysBilledThisYear) {
+        BigDecimal percent = terms.discountPercent();
+        if (daysBilledThisYear >= terms.volumeThresholdDays()) {
+            percent = percent.add(terms.volumeDiscountPercent());
+        }
+        BigDecimal factor = HUNDRED.subtract(percent).divide(HUNDRED, 4, RoundingMode.HALF_UP);
+        return listRate.multiply(factor).setScale(2, RoundingMode.HALF_UP);
+    }
+
+    /** Time is billed in half days; anything less is rounded up. */
+    public BigDecimal billableDays(BigDecimal hoursWorked) {
+        BigDecimal halfDays = hoursWorked.divide(BigDecimal.valueOf(4), 0, RoundingMode.CEILING);
+        return halfDays.multiply(HALF_DAY);
+    }
+
+    public Charge charge(Grade grade, BigDecimal hoursWorked, LocalDate day, ClientTerms terms,
+                         int daysBilledThisYear) {
+        BigDecimal days = billableDays(hoursWorked);
+        BigDecimal rate = discountedRate(listRate(grade, day, terms), terms, daysBilledThisYear);
+        return new Charge(grade, days, rate, rate.multiply(days).setScale(2, RoundingMode.HALF_UP));
+    }
+
+    /** Gross margin of a charge against the standard cost of the grade, as a percentage. */
+    public BigDecimal marginPercent(Charge charge, Map<Grade, BigDecimal> standardDailyCost) {
+        BigDecimal cost = standardDailyCost.get(charge.grade()).multiply(charge.days());
+        if (charge.total().signum() == 0) {
+            return BigDecimal.ZERO;
+        }
+        return charge.total().subtract(cost)
+                .multiply(HUNDRED)
+                .divide(charge.total(), 1, RoundingMode.HALF_UP);
+    }
+
+    /** The @@PROJECT@@ pricing rule: no quote may fall below this margin without a partner. */
+    public boolean needsPartnerApproval(BigDecimal marginPercent) {
+        return marginPercent.compareTo(BigDecimal.valueOf(32)) < 0;
+    }
+
+    /** Days still available before the volume discount of the client's contract applies. */
+    public int daysUntilVolumeDiscount(ClientTerms terms, int daysBilledThisYear) {
+        return Math.max(terms.volumeThresholdDays() - daysBilledThisYear, 0);
+    }
+}

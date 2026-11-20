@@ -1,0 +1,9 @@
+node_modules
+dist
+dist-mock
+*.tsbuildinfo
+test-results
+playwright-report
+e2e/screenshots
+e2e-real/screenshots
+test-results-real

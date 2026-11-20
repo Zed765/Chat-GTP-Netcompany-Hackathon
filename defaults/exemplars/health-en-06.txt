@@ -1,0 +1,36 @@
+Clinic letter to the referring physician
+
+Marrowgate Medical Centre
+Patient: Henry Moreau
+Date of birth: 7 September 1990
+Social security number (AMKA): 07099006889
+Attending physician: Dr Claire Whitfield
+Date of report: 20 August 2026
+
+Presenting complaint
+The patient was admitted through the emergency department with a three-day history of fever, productive cough and shortness of breath on exertion. There was pleuritic pain on the right side of the chest. The patient denied haemoptysis, recent travel or contact with anyone known to be unwell.
+
+Past medical history
+Type 2 diabetes mellitus diagnosed eight years ago, treated with metformin. Arterial hypertension, well controlled. Appendicectomy in childhood. No known drug allergies. The patient stopped smoking five years ago after a twenty pack-year history and drinks alcohol occasionally. There is a family history of ischaemic heart disease.
+
+Examination on admission
+Temperature 38.6 °C, pulse 104 per minute, blood pressure 128/76 mmHg, respiratory rate 22 per minute, oxygen saturation 92% on room air. Auscultation revealed crackles and bronchial breathing over the right lower zone. Heart sounds were normal. The abdomen was soft and non-tender. There was no peripheral oedema.
+
+Investigations
+White cell count 15.2 x10^9/L with neutrophilia, C-reactive protein 148 mg/L, creatinine 0.9 mg/dL, glucose 186 mg/dL, HbA1c 7.4%. The chest radiograph showed consolidation in the right lower lobe without effusion. Blood cultures were negative. The electrocardiogram showed sinus tachycardia with no acute changes.
+
+Diagnosis
+Community-acquired pneumonia of the right lower lobe, of moderate severity. Secondary diagnoses: type 2 diabetes mellitus with suboptimal glycaemic control, and arterial hypertension. No evidence of sepsis or respiratory failure was found during the admission, and intensive care was not required.
+
+Treatment and course in hospital
+The patient was treated with intravenous antibiotics for three days, followed by oral therapy, together with supplemental oxygen, intravenous fluids and antipyretics. Blood glucose was managed with a sliding scale of insulin. The fever settled within forty-eight hours, oxygen was discontinued on day four and the patient was mobilising independently.
+
+Follow-up
+Review in the respiratory outpatient clinic in two weeks, with a repeat chest radiograph in six weeks to confirm resolution. Referral to the diabetes clinic for review of treatment. The general practitioner is asked to repeat the full blood count and C-reactive protein in one week.
+
+Advice to the patient
+Rest at home for one week and avoid strenuous activity for a month. Drink plenty of fluids. Return to the emergency department if the fever comes back, if breathing becomes more difficult or if there is blood in the sputum. Vaccination against influenza and pneumococcus is recommended once recovery is complete.
+
+Dr Claire Whitfield
+Department of Internal Medicine, Marrowgate Medical Centre
+This report contains confidential medical information intended for the patient and the treating physicians.

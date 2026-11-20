@@ -1,0 +1,451 @@
+# Catalogue of AI tools. The gateway loads it into the inventory on every start, so that
+# traffic to these domains is recognised as AI usage. A tool an analyst has rated is never
+# overwritten.
+#
+# IMPORTANT: every status, risk score and risk factor of a real product below is
+# ILLUSTRATIVE DEMO DATA. Nobody checked them against any vendor's terms, plans or
+# certifications, and they must not be read as statements about a vendor. The inventory
+# stores them with `rating_source: seeded` and the UI labels them as illustrative. A company
+# replaces them with its own assessment on the Inventory page.
+#
+# Fields
+#   slug, name, description
+#   domains       matched against proxy and DNS logs, subdomains included
+#   category      tools of one category are offered as alternatives to each other
+#   status        approved | tolerated | unapproved | unknown
+#   risk_score    1 (low) to 5 (high)
+#   risk_factors  trains_on_customer_data, retention_days, data_residency,
+#                 enterprise_terms, sso, certifications; leave a factor out when unknown
+#   hosted_by_mock_upstream  true for the fictional tools the Chat page can talk to
+
+tools:
+  # Fictional tools for the demo. Three are served by mock-upstream; the gateway routes
+  # the in-house assistant itself.
+  - slug: athena-assist
+    name: Approved Tool
+    domains: [athena-assist.example]
+    category: chat assistant
+    status: approved
+    risk_score: 1
+    risk_factors:
+      trains_on_customer_data: false
+      retention_days: 0
+      data_residency: EU
+      enterprise_terms: true
+      sso: true
+      certifications: [ISO 27001, SOC 2]
+    description: Fictional chat assistant the demo company has approved under an enterprise contract.
+    hosted_by_mock_upstream: true
+
+  - slug: draftpilot
+    name: Tolerated Tool
+    domains: [draftpilot.example]
+    category: writing assistant
+    status: tolerated
+    risk_score: 3
+    risk_factors:
+      trains_on_customer_data: false
+      retention_days: 30
+      data_residency: US
+      enterprise_terms: false
+      sso: false
+      certifications: [SOC 2]
+    description: Fictional writing assistant the demo company tolerates for text without sensitive data.
+    hosted_by_mock_upstream: true
+
+  - slug: chatterbox-ai
+    name: Unapproved Tool
+    domains: [chatterbox-ai.example]
+    category: chat assistant
+    status: unapproved
+    risk_score: 5
+    risk_factors:
+      trains_on_customer_data: true
+      enterprise_terms: false
+      sso: false
+    description: Fictional free chatbot the demo company has not approved.
+    hosted_by_mock_upstream: true
+
+  - slug: company-assistant
+    name: Company Assistant
+    domains: []
+    category: in-house assistant
+    status: approved
+    risk_score: 1
+    risk_factors:
+      trains_on_customer_data: false
+      retention_days: 0
+      data_residency: EU
+      enterprise_terms: true
+      sso: true
+    description: The demo company's own helpdesk agent. Its model only ever receives placeholders.
+
+  # Well-known products. Ratings are illustrative; see the note at the top.
+  - slug: chatgpt
+    name: ChatGPT
+    domains: [chatgpt.com, chat.openai.com]
+    category: chat assistant
+    status: unapproved
+    risk_score: 4
+    risk_factors:
+      trains_on_customer_data: true
+      retention_days: 30
+      data_residency: US
+      enterprise_terms: false
+      sso: false
+    description: General-purpose chat assistant.
+
+  - slug: openai-api
+    name: OpenAI API
+    domains: [api.openai.com]
+    category: model API
+    status: tolerated
+    risk_score: 2
+    risk_factors:
+      trains_on_customer_data: false
+      retention_days: 30
+      data_residency: US
+      enterprise_terms: true
+      sso: false
+      certifications: [SOC 2]
+    description: Programmatic access to language and embedding models.
+
+  - slug: claude
+    name: Claude
+    domains: [claude.ai]
+    category: chat assistant
+    status: tolerated
+    risk_score: 3
+    risk_factors:
+      trains_on_customer_data: false
+      retention_days: 30
+      data_residency: US
+      enterprise_terms: false
+      sso: false
+    description: General-purpose chat assistant.
+
+  - slug: anthropic-api
+    name: Anthropic API
+    domains: [api.anthropic.com]
+    category: model API
+    status: tolerated
+    risk_score: 2
+    risk_factors:
+      trains_on_customer_data: false
+      retention_days: 30
+      data_residency: US
+      enterprise_terms: true
+      sso: false
+      certifications: [SOC 2]
+    description: Programmatic access to language models.
+
+  - slug: gemini
+    name: Google Gemini
+    domains: [gemini.google.com]
+    category: chat assistant
+    status: tolerated
+    risk_score: 3
+    risk_factors:
+      trains_on_customer_data: true
+      retention_days: 540
+      data_residency: US
+      enterprise_terms: false
+      sso: true
+    description: General-purpose chat assistant.
+
+  - slug: google-ai-studio
+    name: Google AI Studio
+    domains: [aistudio.google.com, generativelanguage.googleapis.com]
+    category: model API
+    status: unapproved
+    risk_score: 3
+    risk_factors:
+      trains_on_customer_data: true
+      data_residency: US
+      enterprise_terms: false
+      sso: true
+    description: Playground and programmatic access to language models.
+
+  - slug: microsoft-copilot
+    name: Microsoft Copilot
+    domains: [copilot.microsoft.com]
+    category: chat assistant
+    status: tolerated
+    risk_score: 3
+    risk_factors:
+      trains_on_customer_data: false
+      retention_days: 180
+      data_residency: US
+      enterprise_terms: false
+      sso: true
+    description: General-purpose chat assistant for personal accounts.
+
+  - slug: microsoft-365-copilot
+    name: Microsoft 365 Copilot
+    domains: [m365.cloud.microsoft, copilot.cloud.microsoft]
+    category: productivity assistant
+    status: approved
+    risk_score: 1
+    risk_factors:
+      trains_on_customer_data: false
+      retention_days: 0
+      data_residency: EU
+      enterprise_terms: true
+      sso: true
+      certifications: [ISO 27001, SOC 2]
+    description: Assistant inside an office suite, used with work accounts.
+
+  - slug: azure-openai
+    name: Azure OpenAI Service
+    domains: [openai.azure.com]
+    category: model API
+    status: approved
+    risk_score: 1
+    risk_factors:
+      trains_on_customer_data: false
+      retention_days: 30
+      data_residency: EU
+      enterprise_terms: true
+      sso: true
+      certifications: [ISO 27001, SOC 2]
+    description: Language models offered through a cloud subscription.
+
+  - slug: github-copilot
+    name: GitHub Copilot
+    domains: [githubcopilot.com, copilot-proxy.githubusercontent.com]
+    category: coding assistant
+    status: approved
+    risk_score: 2
+    risk_factors:
+      trains_on_customer_data: false
+      retention_days: 28
+      data_residency: US
+      enterprise_terms: true
+      sso: true
+      certifications: [SOC 2]
+    description: Coding assistant inside the editor.
+
+  - slug: perplexity
+    name: Perplexity
+    domains: [perplexity.ai]
+    category: search assistant
+    status: unapproved
+    risk_score: 4
+    risk_factors:
+      trains_on_customer_data: true
+      data_residency: US
+      enterprise_terms: false
+      sso: false
+    description: Search assistant that answers questions with sources.
+
+  - slug: mistral-le-chat
+    name: Le Chat (Mistral AI)
+    domains: [chat.mistral.ai, api.mistral.ai]
+    category: chat assistant
+    status: tolerated
+    risk_score: 2
+    risk_factors:
+      trains_on_customer_data: false
+      retention_days: 30
+      data_residency: EU
+      enterprise_terms: false
+      sso: false
+    description: General-purpose chat assistant and model API.
+
+  - slug: deepseek
+    name: DeepSeek
+    domains: [deepseek.com]
+    category: chat assistant
+    status: unapproved
+    risk_score: 5
+    risk_factors:
+      trains_on_customer_data: true
+      data_residency: China
+      enterprise_terms: false
+      sso: false
+    description: General-purpose chat assistant and model API.
+
+  - slug: grok
+    name: Grok
+    domains: [grok.com, x.ai]
+    category: chat assistant
+    status: unapproved
+    risk_score: 4
+    risk_factors:
+      trains_on_customer_data: true
+      data_residency: US
+      enterprise_terms: false
+      sso: false
+    description: General-purpose chat assistant.
+
+  - slug: meta-ai
+    name: Meta AI
+    domains: [meta.ai]
+    category: chat assistant
+    status: unapproved
+    risk_score: 4
+    risk_factors:
+      trains_on_customer_data: true
+      data_residency: US
+      enterprise_terms: false
+      sso: false
+    description: General-purpose chat assistant.
+
+  - slug: poe
+    name: Poe
+    domains: [poe.com]
+    category: chat assistant
+    status: unapproved
+    risk_score: 4
+    risk_factors:
+      trains_on_customer_data: true
+      data_residency: US
+      enterprise_terms: false
+      sso: false
+    description: Chat front end to several models from different providers.
+
+  - slug: character-ai
+    name: Character.AI
+    domains: [character.ai]
+    category: chat assistant
+    status: unapproved
+    risk_score: 5
+    risk_factors:
+      trains_on_customer_data: true
+      data_residency: US
+      enterprise_terms: false
+      sso: false
+    description: Chat with user-made characters.
+
+  - slug: hugging-face
+    name: Hugging Face
+    domains: [huggingface.co]
+    category: model API
+    status: tolerated
+    risk_score: 3
+    risk_factors:
+      data_residency: US
+      enterprise_terms: false
+      sso: false
+    description: Hub for open models, datasets and hosted demos.
+
+  - slug: cursor
+    name: Cursor
+    domains: [cursor.com, cursor.sh]
+    category: coding assistant
+    status: unapproved
+    risk_score: 3
+    risk_factors:
+      trains_on_customer_data: true
+      data_residency: US
+      enterprise_terms: false
+      sso: false
+    description: Code editor with a built-in coding assistant.
+
+  - slug: windsurf
+    name: Windsurf (Codeium)
+    domains: [windsurf.com, codeium.com]
+    category: coding assistant
+    status: unapproved
+    risk_score: 3
+    risk_factors:
+      trains_on_customer_data: true
+      data_residency: US
+      enterprise_terms: false
+      sso: false
+    description: Code editor and plug-ins with a coding assistant.
+
+  - slug: tabnine
+    name: Tabnine
+    domains: [tabnine.com]
+    category: coding assistant
+    status: tolerated
+    risk_score: 2
+    risk_factors:
+      trains_on_customer_data: false
+      retention_days: 0
+      data_residency: US
+      enterprise_terms: false
+      sso: false
+    description: Code completion inside the editor.
+
+  - slug: grammarly
+    name: Grammarly
+    domains: [grammarly.com]
+    category: writing assistant
+    status: tolerated
+    risk_score: 3
+    risk_factors:
+      trains_on_customer_data: false
+      data_residency: US
+      enterprise_terms: false
+      sso: true
+      certifications: [SOC 2]
+    description: Writing assistant that checks and rewrites text as you type.
+
+  - slug: quillbot
+    name: QuillBot
+    domains: [quillbot.com]
+    category: writing assistant
+    status: unapproved
+    risk_score: 4
+    risk_factors:
+      trains_on_customer_data: true
+      data_residency: US
+      enterprise_terms: false
+      sso: false
+    description: Paraphrasing and summarising tool.
+
+  - slug: deepl
+    name: DeepL
+    domains: [deepl.com]
+    category: translation
+    status: approved
+    risk_score: 2
+    risk_factors:
+      trains_on_customer_data: false
+      retention_days: 0
+      data_residency: EU
+      enterprise_terms: true
+      sso: true
+      certifications: [ISO 27001]
+    description: Machine translation for text and documents.
+
+  - slug: otter-ai
+    name: Otter.ai
+    domains: [otter.ai]
+    category: meeting assistant
+    status: unapproved
+    risk_score: 4
+    risk_factors:
+      trains_on_customer_data: true
+      data_residency: US
+      enterprise_terms: false
+      sso: false
+    description: Records, transcribes and summarises meetings.
+
+  - slug: midjourney
+    name: Midjourney
+    domains: [midjourney.com]
+    category: image generation
+    status: unapproved
+    risk_score: 3
+    risk_factors:
+      trains_on_customer_data: true
+      data_residency: US
+      enterprise_terms: false
+      sso: false
+    description: Generates images from text prompts.
+
+  - slug: elevenlabs
+    name: ElevenLabs
+    domains: [elevenlabs.io]
+    category: voice generation
+    status: unapproved
+    risk_score: 3
+    risk_factors:
+      trains_on_customer_data: true
+      data_residency: US
+      enterprise_terms: false
+      sso: false
+    description: Generates speech from text and clones voices.

@@ -1,0 +1,75 @@
+kind: health
+category: HEALTH
+language: en
+numbered: false
+titles:
+  - Occupational health assessment
+  - Report of occupational health consultation
+header: |-
+  {clinic}, Occupational Health Service
+  Employee: {person}
+  Date of birth: {dob}
+  AMKA: {amka}
+  Assessing physician: Dr {person2}
+  Date of consultation: {date}
+  Confidential medical report, released to the employer with the employee's written consent.
+sections:
+  - id: reason
+    heading: Reason for referral
+    text: >-
+      The employee was referred by the line manager after six weeks of absence with low back
+      pain radiating to the left leg. The employer asks whether a return to work is likely in
+      the near future, whether any adjustments are needed and whether the condition is related
+      to the job, which involves prolonged sitting and occasional lifting of archive boxes.
+  - id: background
+    heading: Clinical background
+    text: >-
+      Symptoms began abruptly after moving furniture at home. Magnetic resonance imaging
+      arranged by the treating orthopaedic surgeon shows a disc herniation at the L5-S1 level
+      with contact on the nerve root. There is no weakness, no loss of bladder or bowel
+      control and no history of previous back problems or surgery.
+  - id: treatment
+    heading: Current treatment
+    text: >-
+      The employee is taking anti-inflammatory medication and a nerve pain modulator at night,
+      and attends physiotherapy twice a week. An epidural steroid injection was given three
+      weeks ago with good effect. Surgery has been discussed and is not recommended at
+      present. Sleep has improved and walking distance has increased to about one kilometre.
+  - id: function
+    heading: Functional assessment
+    text: >-
+      Today the employee can sit for around thirty minutes before needing to stand, can climb
+      one flight of stairs without pain and drives short distances. Forward bending is still
+      limited. Straight leg raise is positive on the left at sixty degrees. Reflexes and power
+      in the lower limbs are normal. Mood is good and motivation to return is high.
+  - id: opinion
+    heading: Opinion on fitness for work
+    text: >-
+      In my opinion the employee is fit to return to work in two weeks on a phased basis,
+      starting with four hours a day and building to normal hours over four weeks. The
+      employee is not currently fit for manual handling of loads above five kilograms. Full
+      recovery is expected within three to four months.
+  - id: adjustments
+    heading: Recommended adjustments
+    text: >-
+      I recommend a height-adjustable desk or a sit-stand arrangement, a chair with lumbar
+      support, freedom to change position every half hour, and working from home on two days a
+      week during the phased return. Lifting of archive boxes should be reassigned. A
+      workstation assessment should be completed before the first day back.
+  - id: causation
+    heading: Relationship to work
+    text: >-
+      The onset of symptoms was not connected with a workplace event. Prolonged sitting does
+      not cause disc herniation but can aggravate the symptoms. I do not consider this an
+      occupational disease or an accident at work. The condition is likely to be regarded as
+      temporary and not as a long-term disability.
+  - id: review
+    heading: Review
+    text: >-
+      I will see the employee again four weeks after the return to assess progress and advise
+      on removing the restrictions. Earlier review can be requested if the phased plan proves
+      difficult. Clinical details beyond those set out here have not been disclosed to the
+      employer, and the diagnosis is shared only because the employee has agreed.
+footer: |-
+  Dr {person2}, Specialist in Occupational Medicine
+  {clinic}

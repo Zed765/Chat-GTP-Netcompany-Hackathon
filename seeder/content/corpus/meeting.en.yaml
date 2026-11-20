@@ -1,0 +1,88 @@
+kind: meeting
+category: CLIENT_CONFIDENTIAL
+language: en
+numbered: true
+titles:
+  - "Meeting notes: steering committee with {client}"
+  - "Meeting notes: monthly account review, {client}"
+  - "Meeting notes: project {project} status with {client}"
+header: |-
+  Date: {date}
+  Attendees ({org}): {lead}, {lead2}
+  Attendees ({client}): {contact}
+  Project: {project} ({project_code})
+  Notes taken by: {lead2}. Internal use only; not to be shared with the client.
+sections:
+  - id: progress
+    heading: Progress since the last meeting
+    text: >-
+      {lead} reported that the build phase is {percent2}% complete against a plan of sixty. The
+      ledger and billing feeds are live in the test environment. The order feed is two weeks
+      late because the client's supplier has not yet opened the interface. {contact} accepted
+      the delay but asked that it should not move the end date of {end_date}.
+  - id: budget
+    heading: Budget
+    text: >-
+      Spend to date is {amount} of the approved {amount2}. At the current rate the project will
+      finish about {rate2} over budget unless the order feed arrives this month. We did not
+      raise a change request in the meeting; {lead} wants to see the supplier's revised date
+      first. The client side did not ask about budget and we did not volunteer the forecast.
+  - id: data_quality
+    heading: Data quality
+    text: >-
+      {lead2} presented the reconciliation for the last two quarters. Revenue in the new model
+      differs from the audited figure by less than half a per cent, all of it explained by
+      credit notes booked in the wrong month. {contact} was visibly relieved. Around four
+      hundred customer records are duplicated; the client's finance team will merge them at
+      source.
+  - id: scope
+    heading: Scope questions
+    text: >-
+      The client asked whether cash-flow forecasting could be added. We said it is outside the
+      statement of work and offered to scope it separately. Privately, {lead} thinks it is a
+      good extension worth about {amount5}, and that we should propose it once the first
+      reports are in use, not before, so that it is not traded against the current fee.
+  - id: people
+    heading: People
+    text: >-
+      The client's product owner is leaving at the end of the quarter and no successor has been
+      named. This is the largest risk to the timetable. {contact} will ask the finance director
+      for a decision this week. On our side, {lead2} is on leave for a week next month; cover
+      is arranged and the client has been told.
+  - id: renewal
+    heading: Renewal and commercial matters
+    text: >-
+      {contact} mentioned in passing that procurement will ask for a rate reduction of
+      {percent}% at renewal. We did not respond in the meeting. Our position, agreed afterwards,
+      is to hold the daily rate of {rate} and offer a volume discount instead. Nobody outside
+      the account team should discuss rates with the client before the renewal offer is sent.
+  - id: security
+    heading: Access and security
+    text: >-
+      Two consultant accounts on the client's systems still have administrator rights from the
+      migration weekend. The client's IT manager wants them reduced to read-only by Friday.
+      {lead2} confirmed that no client data has been copied outside the client's environment
+      and that the test data set is masked. An access review is on the agenda for next month.
+  - id: invoices
+    heading: Invoices
+    text: >-
+      The invoice for last month is unpaid, {days} days after its due date. {contact} said it
+      was approved and is waiting for the payment run; payment will come from account
+      {client_iban}. We agreed not to escalate. If nothing arrives by the fifteenth, finance
+      will send a formal reminder to {client_email}.
+  - id: next_phase
+    heading: Plan for the next four weeks
+    text: >-
+      Finish the remaining five reports, start user testing with three finance analysts, and
+      run the parallel month-end. Training is booked for the last week of the month. The
+      go-live decision will be taken at the next steering committee on the basis of the
+      parallel run; the criterion is a difference of less than one per cent on every report.
+  - id: actions
+    heading: Actions
+    text: >-
+      {contact}: confirm the supplier's date for the order feed and name an interim product
+      owner. {lead}: prepare the cash-flow extension outline, for internal review only. {lead2}:
+      reduce the administrator accounts and send the reconciliation pack. Finance: follow up
+      the unpaid invoice on the fifteenth. Next meeting in four weeks, at the client's offices.
+footer: |-
+  Circulation: account team only.

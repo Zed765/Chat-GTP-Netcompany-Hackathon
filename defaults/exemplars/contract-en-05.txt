@@ -1,0 +1,30 @@
+Agreement for the Supply of Goods and Related Services
+
+THIS AGREEMENT is dated 11 March 2026 and made between Greymantle Capital GmbH, whose registered office is at 135 Agias Paraskevis Street, 152 32 Chalandri (the "Supplier"), and Foxhollow Biotech Inc., whose registered office is at Agiou Nikolaou Street 170, 117 44 Athens, Greece (the "Customer"). The Supplier and the Customer are together the "Parties".
+
+1. Price and payment
+The price of the Goods and the charges for the Services are set out in Schedule 3 and are exclusive of value added tax. The Supplier may invoice on delivery. The Customer shall pay each invoice in full, without set-off or deduction, within 60 days of its date. Interest accrues daily on overdue sums at 8% per annum until payment.
+
+2. Delivery, risk and title
+The Supplier shall deliver the Goods to the address stated in the purchase order. Delivery dates are estimates and time is not of the essence. Risk in the Goods passes to the Customer on delivery. Title passes only when the Supplier has received payment in full for the Goods and for any other sums then due from the Customer.
+
+3. Confidentiality
+Each Party undertakes that it shall not at any time disclose to any person any confidential information concerning the business, affairs, customers or suppliers of the other Party, except to its employees, officers and advisers who need to know it, or as required by law or a competent regulator. This clause survives termination for 3 years.
+
+4. Limitation of liability
+Nothing in this Agreement limits liability for death or personal injury caused by negligence, or for fraud. Subject to that, neither Party shall be liable for loss of profit, loss of data or any indirect or consequential loss, and the Supplier's total liability in each contract year shall not exceed €140,000 or the sums paid in that year, whichever is the greater.
+
+5. Term and termination
+This Agreement commences on 28 March 2026 and continues for an initial term of 36 months, and thereafter until terminated by either Party on not less than 60 days' written notice. Either Party may terminate with immediate effect if the other commits a material breach which it fails to remedy within thirty days, or enters into insolvency proceedings.
+
+6. Force majeure
+Neither Party shall be in breach of this Agreement, nor liable for delay in performing or failure to perform any of its obligations, if the delay or failure results from events beyond its reasonable control. If the period of delay continues for three months, the Party not affected may terminate this Agreement by giving fourteen days' written notice.
+
+7. General
+Neither Party may assign or subcontract its rights or obligations without the prior written consent of the other. A notice must be in writing and delivered by hand, by recorded post or by email to the address notified for that purpose. This Agreement is the entire agreement between the Parties and no variation is effective unless in writing and signed by both.
+
+8. Governing law and jurisdiction
+This Agreement and any dispute or claim arising out of or in connection with it are governed by the law of the Supplier's country of incorporation. The Parties irrevocably agree that the courts of that country have exclusive jurisdiction, after an attempt to resolve the dispute by negotiation between senior representatives lasting at least twenty Business Days.
+
+Signed by Julia Ashdown for and on behalf of the Supplier.
+Signed by Oliver Whitfield for and on behalf of the Customer.

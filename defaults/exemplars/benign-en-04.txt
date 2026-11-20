@@ -1,0 +1,19 @@
+I have a few unrelated things I would like help with today. Here is the first.
+
+I am learning Python and I am stuck on a small exercise. I have a list of dictionaries, each with the keys "title" and "year", and I want to print the titles sorted by year, newest first, and alphabetically when two books share the same year. What is the cleanest way to do it?
+
+My attempt was sorted(books, key=lambda b: b["year"], reverse=True), which gets the years right but leaves the titles within a year in whatever order they were entered. I read that a key can return a tuple. Would key=lambda b: (-b["year"], b["title"]) be the idiomatic solution, or is there something better?
+
+Could you also explain the difference between list.sort() and sorted(), and whether the sort is stable? I would like to understand why sorting twice, first by title and then by year, gives the same result as sorting once with a tuple. A short example I can run would help a lot.
+
+The second thing is completely different.
+
+I have a small south-facing balcony on the third floor and I would like to grow herbs and a few vegetables this summer. It gets strong sun from late morning and can be windy. Which plants would cope well in pots, and how big should the pots be?
+
+I was thinking of basil, mint, rosemary, cherry tomatoes and perhaps peppers. Could you tell me which of them can share a container, how often each needs watering in hot weather, and whether I should buy seedlings or start from seed at this time of year?
+
+Please add a month-by-month list of jobs from April to September, some advice on feeding and on dealing with aphids without chemicals, and an idea for shading the pots during a heatwave. I am a complete beginner, so simple instructions are best.
+
+One last thing, more briefly.
+
+Could you explain compound interest to me as if I were a teenager? I understand that interest is paid on money in a savings account, but I do not see why people say that starting early matters so much. A worked example with round numbers would make it clearer.

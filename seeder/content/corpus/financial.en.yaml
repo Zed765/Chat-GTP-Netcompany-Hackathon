@@ -1,0 +1,109 @@
+kind: financial
+category: FINANCIAL
+language: en
+numbered: false
+titles:
+  - "Account financial summary: {client}, {quarter} {year}"
+  - "Quarterly billing and margin review: {client}"
+  - "Client profitability summary, {quarter} {year}: {client}"
+header: |-
+  Internal. Finance team only.
+  Client: {client:legal} (tax number {client_afm})
+  Account owner: {lead}
+  Prepared by: {lead2} on {date}
+  Project: {project} ({project_code})
+sections:
+  - id: headline
+    heading: Headline figures
+    text: >-
+      Revenue recognised on the account in {quarter} {year} was {amount}, against a budget of
+      {amount2}. Gross margin was {percent2}%, two points below the firm average, mainly because
+      a senior consultant covered a junior role for five weeks. Year-to-date revenue stands at
+      {amount3}, which makes this the firm's fourth largest account.
+    paraphrase: >-
+      In {quarter} {year} the account brought in {amount} of recognised revenue; the budget had
+      called for {amount2}. At {percent2}%, gross margin came in two points under the average
+      for the firm, the chief cause being five weeks in which a senior consultant filled a
+      junior position. Since January the account has produced {amount3}, enough to rank fourth
+      among all accounts.
+  - id: billing
+    heading: Billing
+    text: >-
+      Three invoices were issued in the quarter, for a total of {amount}. All three were
+      approved by {contact} without dispute. Billable days came to {days2}, of which {days}
+      were delivered on site. The effective daily rate was {rate}, slightly under the contract
+      rate, because the fixed-price phase overran its estimate by six days that could not be
+      billed.
+  - id: receivables
+    heading: Receivables
+    text: >-
+      At quarter end the client owed {amount4}. Of this, the September invoice is {days} days
+      past its due date. The client's finance department has confirmed that payment was
+      released from account {client_iban} and should reach us within the week. No provision is
+      proposed. Average days sales outstanding on the account over the last four quarters is
+      {days2}.
+    paraphrase: >-
+      The balance due from the client when the quarter closed was {amount4}. Part of it, the
+      invoice for September, has been overdue for {days} days; according to the client's
+      finance department the money has already left account {client_iban} and will arrive in
+      a matter of days, so we suggest no provision. Across the past four quarters the account
+      has averaged {days2} days sales outstanding.
+  - id: costs
+    heading: Cost of delivery
+    text: >-
+      Staff cost charged to the account was {amount5}, including an allocation of bench time.
+      Subcontractor cost was nil. Travel cost of {rate2} was recharged to the client in full
+      under the expenses clause. The overrun on the fixed-price phase cost the firm roughly six
+      consultant days, which the account owner has agreed to absorb rather than raise as a
+      change request.
+  - id: forecast
+    heading: Forecast
+    text: >-
+      The signed order book for the next quarter is {amount2}. A further {amount5} is in
+      negotiation for an extension of the reporting work, with a probability the account owner
+      puts at {percent}%. If the extension is signed, the account will exceed its annual budget
+      by about a tenth. If it is not, two consultants return to the bench in the second month.
+    translation: >-
+      Το υπογεγραμμένο ανεκτέλεστο υπόλοιπο για το επόμενο τρίμηνο ανέρχεται σε {amount2}.
+      Επιπλέον {amount5} βρίσκονται υπό διαπραγμάτευση για επέκταση του έργου των αναφορών, με
+      πιθανότητα που ο υπεύθυνος του λογαριασμού εκτιμά σε {percent}%. Αν η επέκταση υπογραφεί,
+      ο λογαριασμός θα ξεπεράσει τον ετήσιο προϋπολογισμό του κατά ένα δέκατο περίπου. Αν όχι,
+      δύο σύμβουλοι μένουν χωρίς ανάθεση από τον δεύτερο μήνα.
+  - id: risks
+    heading: Risks
+    text: >-
+      The contract renews on {end_date} and the client has asked for a rate reduction of
+      {percent}% as a condition of renewal. Accepting it in full would take the margin below
+      the firm's floor. The client is also consolidating suppliers, and we understand that two
+      competitors have been invited to present. Concentration risk is moderate: the account is
+      about a twelfth of firm revenue.
+  - id: pricing
+    heading: Pricing position
+    text: >-
+      Our current daily rate of {rate} was agreed two years ago and has not been indexed. The
+      rate card for new clients is about eight per cent higher. The account owner recommends
+      holding the rate, offering a volume discount above {days2} days a year instead of a
+      general reduction, and moving the support work to a fixed monthly fee.
+  - id: actions
+    heading: Actions
+    text: >-
+      {lead} to present the renewal offer to {contact} before {end_date}. {lead2} to chase the
+      overdue invoice and confirm receipt. Finance to prepare a margin scenario for the
+      discount options by the next account review. Delivery to replace the senior consultant on
+      the junior role by the start of next month, so that margin recovers.
+  - id: notes
+    heading: Notes for the partner review
+    text: >-
+      The relationship is in good health: satisfaction in the last survey was nine out of ten,
+      and the client has agreed to act as a reference. The commercial pressure comes from
+      procurement, not from the business sponsor. The firm should decide before the renewal
+      meeting how far below the current rate it is prepared to go, and say no beyond that.
+  - id: basis
+    heading: Basis of preparation
+    text: >-
+      Figures are taken from the billing system and the timesheet ledger as closed on {date}.
+      Revenue is recognised on days delivered for time-and-materials work and on milestones for
+      fixed-price work. Staff cost uses the standard cost rate for each grade. The numbers are
+      unaudited management information and must not be shared outside the finance team.
+footer: |-
+  Distribution: {lead}, {lead2}, finance leadership. Do not forward.

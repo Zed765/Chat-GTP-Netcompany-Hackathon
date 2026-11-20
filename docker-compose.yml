@@ -1,0 +1,159 @@
+# A.S.P.I.D.A.: `docker compose up --build` starts everything. It needs OPENAI_API_KEY:
+# copy `.env.example` to `.env` and set it there.
+name: aspida
+
+x-python-build: &python-build
+  context: .
+  dockerfile: docker/python.Dockerfile
+
+# Our own containers: no privileges, a read-only root filesystem and a small scratch /tmp.
+x-service: &service
+  restart: unless-stopped
+  security_opt: [no-new-privileges:true]
+  cap_drop: [ALL]
+  read_only: true
+  tmpfs: ["/tmp:size=64m"]
+  pids_limit: 512
+
+x-model-env: &model-env
+  OPENAI_API_KEY: ${OPENAI_API_KEY:?Set OPENAI_API_KEY in .env}
+  OPENAI_BASE_URL: ${OPENAI_BASE_URL:-}
+  ASPIDA_MODEL_INLINE: ${ASPIDA_MODEL_INLINE:-gpt-6-luna}
+  ASPIDA_MODEL_OFFLINE: ${ASPIDA_MODEL_OFFLINE:-gpt-5-mini}
+  ASPIDA_MODEL_EMBEDDING: ${ASPIDA_MODEL_EMBEDDING:-text-embedding-3-large}
+
+services:
+  postgres:
+    image: postgres:18.7-alpine
+    restart: unless-stopped
+    security_opt: [no-new-privileges:true]
+    networks: [data]
+    environment:
+      POSTGRES_USER: aspida
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-aspida}
+      POSTGRES_DB: aspida
+    volumes:
+      - postgres-data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aspida -d aspida"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+
+  redis:
+    image: redis:8.10.3-alpine
+    restart: unless-stopped
+    security_opt: [no-new-privileges:true]
+    networks: [data]
+    # The vault lives here, so nothing is ever written to disk.
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+
+  mock-upstream:
+    <<: *service
+    build:
+      <<: *python-build
+      target: mock-upstream
+      args: { GROUP: mock-upstream }
+    environment:
+      <<: *model-env
+
+  mcp-crm:
+    <<: *service
+    build:
+      <<: *python-build
+      target: mcp
+      args: { GROUP: mcp, SERVER: crm, PORT: 9001 }
+
+  mcp-mail:
+    <<: *service
+    build:
+      <<: *python-build
+      target: mcp
+      args: { GROUP: mcp, SERVER: mail, PORT: 9002 }
+
+  mcp-web:
+    <<: *service
+    build:
+      <<: *python-build
+      target: mcp
+      args: { GROUP: mcp, SERVER: web, PORT: 9003 }
+
+  gateway:
+    <<: *service
+    build:
+      <<: *python-build
+      target: gateway
+      args: { GROUP: gateway }
+    environment:
+      <<: *model-env
+      SEED_DEMO_DATA: ${SEED_DEMO_DATA:-false}
+      ASPIDA_DATABASE_URL: postgresql+asyncpg://aspida:${POSTGRES_PASSWORD:-aspida}@postgres:5432/aspida
+      ASPIDA_REDIS_URL: redis://redis:6379/0
+    # Uploads are spooled to /tmp while they are read; keep that in memory, and bounded.
+    tmpfs: ["/tmp:size=256m"]
+    # Only the gateway can reach Postgres and Redis.
+    networks: [default, data]
+    volumes:
+      - keys:/var/lib/aspida/keys
+      # Drop a proxy or DNS log here and the gateway ingests it.
+      - ./inbox:/var/lib/aspida/inbox:ro
+    # For API clients on this machine. Everyone else goes through the web port, where nginx
+    # forwards /v1 and /api.
+    ports:
+      - "127.0.0.1:${GATEWAY_PORT:-8000}:8000"
+    depends_on:
+      postgres: { condition: service_healthy }
+      redis: { condition: service_healthy }
+      mock-upstream: { condition: service_healthy }
+      mcp-crm: { condition: service_healthy }
+      mcp-mail: { condition: service_healthy }
+      mcp-web: { condition: service_healthy }
+
+  agent:
+    <<: *service
+    build:
+      <<: *python-build
+      target: agent
+      args: { GROUP: agent }
+    environment:
+      GATEWAY_URL: http://gateway:8000
+    depends_on:
+      gateway: { condition: service_healthy }
+
+  seeder:
+    <<: *service
+    build:
+      <<: *python-build
+      target: seeder
+      args: { GROUP: seeder }
+    restart: "no"
+    environment:
+      SEED_DEMO_DATA: ${SEED_DEMO_DATA:-false}
+      GATEWAY_URL: http://gateway:8000
+    depends_on:
+      gateway: { condition: service_healthy }
+
+  web:
+    <<: *service
+    build:
+      context: web
+    ports:
+      - "${WEB_PORT:-8080}:8080"
+    depends_on:
+      gateway: { condition: service_healthy }
+      agent: { condition: service_healthy }
+
+networks:
+  default: {}
+  # No route out and none in from the other containers: the vault and the database.
+  data:
+    internal: true
+
+volumes:
+  postgres-data:
+  keys:

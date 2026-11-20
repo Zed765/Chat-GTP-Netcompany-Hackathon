@@ -1,0 +1,30 @@
+Equipment Supply and Maintenance Agreement
+
+THIS AGREEMENT is dated 3 July 2026 and made between Wintermoor Pharma LLC, whose registered office is at 155 Agias Paraskevis Street, 152 33 Chalandri (the "Supplier"), and Stonelea Biotech S.A., whose registered office is at Agiou Nikolaou Street 40, 117 48 Athens, Greece (the "Customer"). The Supplier and the Customer are together the "Parties".
+
+1. Definitions and interpretation
+In this Agreement, "Goods" means the products listed in Schedule 1, "Services" means the installation and maintenance services described in Schedule 2, and "Business Day" means a day other than a Saturday, Sunday or public holiday. Headings are for convenience only and do not affect interpretation. A reference to writing includes email.
+
+2. Price and payment
+The price of the Goods and the charges for the Services are set out in Schedule 3 and are exclusive of value added tax. The Supplier may invoice on delivery. The Customer shall pay each invoice in full, without set-off or deduction, within 60 days of its date. Interest accrues daily on overdue sums at 5% per annum until payment.
+
+3. Delivery, risk and title
+The Supplier shall deliver the Goods to the address stated in the purchase order. Delivery dates are estimates and time is not of the essence. Risk in the Goods passes to the Customer on delivery. Title passes only when the Supplier has received payment in full for the Goods and for any other sums then due from the Customer.
+
+4. Warranties
+The Supplier warrants that for 36 months from delivery the Goods will conform to their specification and be free from material defects in design, material and workmanship. If the Goods do not conform, the Supplier shall, at its option, repair or replace them or refund their price. All other warranties and conditions are excluded to the fullest extent permitted by law.
+
+5. Confidentiality
+Each Party undertakes that it shall not at any time disclose to any person any confidential information concerning the business, affairs, customers or suppliers of the other Party, except to its employees, officers and advisers who need to know it, or as required by law or a competent regulator. This clause survives termination for 3 years.
+
+6. Limitation of liability
+Nothing in this Agreement limits liability for death or personal injury caused by negligence, or for fraud. Subject to that, neither Party shall be liable for loss of profit, loss of data or any indirect or consequential loss, and the Supplier's total liability in each contract year shall not exceed €77,000 or the sums paid in that year, whichever is the greater.
+
+7. Force majeure
+Neither Party shall be in breach of this Agreement, nor liable for delay in performing or failure to perform any of its obligations, if the delay or failure results from events beyond its reasonable control. If the period of delay continues for three months, the Party not affected may terminate this Agreement by giving fourteen days' written notice.
+
+8. General
+Neither Party may assign or subcontract its rights or obligations without the prior written consent of the other. A notice must be in writing and delivered by hand, by recorded post or by email to the address notified for that purpose. This Agreement is the entire agreement between the Parties and no variation is effective unless in writing and signed by both.
+
+Signed by Henry Whitfield for and on behalf of the Supplier.
+Signed by Henry Brandt for and on behalf of the Customer.

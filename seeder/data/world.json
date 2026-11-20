@@ -1,0 +1,2073 @@
+{
+  "seed": 20261114,
+  "organisation": {
+    "name": "Aspida Demo Consulting",
+    "domain": "aspida-demo.example",
+    "legal_name": "Aspida Demo Consulting Μονοπρόσωπη Α.Ε.",
+    "legal_name_latin": "Aspida Demo Consulting Single Member S.A.",
+    "afm": "650207395",
+    "address": "Λεωφόρος Μεσογείων 310, 155 62 Χολαργός",
+    "address_latin": "310 Mesogeion Avenue, 155 62 Cholargos, Greece"
+  },
+  "teams": [
+    {
+      "name": "Sales",
+      "cidr": "10.20.1.0/24"
+    },
+    {
+      "name": "Legal",
+      "cidr": "10.20.2.0/24"
+    },
+    {
+      "name": "Finance",
+      "cidr": "10.20.3.0/24"
+    },
+    {
+      "name": "Engineering",
+      "cidr": "10.20.4.0/24"
+    },
+    {
+      "name": "HR",
+      "cidr": "10.20.5.0/24"
+    },
+    {
+      "name": "Customer Support",
+      "cidr": "10.20.6.0/24"
+    }
+  ],
+  "employees": [
+    {
+      "user_id": "e.papadaki",
+      "display_name": "Eleni Papadaki",
+      "team": "Sales",
+      "ip": "10.20.1.11"
+    },
+    {
+      "user_id": "k.gkikas",
+      "display_name": "Kostas Gkikas",
+      "team": "Sales",
+      "ip": "10.20.1.12"
+    },
+    {
+      "user_id": "m.katsaros",
+      "display_name": "Manolis Katsaros",
+      "team": "Sales",
+      "ip": "10.20.1.13"
+    },
+    {
+      "user_id": "k.dimopoulou",
+      "display_name": "Konstantina Dimopoulou",
+      "team": "Sales",
+      "ip": "10.20.1.14"
+    },
+    {
+      "user_id": "p.kouri",
+      "display_name": "Panagiota Kouri",
+      "team": "Sales",
+      "ip": "10.20.1.15"
+    },
+    {
+      "user_id": "a.zervou",
+      "display_name": "Angeliki Zervou",
+      "team": "Sales",
+      "ip": "10.20.1.16"
+    },
+    {
+      "user_id": "e.meletiou",
+      "display_name": "Eirini Meletiou",
+      "team": "Sales",
+      "ip": "10.20.1.17"
+    },
+    {
+      "user_id": "m.lamprakis",
+      "display_name": "Michalis Lamprakis",
+      "team": "Sales",
+      "ip": "10.20.1.18"
+    },
+    {
+      "user_id": "e.alexiou",
+      "display_name": "Eirini Alexiou",
+      "team": "Sales",
+      "ip": "10.20.1.19"
+    },
+    {
+      "user_id": "n.psarras",
+      "display_name": "Nikos Psarras",
+      "team": "Legal",
+      "ip": "10.20.2.11"
+    },
+    {
+      "user_id": "i.papadopoulou",
+      "display_name": "Ioanna Papadopoulou",
+      "team": "Legal",
+      "ip": "10.20.2.12"
+    },
+    {
+      "user_id": "m.pavlidis",
+      "display_name": "Manolis Pavlidis",
+      "team": "Legal",
+      "ip": "10.20.2.13"
+    },
+    {
+      "user_id": "d.lampraki",
+      "display_name": "Dimitra Lampraki",
+      "team": "Legal",
+      "ip": "10.20.2.14"
+    },
+    {
+      "user_id": "s.antoniadis",
+      "display_name": "Spyros Antoniadis",
+      "team": "Legal",
+      "ip": "10.20.2.15"
+    },
+    {
+      "user_id": "n.kouris",
+      "display_name": "Nikos Kouris",
+      "team": "Finance",
+      "ip": "10.20.3.11"
+    },
+    {
+      "user_id": "a.xydaki",
+      "display_name": "Anna Xydaki",
+      "team": "Finance",
+      "ip": "10.20.3.12"
+    },
+    {
+      "user_id": "f.triantafyllou",
+      "display_name": "Foteini Triantafyllou",
+      "team": "Finance",
+      "ip": "10.20.3.13"
+    },
+    {
+      "user_id": "c.psarra",
+      "display_name": "Chara Psarra",
+      "team": "Finance",
+      "ip": "10.20.3.14"
+    },
+    {
+      "user_id": "e.nikolopoulou",
+      "display_name": "Evangelia Nikolopoulou",
+      "team": "Finance",
+      "ip": "10.20.3.15"
+    },
+    {
+      "user_id": "e.sideri",
+      "display_name": "Eleni Sideri",
+      "team": "Finance",
+      "ip": "10.20.3.16"
+    },
+    {
+      "user_id": "s.georgiou",
+      "display_name": "Sofia Georgiou",
+      "team": "Engineering",
+      "ip": "10.20.4.11"
+    },
+    {
+      "user_id": "o.drosou",
+      "display_name": "Olga Drosou",
+      "team": "Engineering",
+      "ip": "10.20.4.12"
+    },
+    {
+      "user_id": "l.margaritis",
+      "display_name": "Lefteris Margaritis",
+      "team": "Engineering",
+      "ip": "10.20.4.13"
+    },
+    {
+      "user_id": "s.oikonomou",
+      "display_name": "Stavros Oikonomou",
+      "team": "Engineering",
+      "ip": "10.20.4.14"
+    },
+    {
+      "user_id": "m.stamatopoulos",
+      "display_name": "Manolis Stamatopoulos",
+      "team": "Engineering",
+      "ip": "10.20.4.15"
+    },
+    {
+      "user_id": "c.pavlidou",
+      "display_name": "Christina Pavlidou",
+      "team": "Engineering",
+      "ip": "10.20.4.16"
+    },
+    {
+      "user_id": "a.kouris",
+      "display_name": "Antonis Kouris",
+      "team": "Engineering",
+      "ip": "10.20.4.17"
+    },
+    {
+      "user_id": "c.savvidou",
+      "display_name": "Chara Savvidou",
+      "team": "Engineering",
+      "ip": "10.20.4.18"
+    },
+    {
+      "user_id": "a.karagianni",
+      "display_name": "Athina Karagianni",
+      "team": "Engineering",
+      "ip": "10.20.4.19"
+    },
+    {
+      "user_id": "a.stefanidou",
+      "display_name": "Anastasia Stefanidou",
+      "team": "HR",
+      "ip": "10.20.5.11"
+    },
+    {
+      "user_id": "a.lamprakis",
+      "display_name": "Alexandros Lamprakis",
+      "team": "HR",
+      "ip": "10.20.5.12"
+    },
+    {
+      "user_id": "m.savvidou",
+      "display_name": "Maria Savvidou",
+      "team": "HR",
+      "ip": "10.20.5.13"
+    },
+    {
+      "user_id": "a.athanasiou",
+      "display_name": "Andreas Athanasiou",
+      "team": "HR",
+      "ip": "10.20.5.14"
+    },
+    {
+      "user_id": "k.savvidou",
+      "display_name": "Katerina Savvidou",
+      "team": "Customer Support",
+      "ip": "10.20.6.11"
+    },
+    {
+      "user_id": "a.anastasiou",
+      "display_name": "Angeliki Anastasiou",
+      "team": "Customer Support",
+      "ip": "10.20.6.12"
+    },
+    {
+      "user_id": "t.pavlidis",
+      "display_name": "Tasos Pavlidis",
+      "team": "Customer Support",
+      "ip": "10.20.6.13"
+    },
+    {
+      "user_id": "m.athanasiou",
+      "display_name": "Michalis Athanasiou",
+      "team": "Customer Support",
+      "ip": "10.20.6.14"
+    },
+    {
+      "user_id": "n.margariti",
+      "display_name": "Niki Margariti",
+      "team": "Customer Support",
+      "ip": "10.20.6.15"
+    },
+    {
+      "user_id": "p.dimopoulos",
+      "display_name": "Petros Dimopoulos",
+      "team": "Customer Support",
+      "ip": "10.20.6.16"
+    },
+    {
+      "user_id": "s.meletiou",
+      "display_name": "Stelios Meletiou",
+      "team": "Customer Support",
+      "ip": "10.20.6.17"
+    }
+  ],
+  "clients": [
+    {
+      "id": "C001",
+      "kind": "company",
+      "legal_name": "Αστρολίθι Πληροφορική Α.Ε.",
+      "trade_name": "Αστρολίθι Πληροφορική",
+      "aliases": [
+        "ΑΣΤΠΛ",
+        "Astrolithi Pliroforiki"
+      ],
+      "contacts": [
+        {
+          "name": "Μαρία Παπαδοπούλου",
+          "role": "Procurement Manager",
+          "email": "m.papadopoulou@astrolithi.example",
+          "phone": "+30 694 715 7633"
+        }
+      ],
+      "afm": "669293096",
+      "iban": "GR1998082741644864880470802",
+      "email": "info@astrolithi.example",
+      "phone": "+30 215 139 6128",
+      "address": "Λεωφόρος Κηφισίας 88, 166 75 Γλυφάδα",
+      "team": "Sales",
+      "language": "el"
+    },
+    {
+      "id": "C002",
+      "kind": "company",
+      "legal_name": "Ασημόπετρα Τουριστική Α.Ε.",
+      "trade_name": "Ασημόπετρα Τουριστική",
+      "aliases": [
+        "ΑΣΗΤΟ",
+        "Asimopetra Touristiki"
+      ],
+      "contacts": [
+        {
+          "name": "Χριστίνα Τζανετάκη",
+          "role": "Finance Director",
+          "email": "c.tzanetaki@asimopetra.example",
+          "phone": "+30 696 225 8765"
+        },
+        {
+          "name": "Νίκη Κουρή",
+          "role": "Procurement Manager",
+          "email": "n.kouri@asimopetra.example",
+          "phone": "+30 691 140 9829"
+        },
+        {
+          "name": "Άννα Ρήγα",
+          "role": "IT Manager",
+          "email": "a.riga@asimopetra.example",
+          "phone": "+30 691 593 9867"
+        }
+      ],
+      "afm": "267444816",
+      "iban": "GR0993621172015481023855788",
+      "email": "info@asimopetra.example",
+      "phone": "+30 215 174 3567",
+      "address": "Βασιλίσσης Σοφίας 208, 185 35 Πειραιάς",
+      "team": "Customer Support",
+      "language": "el"
+    },
+    {
+      "id": "C003",
+      "kind": "company",
+      "legal_name": "Νεφελοβάτης Φαρμακευτική Ι.Κ.Ε.",
+      "trade_name": "Νεφελοβάτης Φαρμακευτική",
+      "aliases": [
+        "ΝΕΦΦΑ",
+        "Nefelovatis Farmakeftiki"
+      ],
+      "contacts": [
+        {
+          "name": "Νίκη Ζερβού",
+          "role": "Operations Manager",
+          "email": "n.zervou@nefelovatis.example",
+          "phone": "+30 697 918 3302"
+        }
+      ],
+      "afm": "161558276",
+      "iban": "GR5692613624430542962066866",
+      "email": "info@nefelovatis.example",
+      "phone": "+30 210 314 8874",
+      "address": "Πατησίων 239, 546 24 Θεσσαλονίκη",
+      "team": "Customer Support",
+      "language": "el"
+    },
+    {
+      "id": "C004",
+      "kind": "company",
+      "legal_name": "Brackenmoor Engineering S.A.",
+      "trade_name": "Brackenmoor Engineering",
+      "aliases": [
+        "BRAEN"
+      ],
+      "contacts": [
+        {
+          "name": "Charlotte Lindqvist",
+          "role": "Chief Accountant",
+          "email": "c.lindqvist@brackenmoor.example",
+          "phone": "+30 697 768 3907"
+        },
+        {
+          "name": "Alice Hollis",
+          "role": "Procurement Manager",
+          "email": "a.hollis@brackenmoor.example",
+          "phone": "+30 696 033 3988"
+        },
+        {
+          "name": "Samuel Pemberton",
+          "role": "Finance Director",
+          "email": "s.pemberton@brackenmoor.example",
+          "phone": "+30 697 112 1612"
+        }
+      ],
+      "afm": "732006175",
+      "iban": "GR0596711306085400078967476",
+      "email": "info@brackenmoor.example",
+      "phone": "+30 213 219 2696",
+      "address": "192 Stadiou Street, 382 21 Volos, Greece",
+      "team": "Sales",
+      "language": "en"
+    },
+    {
+      "id": "C005",
+      "kind": "company",
+      "legal_name": "Emberfield Systems GmbH",
+      "trade_name": "Emberfield Systems",
+      "aliases": [
+        "EMBSY"
+      ],
+      "contacts": [
+        {
+          "name": "Thomas Whitfield",
+          "role": "Legal Counsel",
+          "email": "t.whitfield@emberfield.example",
+          "phone": "+30 697 402 6247"
+        },
+        {
+          "name": "Henry Aldridge",
+          "role": "Operations Manager",
+          "email": "h.aldridge@emberfield.example",
+          "phone": "+30 699 568 6254"
+        }
+      ],
+      "afm": "108712326",
+      "iban": "GR1898608627257734176888432",
+      "email": "info@emberfield.example",
+      "phone": "+30 210 931 6509",
+      "address": "124 Egnatia Street, 152 32 Chalandri, Greece",
+      "team": "Customer Support",
+      "language": "en"
+    },
+    {
+      "id": "C006",
+      "kind": "company",
+      "legal_name": "Περιστερώνας Εμπορική Ε.Π.Ε.",
+      "trade_name": "Περιστερώνας Εμπορική",
+      "aliases": [
+        "ΠΕΡΕΜ",
+        "Peristeronas Emporiki"
+      ],
+      "contacts": [
+        {
+          "name": "Νίκη Δημητρίου",
+          "role": "Procurement Manager",
+          "email": "n.dimitriou@peristeronas.example",
+          "phone": "+30 696 481 4008"
+        },
+        {
+          "name": "Αντώνης Ιωαννίδης",
+          "role": "Chief Accountant",
+          "email": "a.ioannidis@peristeronas.example",
+          "phone": "+30 697 247 8176"
+        },
+        {
+          "name": "Φωτεινή Κατσαρού",
+          "role": "Operations Manager",
+          "email": "f.katsarou@peristeronas.example",
+          "phone": "+30 696 006 0205"
+        }
+      ],
+      "afm": "283804875",
+      "iban": "GR5495479002084486788827609",
+      "email": "info@peristeronas.example",
+      "phone": "+30 212 685 5602",
+      "address": "Τσιμισκή 36, 412 22 Λάρισα",
+      "team": "Customer Support",
+      "language": "el"
+    },
+    {
+      "id": "C007",
+      "kind": "company",
+      "legal_name": "Κεδρόφυλλο Ενεργειακή Ε.Π.Ε.",
+      "trade_name": "Κεδρόφυλλο Ενεργειακή",
+      "aliases": [
+        "ΚΕΔΕΝ",
+        "Kedrofyllo Energeiaki"
+      ],
+      "contacts": [
+        {
+          "name": "Βασίλης Ζερβός",
+          "role": "Managing Director",
+          "email": "v.zervos@kedrofyllo.example",
+          "phone": "+30 691 652 3094"
+        },
+        {
+          "name": "Σταύρος Δημητρίου",
+          "role": "Operations Manager",
+          "email": "s.dimitriou@kedrofyllo.example",
+          "phone": "+30 697 667 4386"
+        }
+      ],
+      "afm": "780396929",
+      "iban": "GR2293343685221179812978369",
+      "email": "info@kedrofyllo.example",
+      "phone": "+30 212 276 7426",
+      "address": "Ηρώων Πολυτεχνείου 20, 546 24 Θεσσαλονίκη",
+      "team": "Customer Support",
+      "language": "el"
+    },
+    {
+      "id": "C008",
+      "kind": "company",
+      "legal_name": "Oakhollow Media Inc.",
+      "trade_name": "Oakhollow Media",
+      "aliases": [
+        "OAKME"
+      ],
+      "contacts": [
+        {
+          "name": "Claire Aldridge",
+          "role": "Legal Counsel",
+          "email": "c.aldridge@oakhollow.example",
+          "phone": "+30 691 028 8439"
+        },
+        {
+          "name": "Emma Pemberton",
+          "role": "IT Manager",
+          "email": "e.pemberton@oakhollow.example",
+          "phone": "+30 693 191 0916"
+        },
+        {
+          "name": "Oliver Fairbanks",
+          "role": "Chief Accountant",
+          "email": "o.fairbanks@oakhollow.example",
+          "phone": "+30 696 410 4631"
+        }
+      ],
+      "afm": "888160619",
+      "iban": "GR7191340818644910535332528",
+      "email": "info@oakhollow.example",
+      "phone": "+30 218 788 3779",
+      "address": "52 Akti Miaouli Street, 152 32 Chalandri, Greece",
+      "team": "Sales",
+      "language": "en"
+    },
+    {
+      "id": "C009",
+      "kind": "company",
+      "legal_name": "Velmont Energy Inc.",
+      "trade_name": "Velmont Energy",
+      "aliases": [
+        "VELEN"
+      ],
+      "contacts": [
+        {
+          "name": "Emma Keller",
+          "role": "Managing Director",
+          "email": "e.keller@velmont.example",
+          "phone": "+30 697 600 5243"
+        },
+        {
+          "name": "Hannah Lindqvist",
+          "role": "Operations Manager",
+          "email": "h.lindqvist@velmont.example",
+          "phone": "+30 690 002 1313"
+        }
+      ],
+      "afm": "652381645",
+      "iban": "GR7596205838260136538375268",
+      "email": "info@velmont.example",
+      "phone": "+30 216 041 2219",
+      "address": "181 Syngrou Avenue, 382 21 Volos, Greece",
+      "team": "Finance",
+      "language": "en"
+    },
+    {
+      "id": "C010",
+      "kind": "company",
+      "legal_name": "Corvane Shipping S.A.",
+      "trade_name": "Corvane Shipping",
+      "aliases": [
+        "CORSH"
+      ],
+      "contacts": [
+        {
+          "name": "Thomas Ashdown",
+          "role": "Chief Accountant",
+          "email": "t.ashdown@corvane.example",
+          "phone": "+30 695 284 0316"
+        },
+        {
+          "name": "Sarah Renshaw",
+          "role": "Operations Manager",
+          "email": "s.renshaw@corvane.example",
+          "phone": "+30 693 617 8377"
+        }
+      ],
+      "afm": "960057820",
+      "iban": "GR3098933588730758924255045",
+      "email": "info@corvane.example",
+      "phone": "+30 210 117 3127",
+      "address": "220 Akadimias Street, 152 32 Chalandri, Greece",
+      "team": "Finance",
+      "language": "en"
+    },
+    {
+      "id": "C011",
+      "kind": "company",
+      "legal_name": "Σταχυόμυλος Πληροφορική Ι.Κ.Ε.",
+      "trade_name": "Σταχυόμυλος Πληροφορική",
+      "aliases": [
+        "ΣΤΑΠΛ",
+        "Stachyomylos Pliroforiki"
+      ],
+      "contacts": [
+        {
+          "name": "Πέτρος Ζερβός",
+          "role": "Procurement Manager",
+          "email": "p.zervos@stachyomylos.example",
+          "phone": "+30 693 329 6442"
+        }
+      ],
+      "afm": "387725332",
+      "iban": "GR2893386816633586348567068",
+      "email": "info@stachyomylos.example",
+      "phone": "+30 212 366 8853",
+      "address": "Λεωφόρος Κηφισίας 204, 712 02 Ηράκλειο",
+      "team": "Sales",
+      "language": "el"
+    },
+    {
+      "id": "C012",
+      "kind": "company",
+      "legal_name": "Ηλιόδεντρο Κατασκευαστική Α.Ε.",
+      "trade_name": "Ηλιόδεντρο Κατασκευαστική",
+      "aliases": [
+        "ΗΛΙΚΑ",
+        "Iliodentro Kataskevastiki"
+      ],
+      "contacts": [
+        {
+          "name": "Θανάσης Μαυρίδης",
+          "role": "IT Manager",
+          "email": "t.mavridis@iliodentro.example",
+          "phone": "+30 699 624 9132"
+        },
+        {
+          "name": "Μαρία Χατζή",
+          "role": "Chief Accountant",
+          "email": "m.chatzi@iliodentro.example",
+          "phone": "+30 692 223 4559"
+        },
+        {
+          "name": "Αθηνά Νικολοπούλου",
+          "role": "Operations Manager",
+          "email": "a.nikolopoulou@iliodentro.example",
+          "phone": "+30 696 813 8103"
+        }
+      ],
+      "afm": "861548976",
+      "iban": "GR0996195286767156075670927",
+      "email": "info@iliodentro.example",
+      "phone": "+30 211 428 1358",
+      "address": "Λεωφόρος Κηφισίας 66, 382 21 Βόλος",
+      "team": "Finance",
+      "language": "el"
+    },
+    {
+      "id": "C013",
+      "kind": "company",
+      "legal_name": "Kestrelby Logistics Ltd",
+      "trade_name": "Kestrelby Logistics",
+      "aliases": [
+        "KESLO"
+      ],
+      "contacts": [
+        {
+          "name": "Emma Moreau",
+          "role": "Managing Director",
+          "email": "e.moreau@kestrelby.example",
+          "phone": "+30 692 926 5657"
+        },
+        {
+          "name": "James Brandt",
+          "role": "Procurement Manager",
+          "email": "j.brandt@kestrelby.example",
+          "phone": "+30 692 289 9651"
+        }
+      ],
+      "afm": "945613733",
+      "iban": "GR2897034549759214354203270",
+      "email": "info@kestrelby.example",
+      "phone": "+30 215 929 3420",
+      "address": "99 Akadimias Street, 382 21 Volos, Greece",
+      "team": "Engineering",
+      "language": "en"
+    },
+    {
+      "id": "C014",
+      "kind": "company",
+      "legal_name": "Βραχόνησος Τεχνική Ε.Π.Ε.",
+      "trade_name": "Βραχόνησος Τεχνική",
+      "aliases": [
+        "ΒΡΑΤΕ",
+        "Vrachonisos Techniki"
+      ],
+      "contacts": [
+        {
+          "name": "Πέτρος Δημητρίου",
+          "role": "Managing Director",
+          "email": "p.dimitriou@vrachonisos.example",
+          "phone": "+30 698 107 0875"
+        }
+      ],
+      "afm": "958094419",
+      "iban": "GR1799616879154709533939250",
+      "email": "info@vrachonisos.example",
+      "phone": "+30 217 382 8711",
+      "address": "Λεωφόρος Συγγρού 208, 151 25 Μαρούσι",
+      "team": "Finance",
+      "language": "el"
+    },
+    {
+      "id": "C015",
+      "kind": "company",
+      "legal_name": "Lumenridge Pharma Inc.",
+      "trade_name": "Lumenridge Pharma",
+      "aliases": [
+        "LUMPH"
+      ],
+      "contacts": [
+        {
+          "name": "Alice Brandt",
+          "role": "Legal Counsel",
+          "email": "a.brandt@lumenridge.example",
+          "phone": "+30 699 948 5556"
+        },
+        {
+          "name": "Alice Aldridge",
+          "role": "Managing Director",
+          "email": "a.aldridge@lumenridge.example",
+          "phone": "+30 690 391 2417"
+        },
+        {
+          "name": "Marcus Castellan",
+          "role": "Operations Manager",
+          "email": "m.castellan@lumenridge.example",
+          "phone": "+30 690 800 9980"
+        }
+      ],
+      "afm": "311045475",
+      "iban": "GR2896850501935984429188875",
+      "email": "info@lumenridge.example",
+      "phone": "+30 219 044 2477",
+      "address": "72 Korinthou Street, 185 35 Piraeus, Greece",
+      "team": "Sales",
+      "language": "en"
+    },
+    {
+      "id": "C016",
+      "kind": "company",
+      "legal_name": "Copperline Retail GmbH",
+      "trade_name": "Copperline Retail",
+      "aliases": [
+        "COPRE"
+      ],
+      "contacts": [
+        {
+          "name": "Alice Wexford",
+          "role": "Operations Manager",
+          "email": "a.wexford@copperline.example",
+          "phone": "+30 697 842 3695"
+        },
+        {
+          "name": "Daniel Lindqvist",
+          "role": "Finance Director",
+          "email": "d.lindqvist@copperline.example",
+          "phone": "+30 693 897 1607"
+        }
+      ],
+      "afm": "404120179",
+      "iban": "GR4592232245789108225212915",
+      "email": "info@copperline.example",
+      "phone": "+30 218 682 1821",
+      "address": "38 Vasilissis Sofias Street, 185 35 Piraeus, Greece",
+      "team": "Sales",
+      "language": "en"
+    },
+    {
+      "id": "C017",
+      "kind": "company",
+      "legal_name": "Κυπαρισσώνας Βιομηχανική Ε.Π.Ε.",
+      "trade_name": "Κυπαρισσώνας Βιομηχανική",
+      "aliases": [
+        "ΚΥΠΒΙ",
+        "Kyparissonas Viomichaniki"
+      ],
+      "contacts": [
+        {
+          "name": "Νίκη Ξυδάκη",
+          "role": "Operations Manager",
+          "email": "n.xydaki@kyparissonas.example",
+          "phone": "+30 697 688 1308"
+        },
+        {
+          "name": "Φώτης Λαμπράκης",
+          "role": "Legal Counsel",
+          "email": "f.lamprakis@kyparissonas.example",
+          "phone": "+30 694 310 0991"
+        }
+      ],
+      "afm": "955818630",
+      "iban": "GR0895720621825274929126430",
+      "email": "info@kyparissonas.example",
+      "phone": "+30 213 134 6999",
+      "address": "Σταδίου 89, 412 22 Λάρισα",
+      "team": "Finance",
+      "language": "el"
+    },
+    {
+      "id": "C018",
+      "kind": "company",
+      "legal_name": "Γλαυκόπετρα Βιομηχανική Α.Ε.",
+      "trade_name": "Γλαυκόπετρα Βιομηχανική",
+      "aliases": [
+        "ΓΛΑΒΙ",
+        "Glafkopetra Viomichaniki"
+      ],
+      "contacts": [
+        {
+          "name": "Ξένια Σιδέρη",
+          "role": "IT Manager",
+          "email": "x.sideri@glafkopetra.example",
+          "phone": "+30 695 747 0822"
+        },
+        {
+          "name": "Αντώνης Αντωνιάδης",
+          "role": "Legal Counsel",
+          "email": "a.antoniadis@glafkopetra.example",
+          "phone": "+30 695 609 0957"
+        }
+      ],
+      "afm": "124067880",
+      "iban": "GR3299978779543688765391174",
+      "email": "info@glafkopetra.example",
+      "phone": "+30 217 124 8547",
+      "address": "Λεωφόρος Κηφισίας 29, 152 32 Χαλάνδρι",
+      "team": "Finance",
+      "language": "el"
+    },
+    {
+      "id": "C019",
+      "kind": "company",
+      "legal_name": "Μαρμαρόκτιστο Ξενοδοχειακή Ι.Κ.Ε.",
+      "trade_name": "Μαρμαρόκτιστο Ξενοδοχειακή",
+      "aliases": [
+        "ΜΑΡΞΕ",
+        "Marmaroktisto Xenodocheiaki"
+      ],
+      "contacts": [
+        {
+          "name": "Θεοδώρα Μαργαρίτη",
+          "role": "Legal Counsel",
+          "email": "t.margariti@marmaroktisto.example",
+          "phone": "+30 692 583 9292"
+        },
+        {
+          "name": "Άρης Βλάχος",
+          "role": "Chief Accountant",
+          "email": "a.vlachos@marmaroktisto.example",
+          "phone": "+30 695 949 0284"
+        }
+      ],
+      "afm": "334713073",
+      "iban": "GR7698201901076879547231040",
+      "email": "info@marmaroktisto.example",
+      "phone": "+30 215 518 2576",
+      "address": "Ηρώων Πολυτεχνείου 228, 382 21 Βόλος",
+      "team": "Sales",
+      "language": "el"
+    },
+    {
+      "id": "C020",
+      "kind": "company",
+      "legal_name": "Ανεμόεσσα Ναυτιλιακή Ι.Κ.Ε.",
+      "trade_name": "Ανεμόεσσα Ναυτιλιακή",
+      "aliases": [
+        "ΑΝΕΝΑ",
+        "Anemoessa Naftiliaki"
+      ],
+      "contacts": [
+        {
+          "name": "Στέλιος Τριανταφύλλου",
+          "role": "Legal Counsel",
+          "email": "s.triantafyllou@anemoessa.example",
+          "phone": "+30 692 728 5348"
+        },
+        {
+          "name": "Αντώνης Βενιέρης",
+          "role": "Operations Manager",
+          "email": "a.venieris@anemoessa.example",
+          "phone": "+30 695 233 6862"
+        }
+      ],
+      "afm": "609897379",
+      "iban": "GR2096730834674851206818728",
+      "email": "info@anemoessa.example",
+      "phone": "+30 217 652 0558",
+      "address": "Ηρώων Πολυτεχνείου 99, 262 21 Πάτρα",
+      "team": "Finance",
+      "language": "el"
+    },
+    {
+      "id": "C021",
+      "kind": "company",
+      "legal_name": "Δρυόκαστρο Εκδοτική Ε.Π.Ε.",
+      "trade_name": "Δρυόκαστρο Εκδοτική",
+      "aliases": [
+        "ΔΡΥΕΚ",
+        "Dryokastro Ekdotiki"
+      ],
+      "contacts": [
+        {
+          "name": "Ελένη Δημοπούλου",
+          "role": "Managing Director",
+          "email": "e.dimopoulou@dryokastro.example",
+          "phone": "+30 692 031 8531"
+        },
+        {
+          "name": "Λευτέρης Αλεξίου",
+          "role": "Operations Manager",
+          "email": "l.alexiou@dryokastro.example",
+          "phone": "+30 692 713 6211"
+        }
+      ],
+      "afm": "878613709",
+      "iban": "GR7195701312890632173514094",
+      "email": "info@dryokastro.example",
+      "phone": "+30 211 216 4813",
+      "address": "Ακτή Μιαούλη 228, 382 21 Βόλος",
+      "team": "Legal",
+      "language": "el"
+    },
+    {
+      "id": "C022",
+      "kind": "company",
+      "legal_name": "Θαλασσόλιθος Τεχνική Α.Ε.",
+      "trade_name": "Θαλασσόλιθος Τεχνική",
+      "aliases": [
+        "ΘΑΛΤΕ",
+        "Thalassolithos Techniki"
+      ],
+      "contacts": [
+        {
+          "name": "Αντώνης Πολίτης",
+          "role": "Legal Counsel",
+          "email": "a.politis@thalassolithos.example",
+          "phone": "+30 699 545 4967"
+        }
+      ],
+      "afm": "197947986",
+      "iban": "GR8699561641468095238062714",
+      "email": "info@thalassolithos.example",
+      "phone": "+30 212 855 4511",
+      "address": "Πανεπιστημίου 119, 262 21 Πάτρα",
+      "team": "Sales",
+      "language": "el"
+    },
+    {
+      "id": "C023",
+      "kind": "company",
+      "legal_name": "Μελισσώνας Μεταφορική Α.Ε.",
+      "trade_name": "Μελισσώνας Μεταφορική",
+      "aliases": [
+        "ΜΕΛΜΕ",
+        "Melissonas Metaforiki"
+      ],
+      "contacts": [
+        {
+          "name": "Σταύρος Νικολόπουλος",
+          "role": "Operations Manager",
+          "email": "s.nikolopoulos@melissonas.example",
+          "phone": "+30 690 967 2887"
+        },
+        {
+          "name": "Πέτρος Κωνσταντίνου",
+          "role": "Chief Accountant",
+          "email": "p.konstantinou@melissonas.example",
+          "phone": "+30 695 771 7126"
+        }
+      ],
+      "afm": "874765947",
+      "iban": "GR5991090396550396878206188",
+      "email": "info@melissonas.example",
+      "phone": "+30 217 423 2262",
+      "address": "Κορίνθου 203, 166 75 Γλυφάδα",
+      "team": "Customer Support",
+      "language": "el"
+    },
+    {
+      "id": "C024",
+      "kind": "company",
+      "legal_name": "Tidewell Foods S.A.",
+      "trade_name": "Tidewell Foods",
+      "aliases": [
+        "TIDFO"
+      ],
+      "contacts": [
+        {
+          "name": "Oliver Moreau",
+          "role": "IT Manager",
+          "email": "o.moreau@tidewell.example",
+          "phone": "+30 690 784 8007"
+        },
+        {
+          "name": "Laura Castellan",
+          "role": "Finance Director",
+          "email": "l.castellan@tidewell.example",
+          "phone": "+30 694 546 6467"
+        }
+      ],
+      "afm": "513081095",
+      "iban": "GR0490107646138220237852949",
+      "email": "info@tidewell.example",
+      "phone": "+30 211 799 2823",
+      "address": "182 Tsimiski Street, 546 24 Thessaloniki, Greece",
+      "team": "Engineering",
+      "language": "en"
+    },
+    {
+      "id": "C025",
+      "kind": "company",
+      "legal_name": "Halewick Hospitality Ltd",
+      "trade_name": "Halewick Hospitality",
+      "aliases": [
+        "HALHO"
+      ],
+      "contacts": [
+        {
+          "name": "Hannah Brandt",
+          "role": "Legal Counsel",
+          "email": "h.brandt@halewick.example",
+          "phone": "+30 697 080 9611"
+        },
+        {
+          "name": "Henry Thornbury",
+          "role": "Managing Director",
+          "email": "h.thornbury@halewick.example",
+          "phone": "+30 691 649 2375"
+        }
+      ],
+      "afm": "448407883",
+      "iban": "GR6695185274116013435408753",
+      "email": "info@halewick.example",
+      "phone": "+30 210 096 8757",
+      "address": "173 Kifisias Avenue, 105 63 Athens, Greece",
+      "team": "Customer Support",
+      "language": "en"
+    },
+    {
+      "id": "C026",
+      "kind": "company",
+      "legal_name": "Ανθόκηπος Αγροτική Ε.Π.Ε.",
+      "trade_name": "Ανθόκηπος Αγροτική",
+      "aliases": [
+        "ΑΝΘΑΓ",
+        "Anthokipos Agrotiki"
+      ],
+      "contacts": [
+        {
+          "name": "Κώστας Τζανετάκης",
+          "role": "IT Manager",
+          "email": "k.tzanetakis@anthokipos.example",
+          "phone": "+30 698 570 1491"
+        },
+        {
+          "name": "Αντώνης Σπανός",
+          "role": "Procurement Manager",
+          "email": "a.spanos@anthokipos.example",
+          "phone": "+30 693 180 1500"
+        }
+      ],
+      "afm": "162012150",
+      "iban": "GR7797537788817714960103620",
+      "email": "info@anthokipos.example",
+      "phone": "+30 210 643 3892",
+      "address": "Ακτή Μιαούλη 150, 152 32 Χαλάνδρι",
+      "team": "Engineering",
+      "language": "el"
+    },
+    {
+      "id": "C027",
+      "kind": "company",
+      "legal_name": "Κυματώ Φαρμακευτική Ι.Κ.Ε.",
+      "trade_name": "Κυματώ Φαρμακευτική",
+      "aliases": [
+        "ΚΥΜΦΑ",
+        "Kymato Farmakeftiki"
+      ],
+      "contacts": [
+        {
+          "name": "Άννα Βενιέρη",
+          "role": "Operations Manager",
+          "email": "a.venieri@kymato.example",
+          "phone": "+30 696 048 1336"
+        },
+        {
+          "name": "Βασιλική Δρόσου",
+          "role": "Finance Director",
+          "email": "v.drosou@kymato.example",
+          "phone": "+30 694 684 3997"
+        }
+      ],
+      "afm": "975807409",
+      "iban": "GR3296138981770165206871760",
+      "email": "info@kymato.example",
+      "phone": "+30 211 727 1253",
+      "address": "Πανεπιστημίου 184, 105 63 Αθήνα",
+      "team": "Sales",
+      "language": "el"
+    },
+    {
+      "id": "C028",
+      "kind": "company",
+      "legal_name": "Πετροκάραβο Ξενοδοχειακή Ι.Κ.Ε.",
+      "trade_name": "Πετροκάραβο Ξενοδοχειακή",
+      "aliases": [
+        "ΠΕΤΞΕ",
+        "Petrokaravo Xenodocheiaki"
+      ],
+      "contacts": [
+        {
+          "name": "Ειρήνη Κουρή",
+          "role": "IT Manager",
+          "email": "e.kouri@petrokaravo.example",
+          "phone": "+30 698 958 8071"
+        },
+        {
+          "name": "Δήμητρα Δημητρίου",
+          "role": "Legal Counsel",
+          "email": "d.dimitriou@petrokaravo.example",
+          "phone": "+30 697 819 1639"
+        }
+      ],
+      "afm": "692596823",
+      "iban": "GR5594301079219217507604786",
+      "email": "info@petrokaravo.example",
+      "phone": "+30 210 214 0141",
+      "address": "Ακτή Μιαούλη 30, 382 21 Βόλος",
+      "team": "Customer Support",
+      "language": "el"
+    },
+    {
+      "id": "C029",
+      "kind": "company",
+      "legal_name": "Φεγγαρόλουστο Ασφαλιστική Α.Ε.",
+      "trade_name": "Φεγγαρόλουστο Ασφαλιστική",
+      "aliases": [
+        "ΦΕΓΑΣ",
+        "Fengaroloussto Asfalistiki"
+      ],
+      "contacts": [
+        {
+          "name": "Μαρία Νικολάου",
+          "role": "Managing Director",
+          "email": "m.nikolaou@fengaroloussto.example",
+          "phone": "+30 699 660 4866"
+        },
+        {
+          "name": "Κατερίνα Χατζή",
+          "role": "Legal Counsel",
+          "email": "k.chatzi@fengaroloussto.example",
+          "phone": "+30 691 971 2513"
+        },
+        {
+          "name": "Φωτεινή Βασιλείου",
+          "role": "Operations Manager",
+          "email": "f.vasileiou@fengaroloussto.example",
+          "phone": "+30 692 462 6227"
+        }
+      ],
+      "afm": "193533497",
+      "iban": "GR2698248394736871384636532",
+      "email": "info@fengaroloussto.example",
+      "phone": "+30 217 406 2237",
+      "address": "Κορίνθου 88, 151 25 Μαρούσι",
+      "team": "Customer Support",
+      "language": "el"
+    },
+    {
+      "id": "C030",
+      "kind": "company",
+      "legal_name": "Αλατόπετρα Κατασκευαστική Α.Ε.",
+      "trade_name": "Αλατόπετρα Κατασκευαστική",
+      "aliases": [
+        "ΑΛΑΚΑ",
+        "Alatopetra Kataskevastiki"
+      ],
+      "contacts": [
+        {
+          "name": "Σπύρος Παπαδόπουλος",
+          "role": "Operations Manager",
+          "email": "s.papadopoulos@alatopetra.example",
+          "phone": "+30 693 547 1327"
+        },
+        {
+          "name": "Φώτης Κυριακίδης",
+          "role": "Managing Director",
+          "email": "f.kyriakidis@alatopetra.example",
+          "phone": "+30 691 536 1415"
+        },
+        {
+          "name": "Φωτεινή Σπανού",
+          "role": "Chief Accountant",
+          "email": "f.spanou@alatopetra.example",
+          "phone": "+30 692 482 8836"
+        }
+      ],
+      "afm": "967317457",
+      "iban": "GR4790017137948638507730878",
+      "email": "info@alatopetra.example",
+      "phone": "+30 216 815 9437",
+      "address": "Ηρώων Πολυτεχνείου 15, 712 02 Ηράκλειο",
+      "team": "Sales",
+      "language": "el"
+    },
+    {
+      "id": "C031",
+      "kind": "company",
+      "legal_name": "Κρινάνθεμο Ασφαλιστική Ι.Κ.Ε.",
+      "trade_name": "Κρινάνθεμο Ασφαλιστική",
+      "aliases": [
+        "ΚΡΙΑΣ",
+        "Krinanthemo Asfalistiki"
+      ],
+      "contacts": [
+        {
+          "name": "Στέφανος Πολίτης",
+          "role": "Procurement Manager",
+          "email": "s.politis@krinanthemo.example",
+          "phone": "+30 694 536 5985"
+        },
+        {
+          "name": "Φωτεινή Παυλίδου",
+          "role": "Finance Director",
+          "email": "f.pavlidou@krinanthemo.example",
+          "phone": "+30 695 547 6484"
+        }
+      ],
+      "afm": "468206787",
+      "iban": "GR6192448493094989043058287",
+      "email": "info@krinanthemo.example",
+      "phone": "+30 210 766 1780",
+      "address": "Ηρώων Πολυτεχνείου 124, 152 32 Χαλάνδρι",
+      "team": "Customer Support",
+      "language": "el"
+    },
+    {
+      "id": "C032",
+      "kind": "company",
+      "legal_name": "Λιόφυτο Αγροτική Α.Ε.",
+      "trade_name": "Λιόφυτο Αγροτική",
+      "aliases": [
+        "ΛΙΟΑΓ",
+        "Liofyto Agrotiki"
+      ],
+      "contacts": [
+        {
+          "name": "Μαρία Δημοπούλου",
+          "role": "Procurement Manager",
+          "email": "m.dimopoulou@liofyto.example",
+          "phone": "+30 697 967 2594"
+        },
+        {
+          "name": "Θεοδώρα Γεωργίου",
+          "role": "Finance Director",
+          "email": "t.georgiou@liofyto.example",
+          "phone": "+30 692 779 1041"
+        }
+      ],
+      "afm": "105797430",
+      "iban": "GR2894509904642442346994080",
+      "email": "info@liofyto.example",
+      "phone": "+30 210 087 6898",
+      "address": "Λεωφόρος Συγγρού 8, 412 22 Λάρισα",
+      "team": "Sales",
+      "language": "el"
+    },
+    {
+      "id": "C033",
+      "kind": "company",
+      "legal_name": "Wrenfield Insurance B.V.",
+      "trade_name": "Wrenfield Insurance",
+      "aliases": [
+        "WREIN"
+      ],
+      "contacts": [
+        {
+          "name": "Julia Brandt",
+          "role": "Managing Director",
+          "email": "j.brandt@wrenfield.example",
+          "phone": "+30 697 842 3674"
+        },
+        {
+          "name": "Oliver Pemberton",
+          "role": "Chief Accountant",
+          "email": "o.pemberton@wrenfield.example",
+          "phone": "+30 694 881 2426"
+        }
+      ],
+      "afm": "787392190",
+      "iban": "GR8494594145694191399388718",
+      "email": "info@wrenfield.example",
+      "phone": "+30 213 232 6784",
+      "address": "54 Syngrou Avenue, 262 21 Patras, Greece",
+      "team": "Customer Support",
+      "language": "en"
+    },
+    {
+      "id": "C034",
+      "kind": "company",
+      "legal_name": "Ferncastle Trading GmbH",
+      "trade_name": "Ferncastle Trading",
+      "aliases": [
+        "FERTR"
+      ],
+      "contacts": [
+        {
+          "name": "Laura Marlowe",
+          "role": "Finance Director",
+          "email": "l.marlowe@ferncastle.example",
+          "phone": "+30 693 100 6062"
+        },
+        {
+          "name": "Oliver Harrow",
+          "role": "Procurement Manager",
+          "email": "o.harrow@ferncastle.example",
+          "phone": "+30 690 216 3335"
+        },
+        {
+          "name": "Oliver Hollis",
+          "role": "Legal Counsel",
+          "email": "o.hollis@ferncastle.example",
+          "phone": "+30 694 710 2468"
+        }
+      ],
+      "afm": "987795784",
+      "iban": "GR5295010495153660048972857",
+      "email": "info@ferncastle.example",
+      "phone": "+30 212 074 0765",
+      "address": "93 Stadiou Street, 712 02 Heraklion, Greece",
+      "team": "Engineering",
+      "language": "en"
+    },
+    {
+      "id": "C035",
+      "kind": "company",
+      "legal_name": "Quillhaven Biotech B.V.",
+      "trade_name": "Quillhaven Biotech",
+      "aliases": [
+        "QUIBI"
+      ],
+      "contacts": [
+        {
+          "name": "Hannah Thornbury",
+          "role": "IT Manager",
+          "email": "h.thornbury@quillhaven.example",
+          "phone": "+30 694 403 0404"
+        }
+      ],
+      "afm": "402689796",
+      "iban": "GR0492116643553507403252845",
+      "email": "info@quillhaven.example",
+      "phone": "+30 210 352 5077",
+      "address": "33 Patision Street, 546 24 Thessaloniki, Greece",
+      "team": "Customer Support",
+      "language": "en"
+    },
+    {
+      "id": "C036",
+      "kind": "company",
+      "legal_name": "Αμπελοφόρος Εμπορική Α.Ε.",
+      "trade_name": "Αμπελοφόρος Εμπορική",
+      "aliases": [
+        "ΑΜΠΕΜ",
+        "Ampeloforos Emporiki"
+      ],
+      "contacts": [
+        {
+          "name": "Αλέξανδρος Παπαδάκης",
+          "role": "Chief Accountant",
+          "email": "a.papadakis@ampeloforos.example",
+          "phone": "+30 691 849 8988"
+        }
+      ],
+      "afm": "711887133",
+      "iban": "GR9097980356875456967511129",
+      "email": "info@ampeloforos.example",
+      "phone": "+30 211 920 0310",
+      "address": "Ερμού 136, 262 21 Πάτρα",
+      "team": "Finance",
+      "language": "el"
+    },
+    {
+      "id": "C037",
+      "kind": "company",
+      "legal_name": "Καστανόλοφος Μεταφορική Ε.Π.Ε.",
+      "trade_name": "Καστανόλοφος Μεταφορική",
+      "aliases": [
+        "ΚΑΣΜΕ",
+        "Kastanolofos Metaforiki"
+      ],
+      "contacts": [
+        {
+          "name": "Αγγελική Κατσαρού",
+          "role": "Finance Director",
+          "email": "a.katsarou@kastanolofos.example",
+          "phone": "+30 692 616 2356"
+        }
+      ],
+      "afm": "028065954",
+      "iban": "GR5997540819614886022758433",
+      "email": "info@kastanolofos.example",
+      "phone": "+30 215 299 8791",
+      "address": "Μαιζώνος 210, 382 21 Βόλος",
+      "team": "Legal",
+      "language": "el"
+    },
+    {
+      "id": "C038",
+      "kind": "company",
+      "legal_name": "Χρυσόκλαδο Τουριστική Ε.Π.Ε.",
+      "trade_name": "Χρυσόκλαδο Τουριστική",
+      "aliases": [
+        "ΧΡΥΤΟ",
+        "Chrysoklado Touristiki"
+      ],
+      "contacts": [
+        {
+          "name": "Ειρήνη Νικολάου",
+          "role": "Chief Accountant",
+          "email": "e.nikolaou@chrysoklado.example",
+          "phone": "+30 696 419 4902"
+        }
+      ],
+      "afm": "199460715",
+      "iban": "GR6396134627416279792498557",
+      "email": "info@chrysoklado.example",
+      "phone": "+30 219 018 5890",
+      "address": "Πατησίων 164, 262 21 Πάτρα",
+      "team": "Sales",
+      "language": "el"
+    },
+    {
+      "id": "C039",
+      "kind": "company",
+      "legal_name": "Thistledown Capital Ltd",
+      "trade_name": "Thistledown Capital",
+      "aliases": [
+        "THICA"
+      ],
+      "contacts": [
+        {
+          "name": "Oliver Castellan",
+          "role": "Managing Director",
+          "email": "o.castellan@thistledown.example",
+          "phone": "+30 691 122 0529"
+        },
+        {
+          "name": "Daniel Keller",
+          "role": "IT Manager",
+          "email": "d.keller@thistledown.example",
+          "phone": "+30 698 133 7915"
+        }
+      ],
+      "afm": "722273800",
+      "iban": "GR1192454133048898240423837",
+      "email": "info@thistledown.example",
+      "phone": "+30 210 418 3495",
+      "address": "70 Korinthou Street, 546 24 Thessaloniki, Greece",
+      "team": "Sales",
+      "language": "en"
+    },
+    {
+      "id": "C040",
+      "kind": "company",
+      "legal_name": "Αργυρόνερο Ναυτιλιακή Α.Ε.",
+      "trade_name": "Αργυρόνερο Ναυτιλιακή",
+      "aliases": [
+        "ΑΡΓΝΑ",
+        "Argyronero Naftiliaki"
+      ],
+      "contacts": [
+        {
+          "name": "Σπύρος Παυλίδης",
+          "role": "Procurement Manager",
+          "email": "s.pavlidis@argyronero.example",
+          "phone": "+30 693 201 4427"
+        }
+      ],
+      "afm": "993421477",
+      "iban": "GR9293590615896574996990906",
+      "email": "info@argyronero.example",
+      "phone": "+30 218 059 9209",
+      "address": "Ακτή Μιαούλη 157, 712 02 Ηράκλειο",
+      "team": "Legal",
+      "language": "el"
+    },
+    {
+      "id": "C041",
+      "kind": "individual",
+      "legal_name": "Παύλος Θεοδωρόπουλος",
+      "trade_name": "Παύλος Θεοδωρόπουλος",
+      "aliases": [
+        "Pavlos Theodoropoulos"
+      ],
+      "contacts": [
+        {
+          "name": "Παύλος Θεοδωρόπουλος",
+          "role": "Account holder",
+          "email": "p.theodoropoulos@mailbox.example",
+          "phone": "+30 698 149 2601"
+        },
+        {
+          "name": "Ειρήνη Γεωργίου",
+          "role": "Accountant",
+          "email": "e.georgiou@logistis.example",
+          "phone": "+30 694 800 0669"
+        }
+      ],
+      "afm": "944425908",
+      "iban": "GR3194017820887318700234034",
+      "email": "p.theodoropoulos@mailbox.example",
+      "phone": "+30 698 149 2601",
+      "address": "Κορίνθου 205, 382 21 Βόλος",
+      "team": "Engineering",
+      "language": "el"
+    },
+    {
+      "id": "C042",
+      "kind": "individual",
+      "legal_name": "Μιχάλης Παπαδάκης",
+      "trade_name": "Μιχάλης Παπαδάκης",
+      "aliases": [
+        "Michalis Papadakis"
+      ],
+      "contacts": [
+        {
+          "name": "Μιχάλης Παπαδάκης",
+          "role": "Account holder",
+          "email": "m.papadakis@mailbox.example",
+          "phone": "+30 690 373 8137"
+        },
+        {
+          "name": "Γεωργία Σταματοπούλου",
+          "role": "Accountant",
+          "email": "g.stamatopoulou@logistis.example",
+          "phone": "+30 698 309 2758"
+        }
+      ],
+      "afm": "090549646",
+      "iban": "GR8797478445894944026638097",
+      "email": "m.papadakis@mailbox.example",
+      "phone": "+30 690 373 8137",
+      "address": "Εγνατία 137, 546 24 Θεσσαλονίκη",
+      "team": "Finance",
+      "language": "el"
+    },
+    {
+      "id": "C043",
+      "kind": "individual",
+      "legal_name": "Νίκη Τζανετάκη",
+      "trade_name": "Νίκη Τζανετάκη",
+      "aliases": [
+        "Niki Tzanetaki"
+      ],
+      "contacts": [
+        {
+          "name": "Νίκη Τζανετάκη",
+          "role": "Account holder",
+          "email": "n.tzanetaki@mailbox.example",
+          "phone": "+30 697 491 5998"
+        }
+      ],
+      "afm": "741398951",
+      "iban": "GR3096755797598894620370320",
+      "email": "n.tzanetaki@mailbox.example",
+      "phone": "+30 697 491 5998",
+      "address": "Ακαδημίας 145, 151 25 Μαρούσι",
+      "team": "Engineering",
+      "language": "el"
+    },
+    {
+      "id": "C044",
+      "kind": "individual",
+      "legal_name": "Χριστίνα Ντόκου",
+      "trade_name": "Χριστίνα Ντόκου",
+      "aliases": [
+        "Christina Dokou"
+      ],
+      "contacts": [
+        {
+          "name": "Χριστίνα Ντόκου",
+          "role": "Account holder",
+          "email": "c.dokou@mailbox.example",
+          "phone": "+30 699 050 3459"
+        }
+      ],
+      "afm": "522503767",
+      "iban": "GR0392928495519692959114788",
+      "email": "c.dokou@mailbox.example",
+      "phone": "+30 699 050 3459",
+      "address": "Ακτή Μιαούλη 51, 412 22 Λάρισα",
+      "team": "Finance",
+      "language": "el"
+    },
+    {
+      "id": "C045",
+      "kind": "individual",
+      "legal_name": "Μανώλης Ξυδάκης",
+      "trade_name": "Μανώλης Ξυδάκης",
+      "aliases": [
+        "Manolis Xydakis"
+      ],
+      "contacts": [
+        {
+          "name": "Μανώλης Ξυδάκης",
+          "role": "Account holder",
+          "email": "m.xydakis@mailbox.example",
+          "phone": "+30 697 798 7879"
+        }
+      ],
+      "afm": "626340391",
+      "iban": "GR3292258735597466853593923",
+      "email": "m.xydakis@mailbox.example",
+      "phone": "+30 697 798 7879",
+      "address": "Λεωφόρος Συγγρού 158, 412 22 Λάρισα",
+      "team": "Sales",
+      "language": "el"
+    },
+    {
+      "id": "C046",
+      "kind": "individual",
+      "legal_name": "Ιωάννα Γεωργίου",
+      "trade_name": "Ιωάννα Γεωργίου",
+      "aliases": [
+        "Ioanna Georgiou"
+      ],
+      "contacts": [
+        {
+          "name": "Ιωάννα Γεωργίου",
+          "role": "Account holder",
+          "email": "i.georgiou@mailbox.example",
+          "phone": "+30 691 603 4614"
+        }
+      ],
+      "afm": "486503728",
+      "iban": "GR2390979635084186710909266",
+      "email": "i.georgiou@mailbox.example",
+      "phone": "+30 691 603 4614",
+      "address": "Ακαδημίας 84, 546 24 Θεσσαλονίκη",
+      "team": "Sales",
+      "language": "el"
+    },
+    {
+      "id": "C047",
+      "kind": "individual",
+      "legal_name": "Γεωργία Δρόσου",
+      "trade_name": "Γεωργία Δρόσου",
+      "aliases": [
+        "Georgia Drosou"
+      ],
+      "contacts": [
+        {
+          "name": "Γεωργία Δρόσου",
+          "role": "Account holder",
+          "email": "g.drosou@mailbox.example",
+          "phone": "+30 697 287 5129"
+        }
+      ],
+      "afm": "885395163",
+      "iban": "GR4191559823520614147266663",
+      "email": "g.drosou@mailbox.example",
+      "phone": "+30 697 287 5129",
+      "address": "Ηρώων Πολυτεχνείου 12, 152 32 Χαλάνδρι",
+      "team": "Customer Support",
+      "language": "el"
+    },
+    {
+      "id": "C048",
+      "kind": "individual",
+      "legal_name": "Laura Whitfield",
+      "trade_name": "Laura Whitfield",
+      "aliases": [],
+      "contacts": [
+        {
+          "name": "Laura Whitfield",
+          "role": "Account holder",
+          "email": "l.whitfield@mailbox.example",
+          "phone": "+30 691 715 3559"
+        },
+        {
+          "name": "Julia Hollis",
+          "role": "Accountant",
+          "email": "j.hollis@logistis.example",
+          "phone": "+30 690 537 0670"
+        }
+      ],
+      "afm": "553704285",
+      "iban": "GR8794858302948157352895393",
+      "email": "l.whitfield@mailbox.example",
+      "phone": "+30 691 715 3559",
+      "address": "140 Iroon Polytechneiou Street, 262 21 Patras, Greece",
+      "team": "Sales",
+      "language": "en"
+    },
+    {
+      "id": "C049",
+      "kind": "individual",
+      "legal_name": "Thomas Brandt",
+      "trade_name": "Thomas Brandt",
+      "aliases": [],
+      "contacts": [
+        {
+          "name": "Thomas Brandt",
+          "role": "Account holder",
+          "email": "t.brandt@mailbox.example",
+          "phone": "+30 694 058 7530"
+        },
+        {
+          "name": "Hannah Whitfield",
+          "role": "Accountant",
+          "email": "h.whitfield@logistis.example",
+          "phone": "+30 695 417 9108"
+        }
+      ],
+      "afm": "208818855",
+      "iban": "GR2397024942706274665482194",
+      "email": "t.brandt@mailbox.example",
+      "phone": "+30 694 058 7530",
+      "address": "232 Korinthou Street, 151 25 Marousi, Greece",
+      "team": "Customer Support",
+      "language": "en"
+    },
+    {
+      "id": "C050",
+      "kind": "individual",
+      "legal_name": "Hannah Fairbanks",
+      "trade_name": "Hannah Fairbanks",
+      "aliases": [],
+      "contacts": [
+        {
+          "name": "Hannah Fairbanks",
+          "role": "Account holder",
+          "email": "h.fairbanks@mailbox.example",
+          "phone": "+30 698 185 8280"
+        },
+        {
+          "name": "Laura Keller",
+          "role": "Accountant",
+          "email": "l.keller@logistis.example",
+          "phone": "+30 698 591 4009"
+        }
+      ],
+      "afm": "894335987",
+      "iban": "GR8499062015020004931485106",
+      "email": "h.fairbanks@mailbox.example",
+      "phone": "+30 698 185 8280",
+      "address": "66 Akadimias Street, 412 22 Larissa, Greece",
+      "team": "Sales",
+      "language": "en"
+    },
+    {
+      "id": "C051",
+      "kind": "individual",
+      "legal_name": "Ελένη Ιωάννου",
+      "trade_name": "Ελένη Ιωάννου",
+      "aliases": [
+        "Eleni Ioannou"
+      ],
+      "contacts": [
+        {
+          "name": "Ελένη Ιωάννου",
+          "role": "Account holder",
+          "email": "e.ioannou@mailbox.example",
+          "phone": "+30 692 679 1561"
+        }
+      ],
+      "afm": "827264529",
+      "iban": "GR3496097982963447857572830",
+      "email": "e.ioannou@mailbox.example",
+      "phone": "+30 692 679 1561",
+      "address": "Πανεπιστημίου 98, 262 21 Πάτρα",
+      "team": "Legal",
+      "language": "el"
+    },
+    {
+      "id": "C052",
+      "kind": "individual",
+      "legal_name": "Θοδωρής Βλάχος",
+      "trade_name": "Θοδωρής Βλάχος",
+      "aliases": [
+        "Thodoris Vlachos"
+      ],
+      "contacts": [
+        {
+          "name": "Θοδωρής Βλάχος",
+          "role": "Account holder",
+          "email": "t.vlachos@mailbox.example",
+          "phone": "+30 692 726 4988"
+        }
+      ],
+      "afm": "705306664",
+      "iban": "GR8291971294551721795643307",
+      "email": "t.vlachos@mailbox.example",
+      "phone": "+30 692 726 4988",
+      "address": "Πανεπιστημίου 122, 151 25 Μαρούσι",
+      "team": "Finance",
+      "language": "el"
+    },
+    {
+      "id": "C053",
+      "kind": "individual",
+      "legal_name": "Ανδρέας Τριανταφύλλου",
+      "trade_name": "Ανδρέας Τριανταφύλλου",
+      "aliases": [
+        "Andreas Triantafyllou"
+      ],
+      "contacts": [
+        {
+          "name": "Ανδρέας Τριανταφύλλου",
+          "role": "Account holder",
+          "email": "a.triantafyllou@mailbox.example",
+          "phone": "+30 699 995 0081"
+        },
+        {
+          "name": "Φωτεινή Λαμπράκη",
+          "role": "Accountant",
+          "email": "f.lampraki@logistis.example",
+          "phone": "+30 695 908 9467"
+        }
+      ],
+      "afm": "146677588",
+      "iban": "GR5992224664384484363602459",
+      "email": "a.triantafyllou@mailbox.example",
+      "phone": "+30 699 995 0081",
+      "address": "Κορίνθου 66, 382 21 Βόλος",
+      "team": "Finance",
+      "language": "el"
+    },
+    {
+      "id": "C054",
+      "kind": "individual",
+      "legal_name": "Αναστασία Ζερβού",
+      "trade_name": "Αναστασία Ζερβού",
+      "aliases": [
+        "Anastasia Zervou"
+      ],
+      "contacts": [
+        {
+          "name": "Αναστασία Ζερβού",
+          "role": "Account holder",
+          "email": "a.zervou@mailbox.example",
+          "phone": "+30 699 617 6746"
+        },
+        {
+          "name": "Ειρήνη Χριστοδούλου",
+          "role": "Accountant",
+          "email": "e.christodoulou@logistis.example",
+          "phone": "+30 693 774 1538"
+        }
+      ],
+      "afm": "095593900",
+      "iban": "GR4391150498197625693464090",
+      "email": "a.zervou@mailbox.example",
+      "phone": "+30 699 617 6746",
+      "address": "Λεωφόρος Κηφισίας 192, 105 63 Αθήνα",
+      "team": "Finance",
+      "language": "el"
+    },
+    {
+      "id": "C055",
+      "kind": "individual",
+      "legal_name": "Χριστίνα Μαυρίδου",
+      "trade_name": "Χριστίνα Μαυρίδου",
+      "aliases": [
+        "Christina Mavridou"
+      ],
+      "contacts": [
+        {
+          "name": "Χριστίνα Μαυρίδου",
+          "role": "Account holder",
+          "email": "c.mavridou@mailbox.example",
+          "phone": "+30 691 791 0673"
+        }
+      ],
+      "afm": "443310537",
+      "iban": "GR5095335025393085785818909",
+      "email": "c.mavridou@mailbox.example",
+      "phone": "+30 691 791 0673",
+      "address": "Ερμού 94, 185 35 Πειραιάς",
+      "team": "Engineering",
+      "language": "el"
+    },
+    {
+      "id": "C056",
+      "kind": "individual",
+      "legal_name": "Δέσποινα Τσολάκη",
+      "trade_name": "Δέσποινα Τσολάκη",
+      "aliases": [
+        "Despoina Tsolaki"
+      ],
+      "contacts": [
+        {
+          "name": "Δέσποινα Τσολάκη",
+          "role": "Account holder",
+          "email": "d.tsolaki@mailbox.example",
+          "phone": "+30 691 051 8879"
+        },
+        {
+          "name": "Ξένια Κυριακίδου",
+          "role": "Accountant",
+          "email": "x.kyriakidou@logistis.example",
+          "phone": "+30 699 428 4161"
+        }
+      ],
+      "afm": "742265642",
+      "iban": "GR6996371572758272109159855",
+      "email": "d.tsolaki@mailbox.example",
+      "phone": "+30 691 051 8879",
+      "address": "Τσιμισκή 237, 151 25 Μαρούσι",
+      "team": "Finance",
+      "language": "el"
+    },
+    {
+      "id": "C057",
+      "kind": "individual",
+      "legal_name": "Ανδρέας Ιωαννίδης",
+      "trade_name": "Ανδρέας Ιωαννίδης",
+      "aliases": [
+        "Andreas Ioannidis"
+      ],
+      "contacts": [
+        {
+          "name": "Ανδρέας Ιωαννίδης",
+          "role": "Account holder",
+          "email": "a.ioannidis@mailbox.example",
+          "phone": "+30 694 534 7489"
+        }
+      ],
+      "afm": "261602688",
+      "iban": "GR2992420241559554043361637",
+      "email": "a.ioannidis@mailbox.example",
+      "phone": "+30 694 534 7489",
+      "address": "Τσιμισκή 58, 262 21 Πάτρα",
+      "team": "Sales",
+      "language": "el"
+    },
+    {
+      "id": "C058",
+      "kind": "individual",
+      "legal_name": "Charlotte Marlowe",
+      "trade_name": "Charlotte Marlowe",
+      "aliases": [],
+      "contacts": [
+        {
+          "name": "Charlotte Marlowe",
+          "role": "Account holder",
+          "email": "c.marlowe@mailbox.example",
+          "phone": "+30 690 103 1556"
+        },
+        {
+          "name": "Marcus Thornbury",
+          "role": "Accountant",
+          "email": "m.thornbury@logistis.example",
+          "phone": "+30 696 373 0828"
+        }
+      ],
+      "afm": "152071884",
+      "iban": "GR8993249343033736229808660",
+      "email": "c.marlowe@mailbox.example",
+      "phone": "+30 690 103 1556",
+      "address": "179 Stadiou Street, 546 24 Thessaloniki, Greece",
+      "team": "Customer Support",
+      "language": "en"
+    },
+    {
+      "id": "C059",
+      "kind": "individual",
+      "legal_name": "Hannah Hollis",
+      "trade_name": "Hannah Hollis",
+      "aliases": [],
+      "contacts": [
+        {
+          "name": "Hannah Hollis",
+          "role": "Account holder",
+          "email": "h.hollis@mailbox.example",
+          "phone": "+30 692 622 3034"
+        },
+        {
+          "name": "Edward Lindqvist",
+          "role": "Accountant",
+          "email": "e.lindqvist@logistis.example",
+          "phone": "+30 698 392 0870"
+        }
+      ],
+      "afm": "294420930",
+      "iban": "GR7896099336887778295623879",
+      "email": "h.hollis@mailbox.example",
+      "phone": "+30 692 622 3034",
+      "address": "61 Iroon Polytechneiou Street, 151 25 Marousi, Greece",
+      "team": "Sales",
+      "language": "en"
+    },
+    {
+      "id": "C060",
+      "kind": "individual",
+      "legal_name": "Emma Castellan",
+      "trade_name": "Emma Castellan",
+      "aliases": [],
+      "contacts": [
+        {
+          "name": "Emma Castellan",
+          "role": "Account holder",
+          "email": "e.castellan@mailbox.example",
+          "phone": "+30 690 438 1902"
+        },
+        {
+          "name": "Julia Harrow",
+          "role": "Accountant",
+          "email": "j.harrow@logistis.example",
+          "phone": "+30 692 198 4315"
+        }
+      ],
+      "afm": "768991408",
+      "iban": "GR3495105203155061099501861",
+      "email": "e.castellan@mailbox.example",
+      "phone": "+30 690 438 1902",
+      "address": "79 Maizonos Street, 166 75 Glyfada, Greece",
+      "team": "Customer Support",
+      "language": "en"
+    }
+  ],
+  "projects": [
+    {
+      "code": "PRJ-HLX-8710",
+      "name": "Helix",
+      "team": "Engineering"
+    },
+    {
+      "code": "PRJ-MRD-9074",
+      "name": "Meridian",
+      "team": "Engineering"
+    },
+    {
+      "code": "PRJ-TSR-9833",
+      "name": "Tessera",
+      "team": "Engineering"
+    },
+    {
+      "code": "PRJ-KYM-8255",
+      "name": "Kyma",
+      "team": "Finance"
+    },
+    {
+      "code": "PRJ-PHR-2436",
+      "name": "Pharos",
+      "team": "Customer Support"
+    },
+    {
+      "code": "PRJ-ARG-5675",
+      "name": "Argo",
+      "team": "Sales"
+    }
+  ],
+  "project_pattern": {
+    "name": "Project code",
+    "regex": "\\bPRJ-[A-Z]{3}-[0-9]{4}\\b",
+    "data_type": "PROJECT_CODE"
+  }
+}

@@ -1,0 +1,41 @@
+Master Services Agreement with Velmont Energy
+
+Agreement reference: AD-2025-189
+
+This Agreement is made on 27 March 2026 between Aspida Demo Consulting Single Member S.A., with registered office at 310 Mesogeion Avenue, 155 62 Cholargos, Greece and tax number 650207395 (the "Consultant"), and Velmont Energy Inc., with registered office at 181 Syngrou Avenue, 382 21 Volos, Greece and tax number 652381645 (the "Client"), represented for the purposes of this Agreement by Emma Keller.
+
+The Client wishes to obtain advisory and implementation services, and the Consultant has the skills and staff to provide them. The parties therefore agree as follows.
+
+1. Scope of services
+The Consultant shall provide the services described in each statement of work signed under this Agreement, beginning with the work known internally as project Kyma (PRJ-KYM-8255). A statement of work sets out the deliverables, the timetable and the team. Work that is not described in a signed statement of work is outside the scope of this Agreement and will not be started without the Client's written request.
+
+2. Term
+This Agreement starts on 13 April 2026 and continues for 12 months. It then renews for successive periods of twelve months unless either party gives written notice of non-renewal at least 45 days before the end of the current period. Statements of work that are still open when the Agreement ends continue under its terms until they are completed or terminated.
+
+3. Fees and payment
+The Client shall pay the Consultant a daily rate of €700 for each consultant day worked, up to a ceiling of €68,500 for the first statement of work. The Consultant invoices at the end of each month and the Client pays within 45 days of the invoice date, by transfer from the account GR7596205838260136538375268. Amounts unpaid after the due date bear interest at 10% a year.
+
+4. Expenses
+Travel, accommodation and other out-of-pocket expenses are charged at cost, without mark-up, and only when the Client has approved them in advance in writing. The Consultant keeps receipts for every expense and attaches copies to the invoice. Travel time within Attica is not charged; travel time outside Attica is charged at half the daily rate.
+
+5. Personnel and governance
+Chara Psarra leads the engagement for the Consultant and Evangelia Nikolopoulou is the day-to-day contact. The Client's representative is Emma Keller, who may approve deliverables and changes on the Client's behalf. The Consultant will not replace a named team member without telling the Client first, and will make sure that any replacement has equivalent experience. The parties meet every month to review progress.
+
+6. Confidentiality
+Each party shall keep confidential all information received from the other that is marked confidential or that a reasonable person would understand to be confidential, including prices, client lists, source code and business plans. The receiving party may use such information only to perform this Agreement and may disclose it only to staff and advisers who need it and are bound by equivalent duties. These duties last for 5 years after the Agreement ends.
+
+7. Intellectual property
+On full payment, the Client owns the deliverables created specifically for it under a statement of work. The Consultant keeps ownership of its methods, tools, templates and know-how, including anything developed before this Agreement, and grants the Client a perpetual, non-exclusive licence to use them as part of the deliverables. Neither party may use the other's name or logo without written consent.
+
+8. Limitation of liability
+Neither party is liable for loss of profit, loss of business or indirect loss. The total liability of the Consultant under this Agreement in any twelve-month period is limited to the fees paid by the Client in that period, and in no case exceeds €137,000. Nothing in this clause limits liability for fraud, for wilful misconduct or for breach of the confidentiality and data protection clauses.
+
+9. Change control
+Either party may ask for a change to a statement of work. The Consultant replies within five working days with the effect of the change on fees, timetable and team. A change takes effect only when both representatives have signed a change note, and until then the Consultant continues to work to the statement of work as it stands.
+
+10. Governing law and disputes
+This Agreement is governed by Greek law. The parties will first try to settle any dispute through a meeting of senior managers held within twenty days of a written request. If that fails, the courts of Athens have exclusive jurisdiction. This Agreement, with its statements of work, is the whole agreement between the parties on its subject and may be amended only in writing.
+
+Signed for the Consultant: Chara Psarra
+Signed for the Client: Emma Keller
+Contact for notices: info@velmont.example

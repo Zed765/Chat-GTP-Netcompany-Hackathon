@@ -1,0 +1,72 @@
+kind: financial
+category: FINANCIAL
+language: en
+numbered: false
+titles:
+  - "Budget proposal for financial year {year}"
+  - "Annual budget memorandum, {year}"
+header: |-
+  To: the Executive Committee of {org_legal}
+  From: {lead}, Finance
+  Date: {date}
+  Restricted circulation. Draft figures, not yet approved.
+sections:
+  - id: overview
+    heading: Overview
+    text: >-
+      This memorandum sets out the proposed budget for next year. We are planning for income of
+      {amount3} and a surplus of {amount}, which is {percent}% of income. The plan is cautious:
+      it assumes no new product launches and only those price changes that have already been
+      announced to customers.
+  - id: income
+    heading: Income assumptions
+    text: >-
+      Subscription income is budgeted to grow by {percent}%, driven by renewals at the new list
+      price. Consulting income is held flat. We have assumed that churn stays at this year's
+      level and that the two largest accounts renew on existing terms. A one-point rise in churn
+      would reduce income by roughly {rate2}.
+  - id: payroll
+    heading: Payroll
+    text: >-
+      Payroll is the largest line, at {amount2}. The budget funds a general pay rise of three
+      per cent from April, nine new positions phased across the year, and employer social
+      security contributions at current rates. The bonus pool is set at {amount5} and is paid
+      only if the surplus target is reached.
+  - id: operating
+    heading: Other operating costs
+    text: >-
+      Cloud hosting rises in line with usage, to {amount4}. Rent is fixed under the lease.
+      Travel is cut by a fifth compared with this year. Marketing is concentrated in the first
+      half, around two trade fairs. A contingency of {rate} is held centrally and released only
+      by decision of the finance director.
+  - id: investment
+    heading: Capital investment
+    text: >-
+      We propose capital spending of {amount5}: replacement laptops on the four-year cycle, a
+      refit of the second-floor meeting rooms and the first phase of the new billing system.
+      The billing project is expected to pay back within three years through lower write-offs
+      and faster month-end closing.
+  - id: cash
+    heading: Cash and funding
+    text: >-
+      On these figures cash never falls below {amount} during the year, with the low point in
+      August, when annual licences are paid. No new borrowing is needed. The existing credit
+      line stays in place as a precaution and its commitment fee is included in finance costs.
+  - id: sensitivities
+    heading: Sensitivities
+    text: >-
+      We tested three downside cases: a delay of one quarter in hiring, the loss of the largest
+      account, and a ten per cent rise in hosting prices. Only the loss of the largest account
+      turns the surplus into a deficit, and in that case the bonus pool and the room refit
+      would be withdrawn.
+  - id: decisions
+    heading: Decisions requested
+    text: >-
+      The committee is asked to approve the income and cost budgets, to approve capital
+      spending subject to a separate business case for the billing system, and to confirm the
+      surplus target that governs the bonus pool. Department heads will receive their
+      allocations within a week of approval, and monthly reporting against budget starts in
+      February.
+footer: |-
+  {lead}
+  Finance

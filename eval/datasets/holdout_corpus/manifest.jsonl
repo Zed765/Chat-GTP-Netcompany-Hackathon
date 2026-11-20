@@ -1,0 +1,8 @@
+{"id": "holdout-contract-en", "file": "holdout-contract-en.txt", "title": "Mutual Non-Disclosure Agreement", "category": "CONTRACT", "language": "en", "kind": "contract"}
+{"id": "holdout-contract-el", "file": "holdout-contract-el.txt", "title": "Ιδιωτικό Συμφωνητικό Μίσθωσης Επαγγελματικής Στέγης", "category": "CONTRACT", "language": "el", "kind": "contract"}
+{"id": "holdout-proposal-en", "file": "holdout-proposal-en.txt", "title": "Proposal: security awareness programme for Foxhollow Foods", "category": "CLIENT_CONFIDENTIAL", "language": "en", "kind": "proposal"}
+{"id": "holdout-financial-en", "file": "holdout-financial-en.txt", "title": "Budget proposal for financial year 2026", "category": "FINANCIAL", "language": "en", "kind": "financial"}
+{"id": "holdout-financial-el", "file": "holdout-financial-el.txt", "title": "Εισήγηση προϋπολογισμού έτους 2026", "category": "FINANCIAL", "language": "el", "kind": "financial"}
+{"id": "holdout-meeting-el", "file": "holdout-meeting-el.txt", "title": "Πρακτικά συντονιστικής επιτροπής: μεταφορά γραφείων", "category": "CLIENT_CONFIDENTIAL", "language": "el", "kind": "meeting"}
+{"id": "holdout-source-01", "file": "holdout-source-01-queue_worker.py.txt", "title": "queue_worker.py", "category": "SOURCE_CODE", "language": "en", "kind": "source"}
+{"id": "holdout-source-02", "file": "holdout-source-02-priceFormatter.ts", "title": "priceFormatter.ts", "category": "SOURCE_CODE", "language": "en", "kind": "source"}

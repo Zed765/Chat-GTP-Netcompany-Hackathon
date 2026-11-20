@@ -1,0 +1,90 @@
+kind: hr
+category: HR
+language: en
+numbered: false
+titles:
+  - Annual performance review
+  - "Personnel file note: performance and compensation review"
+  - Year-end appraisal and salary review
+header: |-
+  Human Resources. Strictly confidential: personnel file.
+  Employee: {person}
+  Position: Senior Account Manager
+  Line manager: {person2}
+  Review period: calendar year {year}
+  Date of meeting: {date}
+sections:
+  - id: summary
+    heading: Overall assessment
+    text: >-
+      The employee's overall rating for the year is "exceeds expectations". The line manager
+      notes consistent delivery against sales targets, strong relationships with key customers
+      and a positive influence on newer members of the team. Attendance and punctuality were
+      satisfactory throughout the review period.
+  - id: objectives
+    heading: Objectives for the year
+    text: >-
+      Four of the five objectives set at the start of the year were met in full. The revenue
+      target was exceeded by {percent}%. The objective on customer retention was met. The
+      objective to complete the negotiation skills programme was only partly met, because the
+      second module was postponed by the training provider.
+  - id: strengths
+    heading: Strengths
+    text: >-
+      The employee prepares thoroughly, listens well and follows through on commitments made to
+      customers. Colleagues describe a calm and constructive approach under pressure. The
+      employee stepped in to cover a colleague's accounts during a long absence without any
+      drop in service, which the manager wishes to record with thanks.
+  - id: development
+    heading: Areas for development
+    text: >-
+      Delegation remains an area for development: the employee tends to keep difficult tasks
+      rather than coach others through them. Written reports are sometimes submitted late. The
+      manager and the employee agreed that presenting to senior management more often would
+      build confidence for a future leadership role.
+  - id: compensation
+    heading: Compensation
+    text: >-
+      Current gross monthly salary is {salary}. Following the review, the manager recommends an
+      increase to {salary2} with effect from 1 January, and a performance bonus of {rate2}
+      payable with the March payroll. The recommendation is subject to approval by the
+      remuneration committee and must not be communicated before then.
+  - id: leave
+    heading: Leave and absence
+    text: >-
+      The employee took twenty-two days of annual leave and carries three days forward. There
+      were four days of sickness absence in two separate periods, each supported by a medical
+      certificate. A request for parental leave of two months next spring has been received and
+      will be accommodated; cover is being arranged.
+  - id: conduct
+    heading: Conduct
+    text: >-
+      There are no disciplinary matters on file for the review period. An informal complaint
+      made by a colleague in the spring, about the tone of an email exchange, was resolved by
+      conversation between the two parties with the manager present. No further action was
+      required and no note was placed on either record.
+  - id: training
+    heading: Training plan
+    text: >-
+      The employee will complete the second module of the negotiation skills programme in the
+      first quarter, attend the company's leadership foundation course in the second, and
+      shadow the regional director for two customer reviews. The training budget allocated for
+      the coming year is {rate}.
+  - id: promotion
+    heading: Career progression
+    text: >-
+      The employee has expressed interest in a team leader role. The manager considers the
+      employee ready within twelve months, subject to progress on delegation. The employee has
+      been added to the succession plan for the regional sales team. No commitment about
+      timing or grade has been given.
+  - id: comments
+    heading: Employee comments
+    text: >-
+      The employee agrees with the assessment and thanks the manager for the support received
+      during the year. The employee asks that the workload of the team be reviewed, since two
+      vacancies have remained open for six months, and would welcome clearer criteria for
+      promotion to team leader.
+footer: |-
+  Signed: {person2} (line manager)
+  Signed: {person} (employee)
+  Copy to Human Resources. Not to be shared outside the reporting line.

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "chat-client-email-unapproved-el",
+    "page": "chat",
+    "language": "el",
+    "title": "Email πελάτη σε μη εγκεκριμένο εργαλείο",
+    "prompt": "Γράψε μια ευγενική απάντηση στο παρακάτω email πελάτη μας.\n\nΑπό: Μαρία Παπαδοπούλου <m.papadopoulou@astrolithi.example>\nΘέμα: Επιστροφή χρημάτων για το τιμολόγιο 2026-0412\n\nΚαλημέρα Ελένη,\nη Αστρολίθι Πληροφορική Α.Ε. (ΑΦΜ 669293096) δεν έχει λάβει ακόμη την επιστροφή που συμφωνήσαμε την προηγούμενη εβδομάδα. Παρακαλώ να κατατεθεί στον λογαριασμό μας, IBAN GR19 9808 2741 6448 6488 0470 802, έως την Παρασκευή.\n\nΜε εκτίμηση,\nΜαρία Παπαδοπούλου",
+    "tool": "chatterbox-ai",
+    "expected": "redact",
+    "note": "The tool receives placeholders for the name, the AFM, the IBAN and the email address, and the answer comes back with the real values restored."
+  },
+  {
+    "id": "chat-client-email-unapproved-en",
+    "page": "chat",
+    "language": "en",
+    "title": "Client email to an unapproved tool",
+    "prompt": "Draft a polite reply to this email from our client.\n\nFrom: Maria Papadopoulou <m.papadopoulou@astrolithi.example>\nSubject: Refund for invoice 2026-0412\n\nDear Eleni,\nAstrolithi Pliroforiki S.A. (AFM 669293096) has not yet received the refund we agreed last week. Please send it to our account, IBAN GR19 9808 2741 6448 6488 0470 802, by Friday.\n\nKind regards,\nMaria Papadopoulou",
+    "tool": "chatterbox-ai",
+    "expected": "redact",
+    "note": "The tool receives placeholders for the name, the AFM, the IBAN and the email address, and the answer comes back with the real values restored."
+  },
+  {
+    "id": "chat-contract-unapproved-el",
+    "page": "chat",
+    "language": "el",
+    "title": "Όροι σύμβασης σε μη εγκεκριμένο εργαλείο",
+    "prompt": "Συνόψισε σε απλά ελληνικά τις βασικές υποχρεώσεις που προκύπτουν από τους παρακάτω όρους σύμβασης με πελάτη μας.\n\n3. Επίπεδα εξυπηρέτησης\nΟ Ανάδοχος απαντά σε κρίσιμα περιστατικά εντός δύο ωρών και σε όλα τα υπόλοιπα εντός μίας εργάσιμης ημέρας. Κρίσιμο θεωρείται το περιστατικό που διακόπτει τη λειτουργία του συστήματος για το σύνολο των χρηστών. Αν σε έναν μήνα ο χρόνος απόκρισης ξεπεραστεί σε περισσότερα από τρία περιστατικά, ο Πελάτης δικαιούται έκπτωση 8% στην αμοιβή του μήνα αυτού.\n\n4. Υποχρεώσεις του Πελάτη\nΟ Πελάτης ορίζει ένα πρόσωπο επικοινωνίας, το οποίο συγκεντρώνει και προωθεί τα αιτήματα των χρηστών. Παρέχει στον Ανάδοχο απομακρυσμένη πρόσβαση στα συστήματα, τηρεί αντίγραφα ασφαλείας των δεδομένων του και ενημερώνει εγκαίρως για κάθε αλλαγή στην υποδομή του. Καθυστερήσεις που οφείλονται σε έλλειψη πρόσβασης δεν υπολογίζονται στους χρόνους απόκρισης.",
+    "tool": "chatterbox-ai",
+    "expected": "block",
+    "note": "The text matches a contract in the protected documents, so it is not forwarded; the message names an approved tool to use instead."
+  },
+  {
+    "id": "chat-contract-unapproved-en",
+    "page": "chat",
+    "language": "en",
+    "title": "Contract clauses to an unapproved tool",
+    "prompt": "Summarise in plain English the key obligations in these clauses of a client contract.\n\n3. Fees and payment\nThe Client shall pay the Consultant a daily rate of €1,300 for each consultant day worked, up to a ceiling of €54,500 for the first statement of work. The Consultant invoices at the end of each month and the Client pays within 30 days of the invoice date, by transfer from the account GR0596711306085400078967476. Amounts unpaid after the due date bear interest at 10% a year.\n\n4. Expenses\nTravel, accommodation and other out-of-pocket expenses are charged at cost, without mark-up, and only when the Client has approved them in advance in writing. The Consultant keeps receipts for every expense and attaches copies to the invoice. Travel time within Attica is not charged; travel time outside Attica is charged at half the daily rate.",
+    "tool": "chatterbox-ai",
+    "expected": "block",
+    "note": "The text matches a contract in the protected documents, so it is not forwarded; the message names an approved tool to use instead."
+  },
+  {
+    "id": "chat-marked-confidential-tolerated-el",
+    "page": "chat",
+    "language": "el",
+    "title": "Κείμενο με σήμανση «Εμπιστευτικό» σε ανεκτό εργαλείο",
+    "prompt": "ΕΜΠΙΣΤΕΥΤΙΚΟ - για εσωτερική χρήση μόνο.\n\nΒελτίωσε τη διατύπωση του σημειώματος προς το διοικητικό συμβούλιο: τα έσοδα του τρίτου τριμήνου ήταν 8% κάτω από τον στόχο, δεν αναμένεται να πιάσουμε τον ετήσιο στόχο και από τον Ιανουάριο παγώνουν οι προσλήψεις. Το σχέδιο δεν έχει ανακοινωθεί στο προσωπικό.",
+    "tool": "draftpilot",
+    "expected": "warn",
+    "note": "A confidentiality marker and no personal data. The user sees a warning and chooses whether to send."
+  },
+  {
+    "id": "chat-marked-confidential-tolerated-en",
+    "page": "chat",
+    "language": "en",
+    "title": "Text marked confidential to a tolerated tool",
+    "prompt": "CONFIDENTIAL - internal use only.\n\nTighten the wording of this note for the board: third-quarter revenue came in 8% under plan, we expect to miss the full-year target, and a hiring freeze starts in January. The plan has not been announced to staff.",
+    "tool": "draftpilot",
+    "expected": "warn",
+    "note": "A confidentiality marker and no personal data. The user sees a warning and chooses whether to send."
+  },
+  {
+    "id": "chat-harmless-unapproved-el",
+    "page": "chat",
+    "language": "el",
+    "title": "Ένα καθημερινό αίτημα",
+    "prompt": "Γράψε ένα φιλικό μήνυμα αυτόματης απάντησης για την επόμενη εβδομάδα. Επιστρέφω τη Δευτέρα και τα επείγοντα μπορούν να σταλούν στο κοινό γραμματοκιβώτιο της ομάδας.",
+    "tool": "chatterbox-ai",
+    "expected": "allow",
+    "note": "Nothing sensitive is found, so the prompt is forwarded unchanged even to an unapproved tool."
+  },
+  {
+    "id": "chat-harmless-unapproved-en",
+    "page": "chat",
+    "language": "en",
+    "title": "An everyday request",
+    "prompt": "Write a friendly out-of-office message for next week. I am back on Monday, and urgent questions can go to the team mailbox.",
+    "tool": "chatterbox-ai",
+    "expected": "allow",
+    "note": "Nothing sensitive is found, so the prompt is forwarded unchanged even to an unapproved tool."
+  },
+  {
+    "id": "chat-api-key-approved-el",
+    "page": "chat",
+    "language": "el",
+    "title": "Κλειδί API, ακόμη και σε εγκεκριμένο εργαλείο",
+    "prompt": "Γιατί η παρακάτω εντολή επιστρέφει σφάλμα 401;\n\ncurl -H \"Authorization: token ghp_ElG4wwaF8qUkAWHFCPD5dpiLgaMxA18HlqEA\" https://api.github.com/user/repos",
+    "tool": "athena-assist",
+    "expected": "block",
+    "note": "Secrets never leave. The made-up access token is blocked whatever the tool's status."
+  },
+  {
+    "id": "chat-api-key-approved-en",
+    "page": "chat",
+    "language": "en",
+    "title": "An API key, even to an approved tool",
+    "prompt": "Why does this deployment script fail with AccessDenied?\n\nexport AWS_ACCESS_KEY_ID=AKIAI2O2F15GLQUO36H4\nexport AWS_SECRET_ACCESS_KEY=yYVVLH8aPEJDwDi8ETTsGCjYOK+FH/grFtWhIsgy\naws s3 sync ./build s3://company-website --delete",
+    "tool": "athena-assist",
+    "expected": "block",
+    "note": "Secrets never leave. The made-up cloud credentials are blocked whatever the tool's status."
+  },
+  {
+    "id": "chat-client-email-approved-el",
+    "page": "chat",
+    "language": "el",
+    "title": "Το ίδιο email πελάτη στο εγκεκριμένο εργαλείο",
+    "prompt": "Γράψε μια ευγενική απάντηση στο παρακάτω email πελάτη μας.\n\nΑπό: Μαρία Παπαδοπούλου <m.papadopoulou@astrolithi.example>\nΘέμα: Επιστροφή χρημάτων για το τιμολόγιο 2026-0412\n\nΚαλημέρα Ελένη,\nη Αστρολίθι Πληροφορική Α.Ε. (ΑΦΜ 669293096) δεν έχει λάβει ακόμη την επιστροφή που συμφωνήσαμε την προηγούμενη εβδομάδα. Παρακαλώ να κατατεθεί στον λογαριασμό μας, IBAN GR19 9808 2741 6448 6488 0470 802, έως την Παρασκευή.\n\nΜε εκτίμηση,\nΜαρία Παπαδοπούλου",
+    "tool": "athena-assist",
+    "expected": "allow",
+    "note": "The approved tool may receive client data, so the prompt is forwarded as written."
+  },
+  {
+    "id": "chat-client-email-approved-en",
+    "page": "chat",
+    "language": "en",
+    "title": "The same client email to the approved tool",
+    "prompt": "Draft a polite reply to this email from our client.\n\nFrom: Maria Papadopoulou <m.papadopoulou@astrolithi.example>\nSubject: Refund for invoice 2026-0412\n\nDear Eleni,\nAstrolithi Pliroforiki S.A. (AFM 669293096) has not yet received the refund we agreed last week. Please send it to our account, IBAN GR19 9808 2741 6448 6488 0470 802, by Friday.\n\nKind regards,\nMaria Papadopoulou",
+    "tool": "athena-assist",
+    "expected": "allow",
+    "note": "The approved tool may receive client data, so the prompt is forwarded as written."
+  }
+]

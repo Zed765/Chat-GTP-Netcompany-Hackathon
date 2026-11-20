@@ -1,0 +1,36 @@
+Meeting notes: monthly account review, Emberfield Systems
+
+Date: 7 October 2026
+Attendees (Aspida Demo Consulting): Angeliki Anastasiou, Tasos Pavlidis
+Attendees (Emberfield Systems): Thomas Whitfield
+Project: Pharos (PRJ-PHR-2436)
+Notes taken by: Tasos Pavlidis. Internal use only; not to be shared with the client.
+
+1. Progress since the last meeting
+Angeliki Anastasiou reported that the build phase is 45% complete against a plan of sixty. The ledger and billing feeds are live in the test environment. The order feed is two weeks late because the client's supplier has not yet opened the interface. Thomas Whitfield accepted the delay but asked that it should not move the end date of 2 January 2027.
+
+2. Budget
+Spend to date is €103,000 of the approved €94,500. At the current rate the project will finish about €2,000 over budget unless the order feed arrives this month. We did not raise a change request in the meeting; Angeliki Anastasiou wants to see the supplier's revised date first. The client side did not ask about budget and we did not volunteer the forecast.
+
+3. Data quality
+Tasos Pavlidis presented the reconciliation for the last two quarters. Revenue in the new model differs from the audited figure by less than half a per cent, all of it explained by credit notes booked in the wrong month. Thomas Whitfield was visibly relieved. Around four hundred customer records are duplicated; the client's finance team will merge them at source.
+
+4. Scope questions
+The client asked whether cash-flow forecasting could be added. We said it is outside the statement of work and offered to scope it separately. Privately, Angeliki Anastasiou thinks it is a good extension worth about €50,000, and that we should propose it once the first reports are in use, not before, so that it is not traded against the current fee.
+
+5. People
+The client's product owner is leaving at the end of the quarter and no successor has been named. This is the largest risk to the timetable. Thomas Whitfield will ask the finance director for a decision this week. On our side, Tasos Pavlidis is on leave for a week next month; cover is arranged and the client has been told.
+
+6. Renewal and commercial matters
+Thomas Whitfield mentioned in passing that procurement will ask for a rate reduction of 12% at renewal. We did not respond in the meeting. Our position, agreed afterwards, is to hold the daily rate of €1,300 and offer a volume discount instead. Nobody outside the account team should discuss rates with the client before the renewal offer is sent.
+
+7. Access and security
+Two consultant accounts on the client's systems still have administrator rights from the migration weekend. The client's IT manager wants them reduced to read-only by Friday. Tasos Pavlidis confirmed that no client data has been copied outside the client's environment and that the test data set is masked. An access review is on the agenda for next month.
+
+8. Invoices
+The invoice for last month is unpaid, 60 days after its due date. Thomas Whitfield said it was approved and is waiting for the payment run; payment will come from account GR1898608627257734176888432. We agreed not to escalate. If nothing arrives by the fifteenth, finance will send a formal reminder to info@emberfield.example.
+
+9. Actions
+Thomas Whitfield: confirm the supplier's date for the order feed and name an interim product owner. Angeliki Anastasiou: prepare the cash-flow extension outline, for internal review only. Tasos Pavlidis: reduce the administrator accounts and send the reconciliation pack. Finance: follow up the unpaid invoice on the fifteenth. Next meeting in four weeks, at the client's offices.
+
+Circulation: account team only.

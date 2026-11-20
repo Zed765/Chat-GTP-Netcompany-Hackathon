@@ -1,0 +1,15 @@
+title = "A.S.P.I.D.A. secret scan"
+
+[extend]
+useDefault = true
+
+# These files hold made-up strings that must look like secrets: they test the detector.
+[allowlist]
+description = "Synthetic detector fixtures"
+paths = [
+  '''defaults/patterns\.yaml''',
+  '''eval/datasets/.*''',
+  '''gateway/tests/.*''',
+  '''seeder/data/.*''',
+  '''defaults/examples\.json''',
+]

@@ -1,0 +1,70 @@
+kind: proposal
+category: CLIENT_CONFIDENTIAL
+language: en
+numbered: true
+titles:
+  - "Proposal: security awareness programme for {client}"
+  - "Proposal: staff training on phishing and data handling for {client}"
+header: |-
+  Submitted to {contact} at {client:legal} by {org} on {date}.
+  Private and confidential.
+sections:
+  - id: context
+    heading: Why now
+    text: >-
+      Two incidents last year at {client} began with an employee opening a convincing email.
+      Neither caused lasting damage, but both took days to contain. Your insurer has since
+      asked for evidence of regular staff training. This proposal describes a twelve-month
+      programme that meets that requirement and, more importantly, changes everyday habits.
+  - id: programme
+    heading: The programme
+    text: >-
+      Every employee completes a forty-minute introductory course in the first month, in Greek
+      or English. After that we send one simulated phishing email a month, each using a
+      different trick, and anyone who clicks receives a two-minute explanation on the spot.
+      Managers get a short quarterly briefing with the results for their own teams.
+  - id: workshops
+    heading: Workshops for higher-risk teams
+    text: >-
+      Finance, human resources and the executive assistants handle payments and personal
+      records, so they are the people fraudsters target. For these teams we run a half-day
+      workshop in person, built around real examples of invoice fraud and impersonation of
+      senior managers, and we agree a call-back procedure for any change of bank details.
+  - id: measurement
+    heading: How success is measured
+    text: >-
+      We measure the share of staff who click on a simulated email and the share who report
+      it. In comparable organisations the click rate falls from about a quarter to under one
+      in twenty within a year, while reporting rises above half. You receive a dashboard each
+      month and a written review at six and twelve months.
+  - id: privacy
+    heading: Privacy of your staff
+    text: >-
+      The purpose is learning, not discipline. Results are reported by team, never by name,
+      and individual records are visible only to the employee concerned. We keep no copies of
+      mailbox content. Before the programme starts we help you brief the works council and
+      publish a notice explaining what is measured and why.
+  - id: delivery
+    heading: Delivery team and timetable
+    text: >-
+      {lead} manages the programme and is your contact throughout. {lead2} designs the
+      simulations and leads the workshops. Set-up takes three weeks from {start_date}: we
+      import the staff list, agree the first three scenarios with your IT manager and send the
+      announcement. The introductory course opens in week four.
+  - id: fees
+    heading: Fees
+    text: >-
+      The programme costs {amount} for the year, for up to two hundred and fifty employees,
+      including the platform, twelve simulations and four workshops. Additional workshops cost
+      {rate} each. The fee is invoiced quarterly in advance, payable within {days} days. There
+      is no charge for employees who join during the year.
+  - id: terms
+    heading: Terms
+    text: >-
+      This proposal remains open for {days} days. The engagement would run under our standard
+      terms of business, a copy of which is attached, together with a data processing
+      agreement covering the staff list. Either side may end the programme at the end of any
+      quarter by giving one month's notice, with no further fees due.
+footer: |-
+  {lead}
+  {org}

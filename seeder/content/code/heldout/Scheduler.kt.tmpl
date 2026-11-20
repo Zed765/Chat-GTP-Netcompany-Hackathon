@@ -1,0 +1,66 @@
+package example.clinic
+
+import java.time.DayOfWeek
+import java.time.Duration
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.LocalTime
+
+/** Books appointments into fixed slots and refuses overlaps and bookings outside opening hours. */
+class Scheduler(
+    private val opens: LocalTime = LocalTime.of(9, 0),
+    private val closes: LocalTime = LocalTime.of(17, 0),
+    private val slot: Duration = Duration.ofMinutes(30),
+) {
+    data class Appointment(val id: Int, val room: String, val start: LocalDateTime, val end: LocalDateTime)
+
+    class BookingException(message: String) : Exception(message)
+
+    private val appointments = mutableListOf<Appointment>()
+    private var nextId = 1
+
+    fun book(room: String, start: LocalDateTime, slots: Int = 1): Appointment {
+        require(slots in 1..4) { "an appointment takes between one and four slots" }
+        val end = start.plus(slot.multipliedBy(slots.toLong()))
+        if (start.dayOfWeek in setOf(DayOfWeek.SATURDAY, DayOfWeek.SUNDAY)) {
+            throw BookingException("the clinic is closed at weekends")
+        }
+        if (start.toLocalTime() < opens || end.toLocalTime() > closes || end.toLocalDate() != start.toLocalDate()) {
+            throw BookingException("outside opening hours")
+        }
+        if (start.minute % slot.toMinutes().toInt() != 0) {
+            throw BookingException("appointments start on the half hour")
+        }
+        val clash = appointments.firstOrNull { it.room == room && it.start < end && start < it.end }
+        if (clash != null) {
+            throw BookingException("room $room is taken until ${clash.end.toLocalTime()}")
+        }
+        return Appointment(nextId++, room, start, end).also { appointments += it }
+    }
+
+    fun cancel(id: Int): Boolean = appointments.removeIf { it.id == id }
+
+    fun freeSlots(room: String, day: LocalDate): List<LocalTime> {
+        val taken = appointments.filter { it.room == room && it.start.toLocalDate() == day }
+        return generateSequence(opens) { it.plus(slot) }
+            .takeWhile { it.plus(slot) <= closes }
+            .filter { time ->
+                val start = day.atTime(time)
+                taken.none { it.start < start.plus(slot) && start < it.end }
+            }
+            .toList()
+    }
+
+    fun agenda(day: LocalDate): Map<String, List<Appointment>> =
+        appointments
+            .filter { it.start.toLocalDate() == day }
+            .sortedBy { it.start }
+            .groupBy { it.room }
+
+    fun utilisation(room: String, day: LocalDate): Double {
+        val booked = appointments
+            .filter { it.room == room && it.start.toLocalDate() == day }
+            .sumOf { Duration.between(it.start, it.end).toMinutes() }
+        return booked.toDouble() / Duration.between(opens, closes).toMinutes()
+    }
+}

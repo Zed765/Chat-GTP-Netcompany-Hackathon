@@ -1,0 +1,19 @@
+Could you help me with a few things? I will describe them one at a time.
+
+We are planning a long weekend by the sea in early May, four adults travelling by car, and I would like a relaxed itinerary for three days. We enjoy walking, old towns and good food, and we would rather see a few places properly than rush through many. Please suggest what to do each morning and afternoon.
+
+For the first day I imagine arriving around noon, having lunch somewhere near the harbour and then a gentle walk through the old quarter. Could you recommend the kind of places worth looking for, such as a castle with a view, a small museum or a waterfront promenade, and roughly how long each one takes?
+
+Please also add a short packing list for changeable spring weather, a rough budget per person for meals and entrance tickets, and one idea for a rainy afternoon. If it helps, we prefer to start the day late, and nobody in the group wants to drive after dinner.
+
+Now for the next request.
+
+I am learning Python and I am stuck on a small exercise. I have a list of dictionaries, each with the keys "title" and "year", and I want to print the titles sorted by year, newest first, and alphabetically when two books share the same year. What is the cleanest way to do it?
+
+My attempt was sorted(books, key=lambda b: b["year"], reverse=True), which gets the years right but leaves the titles within a year in whatever order they were entered. I read that a key can return a tuple. Would key=lambda b: (-b["year"], b["title"]) be the idiomatic solution, or is there something better?
+
+Could you also explain the difference between list.sort() and sorted(), and whether the sort is stable? I would like to understand why sorting twice, first by title and then by year, gives the same result as sorting once with a tuple. A short example I can run would help a lot.
+
+Finally, a smaller question.
+
+I have not exercised regularly for years and I want to start again sensibly. I am in my forties, I work at a desk and I can spare about half an hour three times a week. Could you suggest a beginner plan for the first eight weeks that needs no equipment and no gym?

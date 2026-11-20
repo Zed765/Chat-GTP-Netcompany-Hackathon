@@ -1,0 +1,182 @@
+# Prompts an employee might send to an AI tool. The evaluation sets and the seeded activity
+# are both filled from these. Slots are described in seeder/compose/slots.py; a template
+# that names `{client}` is used with companies only, the others also with individuals.
+
+sensitive:
+  en:
+    - "Draft a polite reminder to {contact} at {client} that invoice {order_no} is overdue. Their tax number is {client_afm} and the refund we owe them goes to {client_iban}."
+    - "Summarise this note for the CRM: called {contact} ({contact_phone}) from {client:legal}; they want to move the workshop to next month."
+    - "Translate into Greek: Dear customer, we confirm receipt of your payment from account {client_iban:spaced}. Kind regards, {employee}"
+    - "Write a follow-up email to {contact_email} about the contract renewal and mention that the offer is valid until {date}. The contact there is {contact}."
+    - "{client:alias} asked for a discount of {percent}%. Write three arguments I can use to keep the current price."
+    - "Make this sentence more formal: {contact} from {client} complained that our consultant was late twice."
+    - "Create a table from these details. Name: {person}. AMKA: {amka}. ID card: {id_card}. Mobile: {phone}."
+    - "My card {card} was charged twice by {org_other}. Write a complaint email asking for a refund."
+    - "Prepare talking points for my call with {contact} tomorrow. Background: {client} owes us {amount} and the account manager is {employee}."
+    - "Rewrite this more clearly: please send the signed contract to {client_address}, for the attention of {contact}."
+    - "Write a thank-you note to {person}, who helped us during the audit. Their email is {email}."
+    - "Is this a valid Greek IBAN? {iban}. It belongs to {person}."
+    - "Draft the minutes: present were {employee} and, for {client}, {contact}. We agreed a fee of {amount} for project {project_code}."
+    - "Fill in the new supplier form: company {org_other:legal}, tax number {afm}, phone {phone}, contact person {person}."
+    - "Shorten this message: Hello, your refund of {amount} will be sent to {client_iban} within five working days. We will call you on {contact_phone} to confirm."
+    - "Write an apology to {client:legal} for the invoice error. Their finance contact is {contact} ({contact_email}, {contact_phone})."
+    - "Generate a payment reminder letter. Debtor: {client:legal}, AFM {client_afm}, address {client_address}. Amount due: {amount}."
+    - "Create an onboarding checklist for our new colleague {employee}. AMKA {amka}, ID card number {id_card}."
+    - "What should I answer to {contact}? They wrote that the tax number {client_afm} on the invoice is wrong and want it corrected by {date}."
+    - "Compare the two offers and recommend one. The first is from {org_other}; the second is from our existing client {client}."
+  el:
+    - "Γράψε ένα ευγενικό email {contact:to} για να υπενθυμίσω ότι το τιμολόγιο {order_no} {client:gen} είναι ληξιπρόθεσμο. ΑΦΜ πελάτη: {client_afm}."
+    - "Σύνοψη για το CRM: μίλησα με {contact:acc} ({contact_phone}) από {client:acc}. Ζητούν να μεταφερθεί το σεμινάριο τον επόμενο μήνα."
+    - "Μετάφρασε στα αγγλικά: Σας επιβεβαιώνουμε ότι λάβαμε την πληρωμή σας από τον λογαριασμό {client_iban:spaced}. Με εκτίμηση, {employee}"
+    - "Ετοίμασε επιστολή προς {client:acc} για την ανανέωση της σύμβασης. Η επικοινωνία γίνεται με {contact:acc}, email {contact_email}."
+    - "{client:Nom} ζήτησε έκπτωση {percent}%. Δώσε μου τρία επιχειρήματα για να κρατήσουμε την τιμή."
+    - "Κάνε πιο επίσημη την πρόταση: {contact:nom} {client:gen} παραπονέθηκε ότι ο σύμβουλός μας άργησε δύο φορές."
+    - "Φτιάξε πίνακα με τα στοιχεία. Ονοματεπώνυμο: {person}. ΑΜΚΑ: {amka}. Αριθμός ταυτότητας: {id_card}. Κινητό: {phone}."
+    - "Η κάρτα μου {card} χρεώθηκε δύο φορές από {org_other:acc}. Γράψε μια διαμαρτυρία και ζήτα επιστροφή χρημάτων."
+    - "Ετοίμασε σημειώσεις για την αυριανή κλήση με {contact:acc}. Ιστορικό: {client:nom} μας οφείλει {amount} και τον λογαριασμό χειρίζεται {employee:nom}."
+    - "Διόρθωσε τα ορθογραφικά: Παρακαλώ στείλτε την υπογεγραμμένη σύμβαση στη διεύθυνση {client_address}, υπόψη {contact:gen}."
+    - "Γράψε μια ευχαριστήρια κάρτα για {person:acc}, που μας βοήθησε στον έλεγχο. Το email είναι {email}."
+    - "Είναι σωστό αυτό το IBAN; {iban}. Ανήκει {person:to}."
+    - "Γράψε τα πρακτικά: παρόντες {employee:nom} και, από {client:acc}, {contact:nom}. Συμφωνήθηκε αμοιβή {amount} για το έργο {project_code}."
+    - "Συμπλήρωσε τη φόρμα νέου προμηθευτή: επωνυμία {org_other:legal}, ΑΦΜ {afm}, τηλέφωνο {phone}, υπεύθυνος επικοινωνίας {person}."
+    - "Συντόμευσε το μήνυμα: Καλησπέρα σας, η επιστροφή των {amount} θα κατατεθεί στον λογαριασμό {client_iban} εντός πέντε εργάσιμων ημερών. Θα σας καλέσουμε στο {contact_phone} για επιβεβαίωση."
+    - "Γράψε επιστολή συγγνώμης προς {client:acc} για το λάθος στο τιμολόγιο. Στο λογιστήριο μιλάμε με {contact:acc} ({contact_email}, {contact_phone})."
+    - "Σύνταξε επιστολή υπενθύμισης οφειλής. Οφειλέτης: {client:legal}, ΑΦΜ {client_afm}, διεύθυνση {client_address}. Ποσό: {amount}."
+    - "Φτιάξε λίστα ενεργειών για την πρόσληψη. Όνομα: {employee}. ΑΜΚΑ: {amka}. Αριθμός ταυτότητας: {id_card}."
+    - "Τι να απαντήσω {contact:to}; Μου έγραψε ότι ο ΑΦΜ {client_afm} στο τιμολόγιο είναι λάθος και ζητά διόρθωση μέχρι τις {date}."
+    - "Σύγκρινε τις δύο προσφορές και πρότεινε μία. Η πρώτη είναι {org_other:gen} και η δεύτερη {client:gen}, που είναι ήδη πελάτης μας."
+  greeklish:
+    - "Kalimera, grapse mou ena email gia ton pelati {client} (AFM {client_afm}): to timologio {order_no} den exei plirothei akoma."
+    - "Mporeis na ftiakseis mia perilipsi? Milisa simera me ton ekprosopo tis etaireias {client} ({contact}), tilefono {contact_phone}."
+    - "Steile mou ena protypo epistolis gia epistrofi xrimaton ston logariasmo {client_iban}. Dikaiouxos: {contact}."
+    - "Thelo na apantiso sto {contact_email}. Pes mou pos na grapso eugenika oti i prosfora isxyei mexri tis {date}."
+    - "I etaireia {client:alias} zitaei ekptosi {percent}%. Ti epixeirimata exo gia na kratiso tin timi?"
+    - "Ftiakse pinaka me ta stoixeia. Onoma: {person}. AMKA: {amka}. Tautotita: {id_card}. Kinito: {phone}."
+    - "Grapse ena sms pros: {person}, kinito {phone}. Na leei oti to rantevou metaferetai gia avrio to proi."
+    - "Diorthose ta lathi: parakalo steilte ti symvasi sti dieuthinsi {client_address}, ypopsin: {contact}."
+    - "Einai sosto afto to IBAN? {iban} (dikaiouxos: {person})."
+    - "Etoimase simeioseis gia to meeting me tin etaireia {client}: xrostane {amount} kai ypeuthinos logariasmou einai: {employee}."
+  mixed:
+    - "Please proofread το παρακάτω email προς {contact:acc}: Dear customer, your refund will be sent to IBAN {client_iban:spaced} by Friday."
+    - "Κάνε μου ένα summary του call: ο πελάτης ({client}, ΑΦΜ {client_afm}) θέλει upgrade στο premium πακέτο από τις {date}."
+    - "Need a quick reply στα ελληνικά for {contact:latin} ({contact_email}): we received the signed NDA."
+    - "Update για το CRM: {contact:nom} από {client:acc} ζήτησε callback στο {contact_phone}, θέμα το invoice {order_no}."
+    - "Γράψε ένα follow-up email στα αγγλικά για {client:acc}. Account manager: {employee:latin}. Deadline: {date}."
+    - "Check please: ο λογαριασμός {iban} ανήκει {person:to}; Το payment reference είναι {order_no}."
+    - "Fill the KYC form: full name {person:latin}, ΑΜΚΑ {amka}, ID {id_card}, mobile {phone}."
+    - "Θέλω ένα template για payment reminder προς {client:legal} (tax ID {client_afm}), ποσό {amount}."
+    - "Στείλε μου bullet points για το kickoff του {project_code} με {client:acc}. Contact person: {contact:latin}."
+    - "Η κάρτα {card} χρεώθηκε διπλά στο e-shop {org_other:gen}. Draft a complaint in English."
+
+benign:
+  en:
+    - "Write a friendly out-of-office message for next week."
+    - "Explain {topic} in simple terms, in three short paragraphs."
+    - "Give me five title ideas for a blog post about {topic}."
+    - "What is the difference between a list and a tuple in Python? Give a short example."
+    - "Suggest an agenda for a one-hour team meeting about {topic}."
+    - "Rewrite this sentence so it sounds more confident: I think we might possibly be able to finish by Friday."
+    - "Create a packing list for a three-day business trip in winter."
+    - "Summarise the main arguments for and against {topic}."
+    - "Write a SQL query that returns the ten most recent orders from a table called orders."
+    - "Translate into Greek: Thank you for your patience, we will get back to you shortly."
+    - "Give me a recipe for a quick vegetarian dinner with ingredients I probably have at home."
+    - "How do I create a pivot table in a spreadsheet? Step by step, please."
+  el:
+    - "Γράψε ένα φιλικό μήνυμα αυτόματης απάντησης για την επόμενη εβδομάδα, που θα λείπω."
+    - "Εξήγησε με απλά λόγια την έννοια «{topic}», σε τρεις σύντομες παραγράφους."
+    - "Δώσε μου πέντε ιδέες για τίτλο σε άρθρο με θέμα «{topic}»."
+    - "Ποια είναι η διαφορά ανάμεσα στο == και στο === στη JavaScript; Δώσε ένα σύντομο παράδειγμα."
+    - "Πρότεινε ατζέντα για μια ωριαία σύσκεψη της ομάδας με θέμα «{topic}»."
+    - "Ξαναγράψε την πρόταση ώστε να ακούγεται πιο σίγουρη: Νομίζω ότι ίσως προλάβουμε μέχρι την Παρασκευή."
+    - "Φτιάξε μια λίστα με όσα χρειάζομαι για ένα τριήμερο επαγγελματικό ταξίδι τον χειμώνα."
+    - "Γράψε τα βασικά επιχειρήματα υπέρ και κατά για το θέμα «{topic}»."
+    - "Γράψε ένα ερώτημα SQL που επιστρέφει τις δέκα πιο πρόσφατες παραγγελίες από τον πίνακα orders."
+    - "Μετάφρασε στα αγγλικά: Σας ευχαριστούμε για την υπομονή σας, θα επικοινωνήσουμε σύντομα μαζί σας."
+    - "Δώσε μου μια συνταγή για γρήγορο χορτοφαγικό δείπνο με υλικά που έχω στο σπίτι."
+    - "Πώς φτιάχνω συγκεντρωτικό πίνακα σε ένα υπολογιστικό φύλλο; Βήμα βήμα, παρακαλώ."
+
+topics:
+  en: [remote work, the circular economy, time management, customer onboarding, electric cars,
+       public speaking, cloud computing, healthy eating, project retrospectives,
+       renewable energy, data visualisation, open-plan offices]
+  el: [τηλεργασία, κυκλική οικονομία, διαχείριση χρόνου, υποδοχή νέων πελατών,
+       ηλεκτρικά αυτοκίνητα, δημόσια ομιλία, υπολογιστικό νέφος, υγιεινή διατροφή,
+       ανασκόπηση έργου, ανανεώσιμες πηγές ενέργειας, οπτικοποίηση δεδομένων,
+       ανοιχτοί χώροι γραφείων]
+
+# A confidentiality marker on business content that names nobody.
+marked:
+  en:
+    - "{marker}. Tighten the wording of this note for the board: third-quarter revenue came in {percent}% under plan, we expect to miss the full-year target, and a hiring freeze starts in January."
+    - "{marker}. Turn these points into a short announcement: the Patras office closes in March, the support desk moves to a single shift, and travel budgets are cut by a fifth."
+    - "{marker}. Summarise our pricing strategy in five bullet points: list prices rise by {percent}% in spring, discounts above ten per cent need a partner's approval, and the entry tier is withdrawn."
+    - "{marker}. Proofread this: the reorganisation merges two departments, removes one management layer and will be announced to staff once the works council has been informed."
+  el:
+    - "{marker}. Βελτίωσε τη διατύπωση του σημειώματος προς το διοικητικό συμβούλιο: τα έσοδα του τρίτου τριμήνου ήταν {percent}% κάτω από τον στόχο και από τον Ιανουάριο παγώνουν οι προσλήψεις."
+    - "{marker}. Κάνε τα παρακάτω σημεία σύντομη ανακοίνωση: το γραφείο της Πάτρας κλείνει τον Μάρτιο, η υποστήριξη περνά σε μία βάρδια και τα έξοδα ταξιδιών μειώνονται κατά ένα πέμπτο."
+    - "{marker}. Συνόψισε σε πέντε σημεία τη νέα τιμολογιακή πολιτική: αύξηση τιμοκαταλόγου {percent}% την άνοιξη, εκπτώσεις άνω του δέκα τοις εκατό μόνο με έγκριση διευθυντή, κατάργηση του βασικού πακέτου."
+    - "{marker}. Διόρθωσε το κείμενο: η αναδιοργάνωση συγχωνεύει δύο διευθύνσεις, καταργεί ένα επίπεδο ιεραρχίας και θα ανακοινωθεί στο προσωπικό μετά την ενημέρωση του σωματείου."
+
+markers:
+  en: [Confidential, CONFIDENTIAL, Internal use only, Strictly confidential]
+  el: [Εμπιστευτικό, ΕΜΠΙΣΤΕΥΤΙΚΟ, Απόρρητο, Για εσωτερική χρήση μόνο]
+
+secrets:
+  en:
+    - "Why does this script fail with AccessDenied?\n\nimport boto3\nclient = boto3.client('s3', aws_access_key_id='{aws_key}', aws_secret_access_key='{aws_secret}')\nclient.list_buckets()"
+    - "Fix my CI configuration:\n\nenv:\n  GITHUB_TOKEN: {github_token}\n  NODE_ENV: production\nsteps:\n  - run: npm publish"
+    - "Is this the right way to create a payment?\n\nstripe.api_key = \"{stripe_key}\"\nstripe.PaymentIntent.create(amount=2000, currency=\"eur\")"
+    - "My app cannot connect to the database. This is the setting I use: DATABASE_URL={connection_string}"
+  el:
+    - "Γιατί δεν απαντά το bot; Το token είναι {slack_token} και το κανάλι λέγεται #general."
+    - "Δες το αρχείο .env και πες μου τι λείπει:\nOPENAI_API_KEY={openai_key}\nGOOGLE_MAPS_KEY={google_key}\nDEBUG=false"
+
+# Prompts that look sensitive and are not. Every one must come back with no finding,
+# except `non_client_org`, whose organisation is a real ORG that must not be called a client.
+hard_negatives:
+  invalid_afm:
+    en:
+      - "Order reference {invalid_afm} has not arrived yet. Write a short complaint to the courier."
+      - "The serial number of the printer is {invalid_afm}. How do I find the right driver for it?"
+    el:
+      - "Ο αριθμός πρωτοκόλλου της αίτησής μου είναι {invalid_afm}. Πώς ρωτάω ευγενικά σε ποιο στάδιο βρίσκεται;"
+      - "Το δέμα με κωδικό {invalid_afm} δεν έχει παραδοθεί. Γράψε ένα σύντομο μήνυμα προς την εταιρεία ταχυμεταφορών."
+  order_number:
+    en:
+      - "Where is my order {order_no}? Draft a short message to customer service."
+      - "Ticket {ticket_no} was closed without an answer. Write a polite request to reopen it."
+    el:
+      - "Η παραγγελία {order_no} ήρθε σε λάθος χρώμα. Γράψε ένα αίτημα αλλαγής."
+      - "Το αίτημα {ticket_no} έκλεισε χωρίς απάντηση. Γράψε ένα ευγενικό μήνυμα για να ανοίξει ξανά."
+  code_no_secret:
+    en:
+      - "Why does this loop print 5 five times?\n\nfor (var i = 0; i < 5; i++) { setTimeout(() => console.log(i), 100); }"
+      - "Refactor this function to be more readable:\n\ndef total(items):\n    t = 0\n    for i in items:\n        t = t + i['price'] * i['qty']\n    return t"
+      - "Explain this configuration:\n\nserver:\n  port: 8080\n  timeout: 30s\n  api_key: ${API_KEY}"
+      - "Why is this query slow?\n\nSELECT * FROM orders o JOIN customers c ON c.id = o.customer_id WHERE o.created_at > '2026-01-01' ORDER BY o.total DESC"
+    el:
+      - "Τι ταιριάζει με αυτή την κανονική έκφραση; ^[A-Z]{2}[0-9]{6}$"
+      - "Γιατί η συνάρτηση επιστρέφει None;\n\ndef find(items, key):\n    for item in items:\n        if item == key:\n            print(item)"
+  harmless_base64:
+    en:
+      - "Decode this for me, please: {harmless_b64}"
+    el:
+      - "Τι γράφει αυτό το κείμενο; {harmless_b64}"
+  earlier_version:
+    en:
+      - "Please ignore the earlier version of the agenda I sent and summarise only the final one in three bullet points: welcome, quarterly figures, questions."
+    el:
+      - "Αγνόησε το προηγούμενο σχέδιο που σου έδωσα και κράτα μόνο την τελική εκδοχή: καλωσόρισμα, αποτελέσματα τριμήνου, ερωτήσεις."
+  non_client_org:
+    en:
+      - "I read that {org_other} opened a new warehouse. Write a two-line congratulation I can post online."
+    el:
+      - "Διάβασα ότι {org_other:nom} άνοιξε νέο κατάστημα. Γράψε ένα σύντομο συγχαρητήριο μήνυμα."
+
+harmless_sentences:
+  - "The meeting room on the second floor is free after three o'clock."
+  - "Remember to water the plants before the long weekend."
+  - "Lunch menu: lentil soup, grilled vegetables and fruit salad."
+  - "Η βιβλιοθήκη κλείνει στις οκτώ το βράδυ κάθε Παρασκευή."
+  - "Το λεωφορείο για το κέντρο περνά κάθε δέκα λεπτά."

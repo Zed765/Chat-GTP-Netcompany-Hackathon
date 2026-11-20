@@ -1,0 +1,85 @@
+# Default policy. Rules are checked in order and the first match wins.
+# A rule matches when every key under `when` matches; a list matches any of its values,
+# and a key that is left out matches everything.
+#
+#   when keys   channel (prompt | tool_call | tool_result), data, tool_status, tool, team,
+#               tainted, side_effects, destination and source (trusted | untrusted)
+#   data        built-in types such as PERSON or CONTRACT, a type the company added (by its
+#               name), or CUSTOM: every type the company added, including ones added later
+#   actions     allow | redact | warn | block
+#   suggest     approved_alternative: name an approved tool the user can switch to
+
+# The format of this file. Saved versions are numbered separately, by the gateway.
+version: 1
+
+# What to do when a detector fails or times out, by tool status.
+#   block       refuse the request
+#   mask_local  carry on with what the local tiers (T0 and T1) found
+# Agent tool calls and results have no tool status and follow `approved`.
+on_error:
+  approved: mask_local
+  tolerated: block
+  unapproved: block
+  unknown: block
+
+# off | standard | detailed. See docs/architecture.md, "Injection protection".
+injection_protection: standard
+
+rules:
+  - name: secrets-never-leave
+    when: { data: [SECRET] }
+    action: block
+
+  - name: tainted-agent-side-effects
+    when: { channel: tool_call, side_effects: true, tainted: true }
+    action: block
+
+  - name: untrusted-destinations-get-placeholders
+    when: { channel: tool_call, destination: untrusted }
+    action: redact
+
+  - name: agent-model-sees-placeholders
+    when:
+      channel: tool_result
+      data: [PERSON, EMAIL, PHONE, AFM, AMKA, IBAN, CARD, ID_CARD, ADDRESS, CLIENT, CUSTOM]
+    action: redact
+
+  # The in-house agent's model only ever holds placeholders, although its tool is approved.
+  - name: agent-prompts-use-placeholders
+    when:
+      channel: prompt
+      tool: company-assistant
+      data: [PERSON, EMAIL, PHONE, AFM, AMKA, IBAN, CARD, ID_CARD, ADDRESS, CLIENT, CUSTOM]
+    action: redact
+
+  - name: contract-to-unapproved
+    when:
+      channel: prompt
+      tool_status: [unapproved, unknown]
+      data: [CONTRACT]
+    action: block
+    suggest: approved_alternative
+
+  - name: pii-and-client-data
+    when:
+      channel: prompt
+      tool_status: [tolerated, unapproved, unknown]
+      data: [PERSON, EMAIL, PHONE, AFM, AMKA, IBAN, CARD, ID_CARD, ADDRESS, CLIENT, CUSTOM]
+    action: redact
+
+  - name: marked-or-sensitive-category
+    when:
+      channel: prompt
+      tool_status: [tolerated, unapproved, unknown]
+      data: [CONFIDENTIAL_MARKER, FINANCIAL, HEALTH, HR, CLIENT_CONFIDENTIAL]
+    action: warn
+
+  - name: source-code-warning
+    when:
+      channel: prompt
+      tool_status: [tolerated, unapproved]
+      data: [SOURCE_CODE]
+    action: warn
+
+  - name: default
+    action: allow

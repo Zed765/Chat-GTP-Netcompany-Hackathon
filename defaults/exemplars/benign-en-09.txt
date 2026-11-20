@@ -1,0 +1,19 @@
+Several requests in one message, if that is all right. The first one follows.
+
+My daughter has to give a five-minute presentation at school about the water cycle and has asked me for help. She is eleven. Could you explain evaporation, condensation, precipitation and collection in simple words that she can say out loud without reading from the page?
+
+It would be lovely to have one everyday example for each stage, like a puddle drying in the sun or a bathroom mirror steaming up after a shower. Please also suggest a simple drawing she could make on a poster, with arrows showing where the water goes next.
+
+Finally, could you write three quiz questions that she can ask the class at the end, with the answers, and one surprising fact to open with? Something about how the water we drink today has been around since the time of the dinosaurs would make them listen.
+
+And on another subject.
+
+I am learning Python and I am stuck on a small exercise. I have a list of dictionaries, each with the keys "title" and "year", and I want to print the titles sorted by year, newest first, and alphabetically when two books share the same year. What is the cleanest way to do it?
+
+My attempt was sorted(books, key=lambda b: b["year"], reverse=True), which gets the years right but leaves the titles within a year in whatever order they were entered. I read that a key can return a tuple. Would key=lambda b: (-b["year"], b["title"]) be the idiomatic solution, or is there something better?
+
+Could you also explain the difference between list.sort() and sorted(), and whether the sort is stable? I would like to understand why sorting twice, first by title and then by year, gives the same result as sorting once with a tuple. A short example I can run would help a lot.
+
+And a last, shorter request.
+
+I am writing a short article for our neighbourhood newsletter about the history of the Olympic Games and I want to check that I have the outline right. Could you summarise how the ancient games began at Olympia, what events were held and why they came to an end?
